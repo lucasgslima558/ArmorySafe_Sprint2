@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador Financeiro Armory Safe</title>
+</head>
+<body>
+    <h2>ArmorySafe - Faça uma Simulação do seu paiol</h2>
+    <p><i>Simule abaixo o impacto da umidade no valor das munições armazenadas</i>.</p>
+    <p>Informe a umidade média em seu paiol: <input type="text" id="input_umidade"></p>
+    <p>Selecione o calibre da munição armazenada abaixo</p>
+    <button onclick="calc556()">5,56x45mm</button> <button onclick="calc762()">7,62x51mm</button>
+    <button onclick="calc105()">105mm</button> <br><br>
+    <div id="novosInputs"></div>
+    <div id="fonteLegenda"></div>
+    <div id="resultados"></div>
+    <div id="relatorio"></div>
+</body>
+<script>
+    var tipoMunicao = ''
+    var gastoTotal = 0
+    var tabelado = 0
+
+    var qtd556 = 0
+    var qtd762 = 0
+    var qtd105 = 0
+
+    var contador = 0;
+
+    // Funções que abrem o input para quantidade de acordo com o tipo de munição
+
+    function calc556() {
+        tabelado = 297.8
+        tipoMunicao = '5,56x45mm'
+        novosInputs.innerHTML = `<b>I</b> 
+        - Informe a quantidade de caixas de <b>${tipoMunicao}</b> armazenadas:<input type="text" id="qtd_muni556"><button onclick="perda556()">Inserir</button> <br><br> <button onclick="perdaTotal()" style="background-color: darkgreen; color: white;"><b>Simular</b></button>`
+
+    }
+
+    function calc762() {
+        tabelado = 350
+        tipoMunicao = '7,62x51mm'
+        novosInputs.innerHTML = `<b>II</b> - Informe a quantidade de caixas de <b>${tipoMunicao}</b> armazenadas: <input type="text" id="qtd_muni762"><button onclick="perda762()">Inserir</button> <br><br> <button onclick="perdaTotal()" style="background-color: darkgreen; color: white;"><b>Simular</b></button>`
+    }
+
+    function calc105() {
+        tabelado = 8688
+        tipoMunicao = '105mm'
+        novosInputs.innerHTML = `<b>III</b> - Informe a quantidade de caixas de <b>${tipoMunicao}</b> armazenadas: <input type="text" id="qtd_muni105"><button onclick="perda105()">Inserir</button> <br><br><button onclick="perdaTotal()" style="background-color: darkgreen; color: white;"><b>Simular</b></button>`
+
+    }
+
+    // Funções que detalham a quantidade informada e o valor total das munições informadas
+
+    function perda556() {
+        var qtdMunicao = Number(qtd_muni556.value)
+        var preco = qtdMunicao * tabelado;
+
+        qtd556 += qtdMunicao;
+        gastoTotal += preco;
+        contador++;
+
+        if (contador == 1) {
+            fonteLegenda.innerHTML = '<br> <b><i>*Todos os valores a seguir foram obtidos com base em informações da CBC (Companhia Brasileira de Cartuchos) e IMBEL (Indústria de Material Bélico Brasileira)</i></b>'
+        }
+
+        resultados.innerHTML += `<br>${qtdMunicao} caixas de munição ${tipoMunicao} | Valor total de munições:<b> R$ ${preco.toFixed(2)} </b><br>`
+    }
+
+    function perda762() {
+        var qtdMunicao = Number(qtd_muni762.value)
+        var preco = qtdMunicao * tabelado;
+
+        qtd762 += qtdMunicao;
+        gastoTotal += preco;
+        contador++;
+
+        if (contador == 1) {
+            fonteLegenda.innerHTML = '<br> <b><i>*Todos os valores a seguir foram obtidos com base em informações da CBC (Companhia Brasileira de Cartuchos) e IMBEL (Indústria de Material Bélico Brasileira)</i></b>'
+        }
+
+        resultados.innerHTML += `<br>${qtdMunicao} caixas de munição ${tipoMunicao} | Valor total de munições:<b> R$ ${preco.toFixed(2)} </b><br>`
+    }
+
+    function perda105() {
+        var qtdMunicao = Number(qtd_muni105.value);
+        var preco = qtdMunicao * tabelado;
+
+        qtd105 += qtdMunicao;
+        gastoTotal += preco;
+        contador++;
+
+        if (contador == 1) {
+            fonteLegenda.innerHTML = '<br> <b><i>*Todos os valores a seguir foram obtidos com base em informações da CBC (Companhia Brasileira de Cartuchos) e IMBEL (Indústria de Material Bélico Brasileira)</i></b>'
+        }
+
+        resultados.innerHTML += `<br>${qtdMunicao} caixas de munição ${tipoMunicao} | Valor total de munições:<b> R$ ${preco.toFixed(2)} </b><br>`
+    }
+
+    // Função para o cálculo final de acordo com a umidade
+
+   function perdaTotal() {
+        umidade = Number(input_umidade.value)
+
+
+    if (umidade < 15) {                      // Calculo para umidade abaixo de 15%
+        var prejuizo = gastoTotal 
+
+        relatorio.innerHTML = `<hr> <h3> Umidade abaixo de 15% - Crítico </h3> <i>Valor total do paiol: R$ ${gastoTotal.toFixed(2)}</i> <p>Nesse nível de umidade a munição fica
+            seca demais e perde propriedades químicas fundamentais para o bom funcionamento, passando a não ser confiável, <br> logo tem que ser totalmente descartada.</p> <p>Perda de 100% do estoque, totalizando um prejuízo de: <span style="color: red"><b>R$ ${prejuizo.toFixed(2)}</b></span></p><h3>Com ArmorySafe, você transforma esse risco em <span style="color: green";>investimento garantido de 100%</span></h3>`
+    }
+
+    if (umidade >= 15) {                    // Calculo para umidade entre 15% a 34%
+        if (umidade <= 34) {
+            var ressecamento = gastoTotal * 0.3
+            var prejuizo = gastoTotal - ressecamento
+            var economia = ressecamento * 0.9
+
+            relatorio.innerHTML = `<hr> <h3> Umidade entre 15% a 34% - Estado de alerta </h3> <i>Valor total do paiol: R$ ${gastoTotal.toFixed(2)}</i> <p>Nesse nível de umidade a munição sofre risco de ressecamento na pólvora e redução da eficiência, logo as munições tendem a falhar e desvalorizar.</p> <p>Perdas parciais que refletem em 30% do estoque, resultando em um prejuízo de <span style="color: red"><b>R$ ${ressecamento.toFixed(2)}</b></span></p> <h3>Com ArmorySafe, você reduz essas perdas em <b>90%</b>, garantindo uma economia potencial de <span style="color: green";><b>R$ ${economia.toFixed(2)}</b></span></h3> Anualmente, sua empresa pode economizar até: <span><b>R$ ${(economia*12).toFixed(2)}</b></span> <br>`
+        }
+    }
+
+    if (umidade >= 35) {                   // Calculo para umidade entre 35% a 50%
+        if (umidade <= 50) {
+            var ideal = gastoTotal * 0.03
+            var prejuizo = gastoTotal - ideal
+            var economia = ideal * 0.99
+
+            relatorio.innerHTML = `<hr> <h3> Umidade entre 35% a 50% - Umidade ideal</h3> <i>Valor total do paiol: R$ ${gastoTotal.toFixed(2)}</i> <p>Esse é o nível de umidade ideal para as munições, porém ainda sim estimam-se perdas de até 3% por variações aleatórias, manutenção preventiva <br> e erros humanos no monitoramento.</p> <p>Perdas parciais que refletem em 3% do estoque, resultando em um prejuízo de <span style="color: red"><b>R$ ${ideal.toFixed(2)}</b></span></p> <h3>Com ArmorySafe, você reduz essas perdas em <b>99%</b>, garantindo uma economia potencial de <span style="color: green";><b>R$ ${economia.toFixed(2)}</b></span></h3> Anualmente, sua empresa pode economizar até: <span><b>R$ ${(economia*12).toFixed(2)}</b></span> <br>`
+        }
+    }
+
+    if (umidade >= 51) {                  // Calculo para umidade entre 51% a 70%
+        if (umidade <= 70) {
+            var corrosao = gastoTotal * 0.45
+            var prejuizo = gastoTotal - corrosao
+            var economia = corrosao * 0.9
+
+            relatorio.innerHTML = `<hr> <h3> Umidade entre 51% a 70% - Estado de alerta</h3> <i>Valor total do paiol: R$ ${gastoTotal.toFixed(2)}</i> <p>Com esse nível elevado de umidade, começam a ocorrer corrosão nas cápsulas metálicas das munições que refletem na inutilização parcial do arsenal.</p> <p>Perdas parciais que refletem em até 45% do estoque, resultando em um prejuízo de <span style="color: red"><b>R$ ${corrosao.toFixed(2)}</b></span></p> <h3>Com ArmorySafe, você reduz essas perdas em 90%, garantindo uma economia potencial de <span style="color: green";><b>R$ ${economia.toFixed(2)}</b></span></h3> Anualmente, sua empresa pode economizar até: <span><b>R$ ${(economia*12).toFixed(2)}</b></span> <br>`
+        }
+    }
+
+    if (umidade > 70) {                     // Calculo para umidade acima de 71%
+        var descarte = gastoTotal 
+        var prejuizo = gastoTotal
+
+        relatorio.innerHTML = `<hr> <h3> Umidade acima de 70% - Crítico</h3> <i>Valor total do paiol: R$ ${gastoTotal.toFixed(2)}</i> <p>Neste nível de umidade a oxidação das capsulas metálicas acelera e as munições são totalmente condenadas, já que a segurança no disparo se torna incerta.</p> <p>Perda de 100% do estoque totalizando um prejuízo de: <span style="color: red"><b>R$ ${prejuizo.toFixed(2)}</b></span></p><h3>Com ArmorySafe, você transforma esse risco em <span style="color: green";>investimento garantido de 100%</span></h3>`
+    }
+
+    } 
+</script>
+
+</html>
