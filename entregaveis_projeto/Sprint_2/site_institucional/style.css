@@ -6,10 +6,6 @@
     box-sizing: border-box; /* Adicionado para facilitar o layout */
 }
 
-html {
-    scroll-behavior: smooth; /* Rolagem suave para âncoras */
-}
-
 body {
     display: flex;
     background-color: #1A1D19;
@@ -23,7 +19,7 @@ button {
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* Transições suaves para botões */
 }
 
-/* Seção Principal (secao-principal) */
+
 .secao-principal {
     height: 100vh; /* Altura total da viewport */
     width: 100%;
@@ -34,7 +30,7 @@ button {
     text-align: center;
 }
 
-/* Cabeçalho */
+
 header {
     display: flex;
     justify-content: space-between; /* Espaça os itens do cabeçalho */
@@ -121,7 +117,6 @@ header {
     border-color: #E0E0E0;
 }
 
-/* Conteúdo Principal da Seção Principal */
 .conteudo-principal {
     display: flex;
     flex-direction: column;
@@ -190,7 +185,6 @@ header {
     color: white;
 }
 
-/* Seção de Problemas (secao-problemas) */
 .secao-problemas {
     display: flex;
     flex-direction: column;
@@ -272,11 +266,10 @@ header {
     color: #555;
 }
 
-/* Seção de Solução (secao-solucao) */
 .secao-solucao {
     width: 100%;
     padding: 40px 5%;
-    background-image: url(img/backgroundSecao1-copia.png); /* Mantido o background */
+    background-image: url(img/backgroundSecao1-copia.png);
     background-size: cover;
     background-position: center;
     display: flex;
@@ -296,7 +289,7 @@ header {
 }
 
 .introducao-solucao h1 span {
-    color: #476C31; /* Cor verde consistente */
+    color: #476C31;
 }
 
 .introducao-solucao p {
@@ -350,14 +343,13 @@ header {
     color: #E0E0E0;
 }
 
-/* Seção da Equipe (secao-equipe) */
 .secao-equipe {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 80px 20px;
     text-align: center;
-    background-color: #2A2D29; /* Cor de fundo diferente para contraste */
+    background-color: #2A2D29;
 }
 
 .secao-equipe h1 {
@@ -413,8 +405,8 @@ header {
 /* Rodapé */
 footer {
     display: flex;
-    justify-content: space-around; /* Espaça os blocos do rodapé */
-    align-items: flex-start; /* Alinha os itens ao topo */
+    justify-content: space-around; 
+    align-items: flex-start; 
     padding: 60px 5%;
     background-color: #1A1D19;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
