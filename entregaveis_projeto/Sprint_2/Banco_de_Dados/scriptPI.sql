@@ -1,6 +1,6 @@
-CREATE DATABASE projetopi;
+CREATE DATABASE armorysafe;
 
-USE projetopi;
+USE armorysafe;
 
 -- Criação de tabela para comando militar
 
@@ -8,7 +8,7 @@ CREATE TABLE comando_militar (
 	idComando_Militar INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(50)
 );
-
+	
 -- Inserindo dados na tabela
 
 INSERT INTO comando_militar (nome) VALUES
@@ -146,16 +146,15 @@ CREATE TABLE dadosArduino (
     CONSTRAINT fkDadosArduino_Arduino
 		FOREIGN KEY (fkArduino)
 			REFERENCES arduino (idArduino),
-	temperatura DECIMAL(5,2),
     umidade DECIMAL(4,2),
     dtCaptura DATETIME
 );
 
 -- Inserindo dados na tabela
 
-INSERT INTO dadosArduino (fkArduino, temperatura, umidade, dtCaptura) VALUES
-	(1, 27.45, 65.20, '2025-02-11 08:30:00'),
-	(1, 28.10, 63.90, '2025-02-11 09:00:00'),
-	(2, 26.80, 61.50, '2025-03-02 10:15:00'),
-	(3, 29.50, 58.70, '2025-03-16 11:30:00'),
-	(4, 25.90, 70.10, '2025-04-02 12:00:00');
+INSERT INTO dadosArduino (fkArduino, umidade, dtCaptura) VALUES
+	(1, 27.45, '2025-02-11 08:30:00'),
+	(1, 28.10, '2025-02-11 09:00:00'),
+	(2, 26.80, '2025-03-02 10:15:00'),
+	(3, 29.50, '2025-03-16 11:30:00'),
+	(4, 25.90, '2025-04-02 12:00:00');
