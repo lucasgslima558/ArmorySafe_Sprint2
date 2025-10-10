@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Financeira SIMPLES</title>
+</head>
+
+<body>
+
+    <h1>Calculadora Financeira: ArmorySafe</h1>
+
+    <div id="div_registro">
+        <h3>SIMULAÇÃO RÁPIDA DE RISCO DE UMIDADE</h3>
+        
+        Insira a umidade média do ambiente (%): 
+        <input type="number" id="ipt_umid" min="0" max="100" placeholder="Ex: 55">
+        <br><br>
+
+        Insira o **valor total** do seu estoque (R$):
+        <input type="number" id="ipt_valor_total" min="1" placeholder="Ex: 150000.00">
+        <br><br>
+
+        <button onclick="simularRisco()">Simular Risco e Prejuízo</button>
+    </div>
+
+    <hr>
+    
+    <div id="div_simul"></div>
+    <div id="div_msg"></div>
+
+</body>
+
+<script>
+    
+    const perdasPorUmidade = [
+        
+        { maxUmid: 15, perdaPerc: 100, risco: "RISCO DE EXPLOSÃO - Perda Máxima" }, 
+        { maxUmid: 29, perdaPerc: 30, risco: "ATENÇÃO! Risco de dano significativo" }, 
+        
+        
+        { maxUmid: 50, perdaPerc: 3, risco: "IDEAL. Risco de variações e erros" }, 
+        
+        
+        { maxUmid: 70, perdaPerc: 60, risco: "RISCO DE CORROSÃO E PERDA" }, 
+        { maxUmid: Infinity, perdaPerc: 100, risco: "RISCO EXTREMO. Perda total." } 
+    ];
+
+    function simularRisco() {
+        const umidade = Number(ipt_umid.value);
+        const gastoTotal = Number(ipt_valor_total.value);
+
+        
+        if (!umidade || umidade < 0 || umidade > 100) {
+            alert("Por favor, informe uma umidade válida (entre 0 e 100).");
+            return;
+        }
+
+        if (!gastoTotal || gastoTotal <= 0) {
+            alert("Por favor, informe um valor total de estoque válido.");
+            return;
+        }
+
+        
+        
+        const faixaRisco = perdasPorUmidade.find(faixa => umidade <= faixa.maxUmid);
+        const porcPerda = faixaRisco.perdaPerc;
+        const risco = faixaRisco.risco;
+        
+        let relatorioHTML = '';
+
+        
+        if (porcPerda === 100) {
+            relatorioHTML = `
+                <h3 style="color: purple;">UMIDADE ${umidade}%: **${risco}**</h3>
+                <h2><span style="color: purple;">Perda Máxima Estimada: R$${gastoTotal.toFixed(2)}</span></h2>
+                <p>Ação necessária: Evacuar e inspecionar imediatamente!</p>
+            `;
+        } else {
+            
+            
+            
+            const prejuizoSemArmory = (porcPerda / 100) * gastoTotal;
+            const valorSemArmory = gastoTotal - prejuizoSemArmory;
+
+            
+            const taxaReducaoArmory = 0.70; 
+            const prejuizoComArmory = prejuizoSemArmory * (1 - taxaReducaoArmory); 
+            const valorComArmory = gastoTotal - prejuizoComArmory;
+
+            const valorSalvado = valorComArmory - valorSemArmory;
+            const porcEconomia = (valorSalvado / prejuizoSemArmory) * 100;
+
+            relatorioHTML = `
+                <h3 style="color: orange;">UMIDADE ${umidade}%: **${risco}**</h3>
+                
+                <p>Prejuízo Potencial de **${porcPerda}%** = **R$ ${prejuizoSemArmory.toFixed(2)}**</p>
+                
+                <hr>
+                
+                <h4>Comparativo Financeiro:</h4>
+                <p>Valor do Estoque **SEM ArmorySafe**: <span style="color:#941010">R$${valorSemArmory.toFixed(2)}</span></p>
+                <p>Valor do Estoque **COM ArmorySafe**: <span style="color:green">R$${valorComArmory.toFixed(2)}</span></p>
+                
+                <hr>
+                
+                <h3>**ECONOMIA POTENCIAL DA SOLUÇÃO:**</h3>
+                <h4>Redução de **${porcEconomia.toFixed(2)}%** da perda, economizando: 
+                    <span style="color:green">R$ ${valorSalvado.toFixed(2)}</span>
+                </h4>
+            `;
+        }
+
+        div_simul.innerHTML = relatorioHTML;
+        div_msg.innerHTML = '<p style="color: green;">Simulação concluída!</p>';
+    }
+
+</script>
+
+</html>

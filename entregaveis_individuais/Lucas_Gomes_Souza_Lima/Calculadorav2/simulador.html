@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+
+    <h1>Calculadora Financeira: ArmorySafe</h1>
+
+    <div id="div_registro">
+        <h3>INSERÇÃO DE UMIDADE E TIPO DE CÁLCULO</h3>
+        Insira a umidade do ambiente: <input type="text" id="ipt_umid">
+        <br>
+
+        <!-- Nossa calculadora permite que o cliente escolha entre calcular munição por balas ou por caixas. -->
+        Selecione se quer valores em bala ou caixa: <select id="sel_val">
+            <option value="0">Selecione...</option>
+            <option value="1">Bala</option>
+            <option value="2">Caixa</option>
+        </select>
+        <br>
+
+        <button onclick="registrarVal()">Registrar valores</button>
+    </div>
+
+    <div id="div_msg"></div>
+    <div id="div_val"></div>
+    <div id="div_simul"></div>
+
+</body>
+
+<script src="script.js"></script>
+
+</html>

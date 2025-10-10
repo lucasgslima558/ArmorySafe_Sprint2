@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - ArmorySafe</title>
+    <link rel="stylesheet" href="stylecadastro.css">
+</head>
+
+<body>
+    <div id="cadastro" class="cadastro">
+            <div id="abacima" class="abacima"></div>
+            <div id="textAS" class="textoAS">ArmorySafe</div>
+            <div id="logo" class="logo"></div>
+        </div>
+        <div id="fundo" class="fundo">
+            <div id="rectangle27" class="rectangle27"></div>
+            <div id="textnome" class="textnome">Nome</div>
+            <input id="nome" class="rectangle24">
+            <div id="textsobrenome" class="textsobrenome">Sobrenome</div>
+            <input type="text" name="sobrenome" class="rectangle23">
+            <div id="textemail" class="textemail">Email</div>
+            <input type="text" id="dado_email" class="rectangle30">
+            <div id="sexo" class="sexo">Sexo:</div>
+            <div id="radio" class="radio">
+            <input type="radio" name="sexo" id="sexoF">F
+            <input type="radio" name="sexo" id="sexoM">M</div>
+            <div id="texttelcel" class="texttelcel">Telefone Celular</div>
+            <input type="text" id="dado_telcel" class="rectangle31">
+            <div id="textcir" class="textcir">CIR</div>
+            <input type="text" id="dado_cir" class="rectangle32">
+            <div id="textcargom" class="textcargom">Cargo Militar</div>
+            <input type="text" id="dado_senha" class="rectangle33">
+            <div id="textorg" class="textorg">Organização Militar</div>
+            <input type="text" id="dado_senha" class="rectangle34">
+            <div id="text" class="textmunic">Município</div>
+            <input type="text" id="dado_senha" class="rectangle35">
+            <div id="textsenha" class="textsenha">Senha</div>
+            <input type="password" id="dado_senha" class="rectangle36">
+            <div id="textsenha" class="textrepetir">Repita a Senha</div>
+            <input type="password" id="dado_senha" class="rectangle37">
+            <button onclick="entrar()" class="entrar">Cadastrar</button>
+        </div>
+        <div id="frame2" class="frame2">
+            <div id="logodown"></div>
+            <div id="textfrase" class="textfrase">Sistema de monitoramento IoT que garante a segurança e preservação das munições em depósitos militares</div>
+            <div id="textcontato" class="textcontato">Contato</div>
+            <div id="textemailAS" class="textemailAS">contato@armorysafe.com.br</div>
+            <div id="texttelAS" class="texttelAS">(11) 99999-9999</div>
+            <div id="textlocal" class="textlocal">São Paulo - SP, Brasil</div>
+        </div>
+    </div>
+</body>
+<script>
+    function entrar() {
+        var login = dado_login.value;
+        var senha = dado_senha.value;
+        if (dado_login.value == '' && dado_senha.value == '') {
+            alert('Insira dados nos campos "Login" e "Senha"')
+        } else {
+            if (dado_login.value == '') {
+                alert('Insira um login no campo "Login"')
+            } else {
+                if (dado_senha.value == '') {
+                    alert('Insira uma senha no campo "Senha"')
+                }
+
+            }
+        }
+    }
+
+</script>
+
+</html>
