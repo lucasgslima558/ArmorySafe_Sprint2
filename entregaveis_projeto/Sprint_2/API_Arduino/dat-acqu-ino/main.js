@@ -12,15 +12,15 @@ const HABILITAR_OPERACAO_INSERIR = true;
 
 // função para comunicação serial
 const serial = async (
-    valoresSensorAnalogico
+    valoresSensorUmidade
 ) => {
 
     // conexão com o banco de dados MySQL
     let poolBancoDados = mysql.createPool(
         {
             host: 'localhost',
-            user: 'cliente',
-            password: 'senhacliente',
+            user: 'aluno',
+            password: 'Sptech#2024',
             database: 'ArmorySafe',
             port: 3307
         }
@@ -49,21 +49,22 @@ const serial = async (
     // processa os dados recebidos do Arduino
     arduino.pipe(new serialport.ReadlineParser({ delimiter: '\r\n' })).on('data', async (data) => {
         console.log(data);
-        const sensorAnalogico = parseFloat(data);
-        const dtCaptura = new Date()
-
+        const valorUmidade = parseFloat(data);
+        const dtCaptura = new Date().toLocaleString('sv-SE', { timeZone: 'America/Sao_Paulo' })
+        
+       
         // armazena os valores dos sensores nos arrays correspondentes
-        valoresSensorAnalogico.push(sensorAnalogico);
+        valoresSensorUmidade.push(valorUmidade);
         
         // insere os dados no banco de dados (se habilitado)
         if (HABILITAR_OPERACAO_INSERIR) {
 
             // este insert irá inserir os dados na tabela "medida"
             await poolBancoDados.execute(
-                'INSERT INTO dadosArduino (fkArduino, umidade) VALUES (1, ?, ?)',
-                [sensorAnalogico]
+                'INSERT INTO dadosArduino (fkArduino, umidade, dtCaptura) VALUES (1, ?, ?)',
+                [valorUmidade, dtCaptura]
             );
-            console.log("valores inseridos no banco: " +  sensorAnalogico);
+            console.log("valores inseridos no banco: " +  valorUmidade + " " + dtCaptura);
 
         }
 
@@ -77,7 +78,7 @@ const serial = async (
 
 // função para criar e configurar o servidor web
 const servidor = (
-    valoresSensorAnalogico,
+    valoresSensorUmidade,
 ) => {
     const app = express();
 
@@ -95,22 +96,22 @@ const servidor = (
 
     // define os endpoints da API para cada tipo de sensor
     app.get('/sensores/analogico', (_, response) => {
-        return response.json(valoresSensorAnalogico);
+        return response.json(valoresSensorUmidade);
     });
 }
 
 // função principal assíncrona para iniciar a comunicação serial e o servidor web
 (async () => {
     // arrays para armazenar os valores dos sensores
-    const valoresSensorAnalogico = [];
+    const valoresSensorUmidade = [];
 
     // inicia a comunicação serial
     await serial(
-        valoresSensorAnalogico
+        valoresSensorUmidade
     );
 
     // inicia o servidor web
     servidor(
-        valoresSensorAnalogico
+        valoresSensorUmidade
     );
 })();
