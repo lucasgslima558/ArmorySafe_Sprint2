@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador Financeiro ArmorySafe</title>
+</head>
+<body>
+    <h2>Simulador ArmorySafe</h2>
+    <p><i>Simule abaixo o impacto da umidade no valor das munições armazenadas.</i></p>
+    <label for="umidade">Informe a umidade média em seu paiol (%):</label>
+    <input type="number" id="umidade" min="0" max="100" step="0.1" placeholder="Ex: 30">
+    <br><br>
+    <label for="calibre">Selecione o calibre da munição:</label>
+    <select id="calibre">
+        <option value="556">5,56x45mm</option>
+        <option value="762">7,62x51mm</option>
+        <option value="105">105mm</option>
+    </select>
+    <br><br>
+    <label for="quantidade">Informe a quantidade de caixas armazenadas:</label>
+    <input type="number" id="quantidade" min="1" placeholder="Quantidade">
+    <br><br>
+    <button onclick="calcular()">Simular</button>
+    <br><br>
+    <div id="resultado"></div>
+
+    <script>
+        const precos = {
+            556: 527.00, // Preço da caixa de 5,56x45mm
+            762: 629.00, // Preço da caixa de 7,62x51mm
+            105: 400.00  // Preço da caixa de 105mm
+        };
+
+        function calcular() {
+            const umidade = parseFloat(document.getElementById('umidade').value);
+            const calibre = parseInt(document.getElementById('calibre').value);
+            const quantidade = parseInt(document.getElementById('quantidade').value);
+
+            if (isNaN(umidade) || isNaN(quantidade) || quantidade <= 0) {
+                alert("Por favor, preencha todos os campos corretamente.");
+                return;
+            }
+
+            const precoUnitario = precos[calibre];
+            const valorTotal = precoUnitario * quantidade;
+
+            let economia = 0;
+            let descricaoEconomia = '';
+
+            if (umidade < 15) {
+                economia = valorTotal;
+                descricaoEconomia = 'Totalmente descartada devido ao baixo nível de umidade.';
+            } else if (umidade <= 34) {
+                economia = valorTotal * 0.9;
+                descricaoEconomia = 'Redução significativa de perdas com controle adequado de umidade.';
+            } else if (umidade <= 50) {
+                economia = valorTotal * 0.99;
+                descricaoEconomia = 'Perdas mínimas, ideal para armazenamento.';
+            } else if (umidade <= 70) {
+                economia = valorTotal * 0.9;
+                descricaoEconomia = 'Controle eficiente reduzindo perdas para níveis aceitáveis.';
+            } else {
+                economia = valorTotal;
+                descricaoEconomia = 'Risco elevado de corrosão, recomendando-se ações corretivas imediatas.';
+            }
+
+            const resultado = `
+                <h3>Resumo da Simulação</h3>
+                <p><strong>Calibre:</strong> ${document.getElementById('calibre').options[document.getElementById('calibre').selectedIndex].text}</p>
+                <p><strong>Quantidade de Caixas:</strong> ${quantidade}</p>
+                <p><strong>Valor Total Estimado:</strong> R$ ${valorTotal.toFixed(2)}</p>
+                <p><strong>Economia Potencial com ArmorySafe:</strong> R$ ${economia.toFixed(2)}</p>
+                <p><i>${descricaoEconomia}</i></p>
+            `;
+
+            document.getElementById('resultado').innerHTML = resultado;
+        }
+    </script>
+</body>
+</html>
