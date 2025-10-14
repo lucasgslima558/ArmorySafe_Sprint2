@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ganhos com a BataTech</title>
+</head>
+
+<body>
+    <h2>Simulador Financeiro</h2>
+    <i> A proposição do simulador é estimar a economia de recursos públicos com o uso da solução</i><br><br>
+    Número de pacotes de munições do fuzil FAL no paiol: <input id="dado_numMunicao"><br>
+    <div id="msgMunicao"></div><br>
+    Umidade em % do paiol: <input id="dado_umidade""><br>
+    <div id="msgUmid"></div><br>
+    Quantidade de Soluções ArmorySafe: <input type="number" id="dado_qtdSolucao" min="1">
+    <div id="msgSolucao"></div>
+    <button onclick="melhoria()">Calcular Melhoria</button><br><br>
+</body>
+<script>
+    /*msgfuzil = 'O paiol em questão tem x cartuchos de fuzil FAL'
+    msgumid = 'O ambiente está muito seco/úmido<br>Nestas condições, seu prejuízo será de R$xxxx e sua munição não durará os 10 anos'*/
+
+    function melhoria() {
+        msgMunicao.innerHTML = '';
+        msgUmid.innerHTML = '';
+        msgSolucao.innerHTML = '';
+        let numMunicao = Number(dado_numMunicao.value);
+        let umidade = Number(dado_umidade.value);
+        let qtdSolucao = Number(dado_qtdSolucao.value);
+        if (dado_numMunicao.value == '') {
+            alert('Insira um número no campo "Número de pacotes')
+        } else {
+            if (numMunicao <= 0) {
+                alert('Insira um número de pacotes maior que 0')
+            } else {
+                if (dado_umidade.value == '') {
+                    alert('Insira um número no campo "Umidade"')
+                } else {
+                    if (umidade <= 0) {
+                        alert('insira um número de porcentagem de umidade maior que o')
+                    } else {
+                        var custoMunicao = numMunicao * 7000
+                        msgMunicao.innerHTML = `Este paiol contém ${numMunicao} pacotes com 10 cartuchos de munição para o fuzil FAL. Como cada cartucho custa, em média, R$ 700,00, então o paiol possui R$ ${custoMunicao.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})} em munições`
+                        if (umidade > 70) {
+                            alert(`Umidade média acima do limite máximo ideal. Riscos à integridade da munição e à vida de quem for manusear. Necessário tomar medidas de contenção imediatas!`)
+                            msgUmid.innerHTML = `Munição terá sua validade reduzida e gerará perdas de até ${custoMunicao.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})}`
+                        } else {
+                            if (umidade >= 30 && umidade <= 50) {
+                                msgUmid.innerHTML = `O ambiente está na faixa de umidade mais adequada`
+                            } else {
+                                alert(`Ambiente muito seco pode gerar instabilidade na pólvora, trazendo riscos ao usuário. Medidas de equilíbrio de umidade são necessárias!`)
+                                msgUmid.innerHTML = `Munição poderá ter sua validade reduzida e gerará perdas de até ${custoMunicao.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})}`
+                            }
+                        }
+                    }
+                    let arduino = 42
+                    let dht11 = 7
+                    let infraestrutura = 500
+                    economia = custoMunicao - qtdSolucao * (arduino + dht11) - infraestrutura
+                    msgSolucao.innerHTML = `Com a adoção da solução ArmorySafe, você pode ter uma economia de até ${economia.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})}, incluindo munições que deixariam de ser perdidas por questões de umidade`
+                }
+            }
+        }
+        dado_numMunicao.value = '';
+        dado_umidade.value = '';
+        dado_qtdSolucao.value = '';
+    }
+</script>
+
+</html>
