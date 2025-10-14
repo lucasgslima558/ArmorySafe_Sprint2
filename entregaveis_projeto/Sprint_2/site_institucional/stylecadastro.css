@@ -17,7 +17,7 @@ body{
     color: #EAEBED;
     width: 35px;
     height: 50px;
-    font-family: 'BigShot One';
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 75px;
     left: 559px;
     top: -20px;
@@ -49,7 +49,7 @@ body{
     position: absolute;
     display: flex;
 }
-.frame2 {
+.infoComplementar {
     width: 1520px;
     height: 280px;
     top: 1050px;
@@ -57,15 +57,12 @@ body{
     background: #111910;
     position: absolute;
 }
-.logo{
-    background-image: ;
-}
 .recsenha {
     width: 20px;
     height: 30px;
     left: 600px;
     top: 335px;
-    font-family: 'Inter';
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
     color: #ffffff;
     position: absolute;
@@ -90,12 +87,12 @@ body{
     position: absolute;
     font-size: 20px;
 }
-.textsobrenome {
+.sobrenome {
     top: 100px;
     left: 570px;
     width: 50px;
     height: 50px;
-    font-family: 'Forum';
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 25px;
     color: #ffffff;
     position: absolute;
@@ -103,12 +100,12 @@ body{
     font-weight: 400;
     line-height: 78px;
 }
-.textnome {
+.nome {
     top: 25px;
     left: 570px;
     width: 50px;
     height: 50px;
-    font-family: 'Forum';
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 25px;
     color: #ffffff;
     position: absolute;
@@ -116,7 +113,7 @@ body{
     font-weight: 400;
     line-height: 78px;
 }
-.rectangle24 {
+.insertNome {
     top: 80px;
     left: 568px;
     width: 360px;
@@ -126,7 +123,7 @@ body{
     position: absolute;
     font-size: 15px;
 }
-.rectangle23 {
+.insertSobrenome {
     top: 155px;
     left: 568px;
     width: 360px;
@@ -136,7 +133,7 @@ body{
     position: absolute;
     font-size: 15px;
 }
-.rectangle27 {
+.containerCadastro {
     left: 550px;
     top: 30px;
     width: 400px;
@@ -145,12 +142,12 @@ body{
     position: absolute;
     border-radius: 36.83px;
 }
-.textemail {
+.email {
     top: 220px;
     left: 570px;
     width: 50px;
     height: 50px;
-    font-family: 'Forum';
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 25px;
     color: #ffffff;
     position: absolute;
@@ -158,7 +155,7 @@ body{
     font-weight: 400;
     line-height: 78px;
 }
-.rectangle30 {
+.insertEmail {
     left: 568px;
     top: 275px;
     width: 360px;
@@ -168,12 +165,12 @@ body{
     position: absolute;
     font-size: 15px;
 }
-.textsobrenome {
+.sobrenome {
     top: 100px;
     left: 570px;
     width: 50px;
     height: 50px;
-    font-family: 'Forum';
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 25px;
     color: #ffffff;
     position: absolute;
@@ -186,27 +183,27 @@ body{
     left: 570px;
     width: 50px;
     height: 50px;
-    font-family: 'Forum';
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 25px;
     color: #ffffff;
     position: absolute;
 }
-.radio {
+.radioSexo {
     top: 205px;
     left: 628px;
     width: 200px;
     height: 15px;
-    font-family: 'Forum';
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
     color: #ffffff;
     position: absolute;
 }
-.texttelcel {
+.telefoneCelular {
     top: 295px;
     left: 570px;
     width: 200px;
     height: 50px;
-    font-family: 'Forum';
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 25px;
     color: #ffffff;
     position: absolute;
@@ -214,7 +211,7 @@ body{
     font-weight: 400;
     line-height: 78px;
 }
-.rectangle31 {
+.insertTelCelular {
     top: 350px;
     left: 568px;
     width: 360px;
@@ -224,12 +221,12 @@ body{
     position: absolute;
     font-size: 15px;
 }
-.textcir{
+.cir{
     top: 370px;
     left: 570px;
     width: 200px;
     height: 50px;
-    font-family: 'Forum';
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 25px;
     color: #ffffff;
     position: absolute;
@@ -237,7 +234,7 @@ body{
     font-weight: 400;
     line-height: 78px;
 }
-.rectangle32 {
+.insertCIR {
     top: 425px;
     left: 568px;
     width: 360px;
@@ -247,12 +244,12 @@ body{
     position: absolute;
     font-size: 15px;
 }
-.textcargom{
+.cargoMilitar{
     top: 445px;
     left: 570px;
     width: 200px;
     height: 50px;
-    font-family: 'Forum';
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 25px;
     color: #ffffff;
     position: absolute;
@@ -260,7 +257,7 @@ body{
     font-weight: 400;
     line-height: 78px;
 }
-.rectangle33 {
+.insertCargoMilitar {
     top: 500px;
     left: 568px;
     width: 360px;
@@ -270,12 +267,12 @@ body{
     position: absolute;
     font-size: 15px;
 }
-.textorg{  
+.orgMilitar{  
     top: 520px;
     left: 570px;
     width: 300px;
     height: 50px;
-    font-family: 'Forum';
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 25px;
     color: #ffffff;
     position: absolute;
@@ -283,7 +280,7 @@ body{
     font-weight: 400;
     line-height: 78px;
 }
-.rectangle34 {
+.insertOrgMilitar {
     top: 575px;
     left: 568px;
     width: 360px;
@@ -293,12 +290,12 @@ body{
     position: absolute;
     font-size: 15px;
 }
-.textmunic{
+.municipio{
     top: 595px;
     left: 570px;
     width: 200px;
     height: 50px;
-    font-family: 'Forum';
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 25px;
     color: #ffffff;
     position: absolute;
@@ -306,7 +303,7 @@ body{
     font-weight: 400;
     line-height: 78px;
 }
-.rectangle35 {
+.insertMunicipio {
     top: 650px;
     left: 568px;
     width: 360px;
@@ -316,12 +313,12 @@ body{
     position: absolute;
     font-size: 15px;
 }
-.textsenha{
+.senha{
     top: 670px;
     left: 570px;
     width: 200px;
     height: 50px;
-    font-family: 'Forum';
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 25px;
     color: #ffffff;
     position: absolute;
@@ -329,7 +326,7 @@ body{
     font-weight: 400;
     line-height: 78px;
 }
-.rectangle36 {
+.insertSenha {
     top: 725px;
     left: 568px;
     width: 360px;
@@ -339,12 +336,12 @@ body{
     position: absolute;
     font-size: 15px;
 }
-.textrepetir{
+.repetirSenha{
     top: 745px;
     left: 570px;
     width: 200px;
     height: 50px;
-    font-family: 'Forum';
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 25px;
     color: #ffffff;
     position: absolute;
@@ -352,7 +349,7 @@ body{
     font-weight: 400;
     line-height: 78px;
 }
-.rectangle37 {
+.insertRepetir {
     top: 800px;
     left: 568px;
     width: 360px;
@@ -362,12 +359,12 @@ body{
     position: absolute;
     font-size: 15px;
 }
-.textfrase{
+.frase{
     top: 150px;
     left: 50px;
     width: 400px;
     height: 50px;
-    font-family: 'Forum';
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 25px;
     color: #ffffff;
     position: absolute;
@@ -375,12 +372,12 @@ body{
     font-weight: 400;
     line-height: 30px;
 }
-.textcontato{
+.contato{
     top: 40px;
     left: 800px;
     width: 400px;
     height: 50px;
-    font-family: 'Forum';
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 25px;
     color: #ffffff;
     position: absolute;
@@ -388,12 +385,12 @@ body{
     font-weight: 400;
     line-height: 30px;
 }
-.textemailAS{
+.emailAS{
     top: 100px;
     left: 800px;
     width: 400px;
     height: 50px;
-    font-family: 'Forum';
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 25px;
     color: #ffffff;
     position: absolute;
@@ -401,12 +398,12 @@ body{
     font-weight: 400;
     line-height: 30px;
 }
-.texttelAS{
+.telAS{
     top: 150px;
     left: 800px;
     width: 400px;
     height: 50px;
-    font-family: 'Forum';
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 25px;
     color: #ffffff;
     position: absolute;
@@ -414,12 +411,12 @@ body{
     font-weight: 400;
     line-height: 30px;
 }
-.textlocal{
+.local{
     top: 200px;
     left: 800px;
     width: 400px;
     height: 50px;
-    font-family: 'Forum';
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 25px;
     color: #ffffff;
     position: absolute;
@@ -427,269 +424,3 @@ body{
     font-weight: 400;
     line-height: 30px;
 }
-/* logo armory white 2 */
-
-position: absolute;
-width: 208px;
-height: 144.54px;
-left: 27px;
-top: 33px;
-
-background: url(logo armory white);
-
-
-/* Rectangle 19 */
-
-position: absolute;
-width: 285.56px;
-height: 196.98px;
-left: -11.78px;
-top: -3.58px;
-
-background: #476C31;
-
-/* logo armory white 2 */
-
-position: absolute;
-width: 472px;
-height: 328px;
-left: 373px;
-top: 78px;
-
-background: url(logo armory white);
-
-
-/* Sistema de monitoramento IoT que garante a segurança e preservação das munições em depósitos militares. */
-
-position: absolute;
-width: 787px;
-height: 162px;
-left: 215px;
-top: 438px;
-
-font-family: 'Inter';
-font-style: normal;
-font-weight: 300;
-font-size: 45px;
-line-height: 54px;
-text-align: center;
-
-color: #FFFFFF;
-
-
-
-/* Contato */
-
-position: absolute;
-width: 193px;
-height: 51px;
-left: 1567px;
-top: 163.8px;
-
-font-family: 'Inter';
-font-style: normal;
-font-weight: 700;
-font-size: 41.8901px;
-line-height: 51px;
-/* idêntico à altura da caixa */
-
-color: #FFFFFF;
-
-
-
-/* Demonstração */
-
-position: absolute;
-width: 350px;
-height: 51px;
-left: 2484px;
-top: 163.8px;
-
-font-family: 'Inter';
-font-style: normal;
-font-weight: 700;
-font-size: 41.8901px;
-line-height: 51px;
-/* idêntico à altura da caixa */
-
-color: #FFFFFF;
-
-
-
-/* contato@armorysafe.com.br */
-
-position: absolute;
-width: 648px;
-height: 51px;
-left: 1663px;
-top: 300.8px;
-
-font-family: 'Inter';
-font-style: normal;
-font-weight: 300;
-font-size: 41.8901px;
-line-height: 51px;
-/* idêntico à altura da caixa */
-
-color: #FFFFFF;
-
-
-
-/* Solicite já uma apresentação personalizada do ArmorySafe para o seu quartel. */
-
-position: absolute;
-width: 536px;
-height: 123px;
-left: 2484px;
-top: 300.8px;
-
-font-family: 'Inter';
-font-style: normal;
-font-weight: 300;
-font-size: 33.5121px;
-line-height: 41px;
-
-color: #FFFFFF;
-
-
-
-/* (11) 9999-9999 */
-
-position: absolute;
-width: 351px;
-height: 51px;
-left: 1663px;
-top: 432.8px;
-
-font-family: 'Inter';
-font-style: normal;
-font-weight: 300;
-font-size: 41.8901px;
-line-height: 51px;
-/* idêntico à altura da caixa */
-
-color: #FFFFFF;
-
-
-
-/* São Paulo - SP, Brasil */
-
-position: absolute;
-width: 486px;
-height: 51px;
-left: 1663px;
-top: 564.8px;
-
-font-family: 'Inter';
-font-style: normal;
-font-weight: 300;
-font-size: 41.8901px;
-line-height: 51px;
-/* idêntico à altura da caixa */
-
-color: #FFFFFF;
-
-
-
-/* Line 1 */
-
-position: absolute;
-width: 193px;
-height: 0px;
-left: 1567px;
-top: 222.8px;
-
-background: #476C31;
-border: 3.35121px solid #476C31;
-
-
-/* Line 2 */
-
-position: absolute;
-width: 350px;
-height: 0px;
-left: 2484px;
-top: 222.8px;
-
-background: #476C31;
-border: 3.35121px solid #476C31;
-
-
-/* Line 3 */
-
-position: absolute;
-width: 655.01px;
-height: 0px;
-left: 1252px;
-top: 78px;
-
-border: 4px solid rgba(255, 255, 255, 0.78);
-transform: rotate(-90.35deg);
-
-
-/* o-email 1 */
-
-position: absolute;
-width: 64px;
-height: 63px;
-left: 1569px;
-top: 294.8px;
-
-background: url(o-email.png);
-
-
-/* telefone 1 */
-
-position: absolute;
-width: 64px;
-height: 64px;
-left: 1569px;
-top: 426.8px;
-
-background: url(telefone.png);
-
-
-/* localizacao 1 */
-
-position: absolute;
-width: 64px;
-height: 64px;
-left: 1569px;
-top: 556.8px;
-
-background: url(localizacao.png);
-
-
-/* Rectangle 13 */
-
-box-sizing: border-box;
-
-position: absolute;
-width: 240px;
-height: 69px;
-left: 2484px;
-top: 489.8px;
-
-background: #476C31;
-border: 5.02681px solid #476C31;
-box-shadow: 0px 0.837802px 1.6756px rgba(0, 0, 0, 0.3),
-0px 0.837802px 2.5134px 0.837802px rgba(0, 0, 0, 0.15);
-border-radius: 16.756px;
-
-
-/* Solicitar */
-
-position: absolute;
-width: 165px;
-height: 41px;
-left: 2521px;
-top: 503.8px;
-
-font-family: 'Inter';
-font-style: normal;
-font-weight: 900;
-font-size: 33.5121px;
-line-height: 41px;
-/* idêntico à altura da caixa */
-
-color: #FFFFFF;

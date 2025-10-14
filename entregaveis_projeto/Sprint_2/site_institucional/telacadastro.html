@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - ArmorySafe</title>
+    <title>Cadastro - ArmorySafe</title>
     <link rel="stylesheet" href="stylecadastro.css">
 </head>
 
@@ -15,57 +15,70 @@
             <div id="logo" class="logo"></div>
         </div>
         <div id="fundo" class="fundo">
-            <div id="rectangle27" class="rectangle27"></div>
-            <div id="textnome" class="textnome">Nome</div>
-            <input id="nome" class="rectangle24">
-            <div id="textsobrenome" class="textsobrenome">Sobrenome</div>
-            <input type="text" name="sobrenome" class="rectangle23">
-            <div id="textemail" class="textemail">Email</div>
-            <input type="text" id="dado_email" class="rectangle30">
+            <div id="containerCadastro" class="containerCadastro"></div>
+            <div id="nome" class="nome">Nome</div>
+            <input id="dado_nome" class="insertNome">
+            <div id="sobrenome" class="sobrenome">Sobrenome</div>
+            <input id="dado_sobrenome"  class="insertSobrenome">
+            <div id="dado_email" class="email">Email</div>
+            <input id="dado_email" class="insertEmail">
             <div id="sexo" class="sexo">Sexo:</div>
-            <div id="radio" class="radio">
-            <input type="radio" name="sexo" id="sexoF">F
-            <input type="radio" name="sexo" id="sexoM">M</div>
-            <div id="texttelcel" class="texttelcel">Telefone Celular</div>
-            <input type="text" id="dado_telcel" class="rectangle31">
-            <div id="textcir" class="textcir">CIR</div>
-            <input type="text" id="dado_cir" class="rectangle32">
-            <div id="textcargom" class="textcargom">Cargo Militar</div>
-            <input type="text" id="dado_senha" class="rectangle33">
-            <div id="textorg" class="textorg">Organização Militar</div>
-            <input type="text" id="dado_senha" class="rectangle34">
-            <div id="text" class="textmunic">Município</div>
-            <input type="text" id="dado_senha" class="rectangle35">
-            <div id="textsenha" class="textsenha">Senha</div>
-            <input type="password" id="dado_senha" class="rectangle36">
-            <div id="textsenha" class="textrepetir">Repita a Senha</div>
-            <input type="password" id="dado_senha" class="rectangle37">
+            <div id="radio" class="radioSexo">
+            <input type="radio" name="sexo" id="radio_sexoFem">F
+            <input type="radio" name="sexo" id="radio_sexoMasc">M</div>
+            <div id="telefoneCelular" class="telefoneCelular">Telefone Celular</div>
+            <input id="dado_telCel" class="insertTelCelular">
+            <div id="cir" class="cir">CIR</div>
+            <input id="dado_cir" class="insertCIR">
+            <div id="cargoMilitar" class="cargoMilitar">Cargo Militar</div>
+            <input id="dado_cargoMilitar" class="insertCargoMilitar">
+            <div id="orgMilitar" class="orgMilitar">Organização Militar</div>
+            <input id="dado_orgMilitar" class="insertOrgMilitar">
+            <div id="municipio" class="municipio">Município</div>
+            <input id="dado_municipio" class="insertMunicipio">
+            <div id="senha" class="senha">Senha</div>
+            <input id="dado_senha" class="insertSenha">
+            <div id="repetirSenha" class="repetirSenha">Repita a Senha</div>
+            <input id="dado_repetir" class="insertRepetir">
             <button onclick="entrar()" class="entrar">Cadastrar</button>
         </div>
-        <div id="frame2" class="frame2">
+        <div id="infoComplementar" class="infoComplementar">
             <div id="logodown"></div>
-            <div id="textfrase" class="textfrase">Sistema de monitoramento IoT que garante a segurança e preservação das munições em depósitos militares</div>
-            <div id="textcontato" class="textcontato">Contato</div>
-            <div id="textemailAS" class="textemailAS">contato@armorysafe.com.br</div>
-            <div id="texttelAS" class="texttelAS">(11) 99999-9999</div>
-            <div id="textlocal" class="textlocal">São Paulo - SP, Brasil</div>
+            <div id="dad0_frase" class="frase">Sistema de monitoramento IoT que garante a segurança e preservação das munições em depósitos militares</div>
+            <div id="dado_contato" class="contato">Contato</div>
+            <div id="dado_emailAS" class="emailAS">contato@armorysafe.com.br</div>
+            <div id="dado_TelAS" class="telAS">(11) 99999-9999</div>
+            <div id="dado_local" class="local">São Paulo - SP, Brasil</div>
         </div>
     </div>
 </body>
 <script>
     function entrar() {
-        var login = dado_login.value;
+        var nome = dado_nome.value;
+        var sobrenome = dado_sobrenome.value;
+        var email = dado_email.value;
+        var telefoneCelular = dado_telCel.value;
+        var cir = dado_cir.value;
+        var cargoMilitar = dado_cargoMilitar.value;
+        var orgMilitar = dado_orgMilitar.value;
+        var municipio = dado_municipio.value;
         var senha = dado_senha.value;
-        if (dado_login.value == '' && dado_senha.value == '') {
-            alert('Insira dados nos campos "Login" e "Senha"')
+        var repetirSenha = dado_repetir.value;
+        if (dado_nome.value == '' || dado_sobrenome.value == '' || dado_email.value == '' || dado_telCel.value == '' || dado_cir.value == '' || dado_cargoMilitar.value == '' || dado_orgMilitar.value == '' || dado_municipio.value == '' || dado_senha.value == '' || dado_repetir.value == '' || radio_sexoFem.value == '' || radio_sexoMasc.value == '') {
+            alert(`Insira dados em todos os campos e escolha umas das opções (F ou M)`)
         } else {
-            if (dado_login.value == '') {
-                alert('Insira um login no campo "Login"')
+            if (nome.length <= 2){
+                alert('Nome muito curto')
             } else {
-                if (dado_senha.value == '') {
-                    alert('Insira uma senha no campo "Senha"')
+                if (!email.includes('@') || !email.includes('.')){
+                    alert(`Insira um email contendo os símbolos "@" e "."`)
+                } else {
+                    if (email.length <= 6){
+                        alert(`Email muito curto`)
+                    } else {
+                        
+                    }
                 }
-
             }
         }
     }
