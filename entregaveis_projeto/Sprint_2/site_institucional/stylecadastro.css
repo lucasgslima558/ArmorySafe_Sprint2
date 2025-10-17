@@ -13,6 +13,13 @@ body{
     left: 27px;
     top: 33px;
 }
+.logocima{
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    width: 80px;
+    height: 60px;
+}
 .textoAS {
     color: #EAEBED;
     width: 35px;
@@ -33,9 +40,8 @@ body{
     left: 0px;
     top: 90px;
     width: 1520px;
-    height: 10000px;
+    height: 1000px;
     position: absolute;
-    background: url('https://uploads.metroimg.com/wp-content/uploads/2018/04/12114511/WhatsApp-Image-2018-04-12-at-10.32.00-AM.jpg');
     background-size: 1536px;
     background-repeat: no-repeat;
 }
@@ -57,42 +63,16 @@ body{
     background: #111910;
     position: absolute;
 }
-.recsenha {
-    width: 20px;
-    height: 30px;
-    left: 600px;
-    top: 335px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
-    color: #ffffff;
-    position: absolute;
-    font-style: normal;
-    font-weight: 50px;
-    line-height: 20px;
-}
-.entrar{
+.botaoCadastrar{
     left: 710px;
-    top: 850px;
+    top: 940px;
     width: 100px;
     height: 35px;
     position: absolute;
     font-size: 20px;
 }
-.sobrenome {
-    top: 100px;
-    left: 570px;
-    width: 50px;
-    height: 50px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 25px;
-    color: #ffffff;
-    position: absolute;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 78px;
-}
 .nome {
-    top: 25px;
+    top: 140px;
     left: 570px;
     width: 50px;
     height: 50px;
@@ -102,10 +82,10 @@ body{
     position: absolute;
     font-style: normal;
     font-weight: 400;
-    line-height: 78px;
+    line-height: 30px;
 }
 .insertNome {
-    top: 80px;
+    top: 170px;
     left: 568px;
     width: 360px;
     height: 25px;
@@ -114,8 +94,21 @@ body{
     position: absolute;
     font-size: 15px;
 }
+.sobrenome {
+    top: 125px;
+    left: 570px;
+    width: 50px;
+    height: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    color: #ffffff;
+    position: absolute;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px;
+}
 .insertSobrenome {
-    top: 155px;
+    top: 245px;
     left: 568px;
     width: 360px;
     height: 25px;
@@ -126,7 +119,7 @@ body{
 }
 .containerCadastro {
     left: 550px;
-    top: 30px;
+    top: 120px;
     width: 400px;
     height: 900px;
     background: #273324;
@@ -134,7 +127,7 @@ body{
     border-radius: 36.83px;
 }
 .email {
-    top: 220px;
+    top: 295px;
     left: 570px;
     width: 50px;
     height: 50px;
@@ -144,11 +137,11 @@ body{
     position: absolute;
     font-style: normal;
     font-weight: 400;
-    line-height: 78px;
+    line-height: 30px;
 }
 .insertEmail {
     left: 568px;
-    top: 275px;
+    top: 325px;
     width: 360px;
     height: 25px;
     border-radius: 10px;
@@ -157,7 +150,7 @@ body{
     font-size: 15px;
 }
 .sobrenome {
-    top: 100px;
+    top: 215px;
     left: 570px;
     width: 50px;
     height: 50px;
@@ -167,10 +160,10 @@ body{
     position: absolute;
     font-style: normal;
     font-weight: 400;
-    line-height: 78px;
+    line-height: 30px;
 }
 .sexo {
-    top: 200px;
+    top: 370px;
     left: 570px;
     width: 50px;
     height: 50px;
@@ -180,7 +173,7 @@ body{
     position: absolute;
 }
 .radioSexo {
-    top: 205px;
+    top: 375px;
     left: 635px;
     width: 200px;
     height: 15px;
@@ -190,7 +183,7 @@ body{
     position: absolute;
 }
 .telefoneCelular {
-    top: 295px;
+    top: 410px;
     left: 570px;
     width: 200px;
     height: 50px;
@@ -200,10 +193,10 @@ body{
     position: absolute;
     font-style: normal;
     font-weight: 400;
-    line-height: 78px;
+    line-height: 30px;
 }
 .insertTelCelular {
-    top: 350px;
+    top: 440px;
     left: 568px;
     width: 360px;
     height: 25px;
@@ -213,7 +206,7 @@ body{
     font-size: 15px;
 }
 .cir{
-    top: 370px;
+    top: 485px;
     left: 570px;
     width: 200px;
     height: 50px;
@@ -223,10 +216,10 @@ body{
     position: absolute;
     font-style: normal;
     font-weight: 400;
-    line-height: 78px;
+    line-height: 30px;
 }
 .insertCIR {
-    top: 425px;
+    top: 515px;
     left: 568px;
     width: 360px;
     height: 25px;
@@ -236,7 +229,7 @@ body{
     font-size: 15px;
 }
 .cargoMilitar{
-    top: 445px;
+    top: 560px;
     left: 570px;
     width: 200px;
     height: 50px;
@@ -246,10 +239,10 @@ body{
     position: absolute;
     font-style: normal;
     font-weight: 400;
-    line-height: 78px;
+    line-height: 30px;
 }
 .insertCargoMilitar {
-    top: 500px;
+    top: 590px;
     left: 568px;
     width: 360px;
     height: 25px;
@@ -259,7 +252,7 @@ body{
     font-size: 15px;
 }
 .orgMilitar{  
-    top: 520px;
+    top: 635px;
     left: 570px;
     width: 300px;
     height: 50px;
@@ -269,10 +262,10 @@ body{
     position: absolute;
     font-style: normal;
     font-weight: 400;
-    line-height: 78px;
+    line-height: 30px;
 }
 .insertOrgMilitar {
-    top: 575px;
+    top: 665px;
     left: 568px;
     width: 360px;
     height: 25px;
@@ -282,7 +275,7 @@ body{
     font-size: 15px;
 }
 .municipio{
-    top: 595px;
+    top: 710px;
     left: 570px;
     width: 200px;
     height: 50px;
@@ -292,10 +285,10 @@ body{
     position: absolute;
     font-style: normal;
     font-weight: 400;
-    line-height: 78px;
+    line-height: 30px;
 }
 .insertMunicipio {
-    top: 650px;
+    top: 740px;
     left: 568px;
     width: 360px;
     height: 25px;
@@ -305,7 +298,7 @@ body{
     font-size: 15px;
 }
 .senha{
-    top: 670px;
+    top: 785px;
     left: 570px;
     width: 200px;
     height: 50px;
@@ -315,10 +308,10 @@ body{
     position: absolute;
     font-style: normal;
     font-weight: 400;
-    line-height: 78px;
+    line-height: 30px;
 }
 .insertSenha {
-    top: 725px;
+    top: 815px;
     left: 568px;
     width: 360px;
     height: 25px;
@@ -328,7 +321,7 @@ body{
     font-size: 15px;
 }
 .repetirSenha{
-    top: 745px;
+    top: 860px;
     left: 570px;
     width: 200px;
     height: 50px;
@@ -338,10 +331,10 @@ body{
     position: absolute;
     font-style: normal;
     font-weight: 400;
-    line-height: 78px;
+    line-height: 30px;
 }
 .insertRepetir {
-    top: 800px;
+    top: 890px;
     left: 568px;
     width: 360px;
     height: 25px;
@@ -350,10 +343,17 @@ body{
     position: absolute;
     font-size: 15px;
 }
+.logodown{
+   position: absolute;
+   top: 30px;
+   left: 180px;
+   width: 150px;
+   height: 100px;
+}
 .frase{
     top: 150px;
     left: 50px;
-    width: 400px;
+    width: 430px;
     height: 50px;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 25px;
@@ -369,7 +369,7 @@ body{
     width: 400px;
     height: 50px;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 25px;
+    font-size: 40px;
     color: #ffffff;
     position: absolute;
     font-style: normal;

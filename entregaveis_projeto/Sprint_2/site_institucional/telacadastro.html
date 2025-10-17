@@ -10,10 +10,11 @@
 
 <body>
     <div id="cadastro" class="cadastro">
-            <div id="abacima" class="abacima"></div>
-            <div id="textAS" class="textoAS">ArmorySafe</div>
-        </div>
-        <div id="fundo" class="fundo">
+        <img src="img/logo armory white 2(1).png" class="logocima" alt="logocima">
+        <div id="textoAS" class="textoAS">ArmorySafe</div>
+        <div id="logocima" class="logocima"></div>
+    </div>
+        <img src="img/imagemMunicao.jpg" class="fundo" alt="fundoMunicao">
             <div id="containerCadastro" class="containerCadastro"></div>
             <div id="nome" class="nome">Nome:</div>
             <input id="dado_nome" class="insertNome">
@@ -35,13 +36,14 @@
             <input id="dado_orgMilitar" class="insertOrgMilitar">
             <div id="municipio" class="municipio">Município:</div>
             <input id="dado_municipio" class="insertMunicipio">
-            <div id="senha" class="senha">Senha</div>
+            <div id="senha" class="senha">Senha:</div>
             <input id="dado_senha" class="insertSenha">
             <div id="repetirSenha" class="repetirSenha">Repita a Senha:</div>
             <input id="dado_repetir" class="insertRepetir">
-            <button onclick="entrar()" class="entrar">Cadastrar</button>
+            <button onclick="cadastrar()" class="botaoCadastrar">Cadastrar</button>
         </div>
         <div id="infoComplementar" class="infoComplementar">
+            <img src="img/logo armory white 2(1).png" class="logodown" alt="logodown">
             <div id="logodown"></div>
             <div id="dado_frase" class="frase">Sistema de monitoramento IoT que garante a segurança e preservação das munições em depósitos militares</div>
             <div id="dado_contato" class="contato">Contato</div>
@@ -52,7 +54,7 @@
     </div>
 </body>
 <script>
-    function entrar() {
+    function cadastrar() {
         var nome = dado_nome.value;
         var sobrenome = dado_sobrenome.value;
         var email = dado_email.value;
