@@ -14,43 +14,45 @@
         <div id="textoAS" class="textoAS">ArmorySafe</div>
         <div id="logocima" class="logocima"></div>
     </div>
-        <img src="img/imagemMunicao.jpg" class="fundo" alt="fundoMunicao">
-            <div id="containerCadastro" class="containerCadastro"></div>
-            <div id="nome" class="nome">Nome:</div>
-            <input id="dado_nome" class="insertNome">
-            <div id="sobrenome" class="sobrenome">Sobrenome:</div>
-            <input id="dado_sobrenome"  class="insertSobrenome">
-            <div id="dado_email" class="email">Email:</div>
-            <input id="dado_email" class="insertEmail">
-            <div id="sexo" class="sexo">Sexo:</div>
-            <div id="radio" class="radioSexo">
-            <input type="radio" name="sexo" id="radio_sexoFem">F
-            <input type="radio" name="sexo" id="radio_sexoMasc">M</div>
-            <div id="telefoneCelular" class="telefoneCelular">Telefone Celular:</div>
-            <input id="dado_telCel" class="insertTelCelular">
-            <div id="cir" class="cir">CIR:</div>
-            <input id="dado_cir" class="insertCIR">
-            <div id="cargoMilitar" class="cargoMilitar">Cargo Militar:</div>
-            <input id="dado_cargoMilitar" class="insertCargoMilitar">
-            <div id="orgMilitar" class="orgMilitar">Organização Militar:</div>
-            <input id="dado_orgMilitar" class="insertOrgMilitar">
-            <div id="municipio" class="municipio">Município:</div>
-            <input id="dado_municipio" class="insertMunicipio">
-            <div id="senha" class="senha">Senha:</div>
-            <input id="dado_senha" class="insertSenha">
-            <div id="repetirSenha" class="repetirSenha">Repita a Senha:</div>
-            <input id="dado_repetir" class="insertRepetir">
-            <button onclick="cadastrar()" class="botaoCadastrar">Cadastrar</button>
-        </div>
-        <div id="infoComplementar" class="infoComplementar">
-            <img src="img/logo armory white 2(1).png" class="logodown" alt="logodown">
-            <div id="logodown"></div>
-            <div id="dado_frase" class="frase">Sistema de monitoramento IoT que garante a segurança e preservação das munições em depósitos militares</div>
-            <div id="dado_contato" class="contato">Contato</div>
-            <div id="dado_emailAS" class="emailAS">contato@armorysafe.com.br</div>
-            <div id="dado_TelAS" class="telAS">(11) 99999-9999</div>
-            <div id="dado_local" class="local">São Paulo - SP, Brasil</div>
-        </div>
+    <img src="img/imagemMunicao.jpg" class="fundo" alt="fundoMunicao">
+    <div id="containerCadastro" class="containerCadastro"></div>
+    <div id="nome" class="nome">Nome:</div>
+    <input id="dado_nome" class="insertNome">
+    <div id="sobrenome" class="sobrenome">Sobrenome:</div>
+    <input id="dado_sobrenome" class="insertSobrenome">
+    <div id="dado_email" class="email">Email:</div>
+    <input id="dado_email" class="insertEmail">
+    <div id="sexo" class="sexo">Sexo:</div>
+    <div id="radio" class="radioSexo">
+        <input type="radio" name="sexo" id="radio_sexoFem">F
+        <input type="radio" name="sexo" id="radio_sexoMasc">M
+    </div>
+    <div id="telefoneCelular" class="telefoneCelular">Telefone Celular:</div>
+    <input id="dado_telCel" class="insertTelCelular">
+    <div id="cir" class="cir">CIR:</div>
+    <input id="dado_cir" class="insertCIR">
+    <div id="cargoMilitar" class="cargoMilitar">Cargo Militar:</div>
+    <input id="dado_cargoMilitar" class="insertCargoMilitar">
+    <div id="orgMilitar" class="orgMilitar">Organização Militar:</div>
+    <input id="dado_orgMilitar" class="insertOrgMilitar">
+    <div id="municipio" class="municipio">Município:</div>
+    <input id="dado_municipio" class="insertMunicipio">
+    <div id="senha" class="senha">Senha:</div>
+    <input id="dado_senha" class="insertSenha">
+    <div id="repetirSenha" class="repetirSenha">Repita a Senha:</div>
+    <input id="dado_repetir" class="insertRepetir">
+    <button onclick="cadastrar()" class="botaoCadastrar">Cadastrar</button>
+    </div>
+    <div id="infoComplementar" class="infoComplementar">
+        <img src="img/logo armory white 2(1).png" class="logodown" alt="logodown">
+        <div id="logodown"></div>
+        <div id="dado_frase" class="frase">Sistema de monitoramento IoT que garante a segurança e preservação das
+            munições em depósitos militares</div>
+        <div id="dado_contato" class="contato">Contato</div>
+        <div id="dado_emailAS" class="emailAS">contato@armorysafe.com.br</div>
+        <div id="dado_TelAS" class="telAS">(11) 99999-9999</div>
+        <div id="dado_local" class="local">São Paulo - SP, Brasil</div>
+    </div>
     </div>
 </body>
 <script>
@@ -58,6 +60,7 @@
         var nome = dado_nome.value;
         var sobrenome = dado_sobrenome.value;
         var email = dado_email.value;
+        var radio = radio.value;
         var telefoneCelular = dado_telCel.value;
         var cir = dado_cir.value;
         var cargoMilitar = dado_cargoMilitar.value;
@@ -68,16 +71,54 @@
         if (dado_nome.value == '' || dado_sobrenome.value == '' || dado_email.value == '' || dado_telCel.value == '' || dado_cir.value == '' || dado_cargoMilitar.value == '' || dado_orgMilitar.value == '' || dado_municipio.value == '' || dado_senha.value == '' || dado_repetir.value == '' || radio_sexoFem.value == '' || radio_sexoMasc.value == '') {
             alert(`Insira dados em todos os campos e escolha umas das opções (F ou M)`)
         } else {
-            if (nome.length <= 2){
+            if (nome.length <= 2) {
                 alert('Nome muito curto')
             } else {
-                if (!email.includes('@') || !email.includes('.')){
+                if (!email.includes('@') || !email.includes('.')) {
                     alert(`Insira um email contendo os símbolos "@" e "."`)
                 } else {
-                    if (email.length <= 6){
+                    if (email.length <= 6) {
                         alert(`Email muito curto`)
                     } else {
-                        
+                        if (radio == '') {
+                            alert('Escolha uma das opções de sexo')
+                        } else {
+                            if (telefoneCelular.length < 13) {
+                                alert('Insira o DDD ou número digitado está curto')
+                            } else {
+                                if (dado_cir.value == '') {
+                                    alert('Insira seu CIR')
+                                } else {
+                                    if (dado_cargoMilitar.value == '') {
+                                        alert('Insira um cargo militar')
+                                    } else {
+                                        if (dado_orgMilitar.value == '') {
+                                            alert('Insira a Organização Militar ao qual está lotado')
+                                        } else {
+                                            if (dado_municipio.value == '') {
+                                                alert('Insira o município onde está')
+                                            } else {
+                                                if (dado_senha.value == '') {
+                                                    alert('Insira uma senha')
+                                                } else {
+                                                    if (senha.length < 4) {
+                                                        alert('Senha muito curta. Insira uma senha com no mínimo 6 caracteres')
+                                                    } else {
+                                                        if (dado_repetir.value == '') {
+                                                            alert('Digite novamente a senha no "Repita a Senha"')
+                                                        } else {
+                                                            if (repetirSenha != senha) {
+                                                                alert('A senha deve ser a mesma do "Repita a Senha"')
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
