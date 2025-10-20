@@ -6,30 +6,31 @@ USE armorysafe;
 
 CREATE TABLE comando_militar (
 	idComando_Militar INT PRIMARY KEY AUTO_INCREMENT,
-    nome VARCHAR(50)
+    nome VARCHAR(50) NOT NULL UNIQUE,
+    contato VARCHAR(10) NOT NULL
 );
 	
 -- Inserindo dados na tabela
 
-INSERT INTO comando_militar (nome) VALUES
-	('Comando Militar da Amazônia'),
-	('Comando Militar do Leste'),
-	('Comando Militar do Nordeste'),
-	('Comando Militar do Norte'),
-	('Comando Militar do Oeste'),
-	('Comando Militar do Planalto'),
-    ('Comando Militar do Sudeste'),
-    ('Comando Militar do Sul');
+INSERT INTO comando_militar (nome, contato) VALUES
+	('Comando Militar da Amazônia', '99198231'),
+	('Comando Militar do Leste', '34901923'),
+	('Comando Militar do Nordeste', '9948382'),
+	('Comando Militar do Norte', '39299112'),
+	('Comando Militar do Oeste', '33321231'),
+	('Comando Militar do Planalto', '998763452'),
+    ('Comando Militar do Sudeste', '198534563'),
+    ('Comando Militar do Sul', '945321765');
 
 -- Criação de tabela para endereço de OM
 
 CREATE TABLE endereco (
 	idEndereco INT PRIMARY KEY AUTO_INCREMENT,
-    logradouro VARCHAR(50),
-    bairro VARCHAR(40),
-    cidade VARCHAR(40),
-    uf CHAR(2),
-    cep CHAR(8)
+    logradouro VARCHAR(50) NOT NULL,
+    bairro VARCHAR(40) NOT NULL,
+    cidade VARCHAR(40) NOT NULL,
+    uf CHAR(2) NOT NULL,
+    cep CHAR(8) NOT NULL
 );
 
 -- Inserindo dados na tabela
@@ -52,7 +53,7 @@ CREATE TABLE organizacao_militar (
 	CONSTRAINT fkOM_Endereco
 		FOREIGN KEY (fkEndereco)
 			REFERENCES endereco (idEndereco),
-    nome VARCHAR(40),
+    nome VARCHAR(40) NOT NULL UNIQUE,
     sigla VARCHAR(10)
 );
 
@@ -64,97 +65,157 @@ INSERT INTO organizacao_militar (fkComando_Militar, fkEndereco, nome, sigla) VAL
 	(3, 3, 'Regimento de Cavalaria', 'RCav'),
 	(4, 4, 'Centro de Instrução de Artilharia', 'CIArt');
 
--- Criação de tabela de cadastro Militar
+-- Criação de tabela de cadastro Usuário
 
-CREATE TABLE militar (	
-	idMilitar INT PRIMARY KEY AUTO_INCREMENT,
+CREATE TABLE usuario (	
+	idUsuario INT PRIMARY KEY AUTO_INCREMENT,
     fkOrganizacao_Militar INT,
-    CONSTRAINT fkMilitar_OM
+    CONSTRAINT fkUsuario_OM
 		FOREIGN KEY (fkOrganizacao_Militar)
 			REFERENCES organizacao_militar (idOrganizacao_Militar),
-	cim CHAR(10), -- Número de Carteira de Identificação Militar
-    senha VARCHAR(30), -- Senha de acesso
-    cargoUsuario VARCHAR(30), -- Nível de acesso do militar na rede
-    sexo CHAR(1),
+	nome VARCHAR(80) NOT NULL,
+	cim CHAR(10) UNIQUE, -- Número de Carteira de Identificação Militar
+    senha VARCHAR(30) NOT NULL, -- Senha de acesso
+    cargoUsuario VARCHAR(30) NOT NULL, -- Nível de acesso do militar na rede
     dtCadastro DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
 -- Inserindo dados na tabela
 
-INSERT INTO militar (fkOrganizacao_Militar, cim, senha, cargoUsuario, sexo) VALUES
-	(1, '1234567890', 'senha123', 'Administrador', 'M'),
-	(2, '0987654321', 'segura456', 'Operador', 'F'),
-	(3, '1122334455', 'teste789', 'Técnico', 'M'),
-	(4, '5566778899', 'militar2024', 'Supervisor', 'F');
+INSERT INTO usuario (fkOrganizacao_Militar, nome, cim, senha, cargoUsuario) VALUES
+	(1, 'Roberto Lima', '1234567890', 'senha123', 'General'),
+	(2, 'Gabriela Gomes', '0987654321', 'segura456', 'Sargento'),
+	(3, 'Ronaldo Nascimento', '1122334455', 'teste789', 'Major'),
+	(4, 'Victor Duarte', '5566778899', 'militar2024', 'Subtenente'),
+    (4, 'Paulo Rocha', NULL, 'u7t4092pe', 'Civil');
 
--- Criação de tabela de lote
+-- Criação de tabela de paiol
 
-CREATE TABLE lote (
-	idLote INT PRIMARY KEY AUTO_INCREMENT,
+CREATE TABLE paiol (
+	idPaiol INT PRIMARY KEY AUTO_INCREMENT,
     fkOrganizacao_Militar INT,
-    CONSTRAINT fkLote_OM
+    CONSTRAINT fkOM_Paiol
 		FOREIGN KEY (fkOrganizacao_Militar)
-			REFERENCES organizacao_militar (idOrganizacao_Militar),
-	paiol VARCHAR(45),
-    qtdCaixa INT,
-    calibre VARCHAR(10) NOT NULL,
-    marcacao VARCHAR(11),
-    CONSTRAINT chkMarcacao
-		CHECK (marcacao IN('A','R','REP','INSP','PKD','DES','COND','US/T','TESTED','FAILED TEST')),
-    condicao VARCHAR(45),
-    CONSTRAINT chkCondicao
-		CHECK (condicao IN('A1','A2','A3','B1','B2','B3','B4','C1','C2','C3','C4','C5','D1','D2','D3')),
-    dtRecebimento DATETIME,
-    dtFabricacao DATE,
-    dtVerificacao DATETIME
+			REFERENCES organizacao_militar(idOrganizacao_Militar),
+	nome VARCHAR(45) NOT NULL,
+    capacidade INT NOT NULL,
+    status TINYINT NOT NULL,
+    dtCadastro DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
 -- Inserindo dados na tabela
 
-INSERT INTO lote (fkOrganizacao_Militar, paiol, qtdCaixa, calibre, marcacao, condicao, dtRecebimento, dtFabricacao, dtVerificacao) VALUES
-	(1, 'Paiol 1', 50, '5.56mm', 'A', 'A1', '2025-01-15 08:00:00', '2023-12-01', '2025-02-01 09:30:00'),
-	(2, 'Paiol 2', 30, '7.62mm', 'R', 'B2', '2025-02-20 10:00:00', '2024-05-15', '2025-03-05 11:00:00'),
-	(3, 'Paiol 3', 70, '9mm', 'INSP', 'C1', '2025-03-10 09:15:00', '2024-10-10', '2025-04-12 08:45:00'),
-	(4, 'Paiol 4', 40, '12mm', 'PKD', 'B1', '2025-04-05 14:30:00', '2024-07-01', '2025-05-01 15:00:00');
+INSERT INTO paiol (fkOrganizacao_Militar, nome, capacidade, status) VALUES
+	(1, 'Paiol Alpha', 100, 1),
+	(2, 'Paiol Charlie', 80, 0),
+	(3, 'Paiol Delta', 120, 1),
+	(4, 'Paiol Omega', 60, 1);
     
 -- Criação de tabela Arduino
 
-CREATE TABLE arduino (
-	idArduino INT PRIMARY KEY AUTO_INCREMENT,
-    fkLote INT,
-    CONSTRAINT fkArduino_Lote
-		FOREIGN KEY (fkLote)
-			REFERENCES lote (idLote),
+CREATE TABLE sensor (
+	idSensor INT PRIMARY KEY AUTO_INCREMENT,
+    fkPaiol INT,
+    CONSTRAINT fkSensor_Paiol
+		FOREIGN KEY (fkPaiol)
+			REFERENCES paiol (idPaiol),
+	tipoSensor VARCHAR(20) NOT NULL,
 	nomenclatura VARCHAR(15) NOT NULL,
-    ativo TINYINT,
+    status TINYINT NOT NULL,
     dtInstalacao DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
 -- Inserindo dados na tabela
 
-INSERT INTO arduino (fkLote, nomenclatura, ativo, dtInstalacao) VALUES
-	(1, 'ARD001', 1, '2025-02-10 08:00:00'),
-	(2, 'ARD002', 1, '2025-03-01 09:00:00'),
-	(3, 'ARD003', 0, '2025-03-15 10:00:00'),
-	(4, 'ARD004', 1, '2025-04-01 11:00:00');
+INSERT INTO sensor (fkPaiol, tipoSensor, nomenclatura, status, dtInstalacao) VALUES
+	(1, 'DHT11', 'S_UMID_01', 1, '2025-02-10 08:00:00'),
+	(2, 'DHT11', 'S_UMID_02', 1, '2025-03-01 09:00:00'),
+	(3, 'DHT11', 'S_UMID_03', 0, '2025-03-15 10:00:00'),
+	(4, 'DHT11', 'S_UMID_04', 1, '2025-04-01 11:00:00');
 
 -- Criação de tabela Dados de Arduino
 
-CREATE TABLE dadosArduino (
-	idDados_Arduino INT PRIMARY KEY AUTO_INCREMENT,
-    fkArduino INT,
-    CONSTRAINT fkDadosArduino_Arduino
-		FOREIGN KEY (fkArduino)
-			REFERENCES arduino (idArduino),
+CREATE TABLE leitura (
+	idLeitura INT PRIMARY KEY AUTO_INCREMENT,
+    fkSensor INT,
+    CONSTRAINT fkLeitura_Sensor
+		FOREIGN KEY (fkSensor)
+			REFERENCES sensor (idSensor),
     umidade DECIMAL(4,2),
-    dtCaptura DATETIME
+    CONSTRAINT chkUmidade
+		CHECK (umidade >= 0 AND umidade <= 100),
+    dtLeitura DATETIME
 );
 
 -- Inserindo dados na tabela
 
-INSERT INTO dadosArduino (fkArduino, umidade, dtCaptura) VALUES
+INSERT INTO leitura (fkSensor, umidade, dtLeitura) VALUES
 	(1, 27.45, '2025-02-11 08:30:00'),
-	(1, 28.10, '2025-02-11 09:00:00'),
 	(2, 26.80, '2025-03-02 10:15:00'),
 	(3, 29.50, '2025-03-16 11:30:00'),
 	(4, 25.90, '2025-04-02 12:00:00');
+    
+-- Selecionando dados do banco
+
+-- Dados gerais
+SELECT usuario.nome AS 'Nome do Usuário',
+	IFNULL(usuario.cim, 'Sem CIM') AS 'Carteira de Identificação Militar',
+    usuario.senha AS 'Senha (Mocada)',
+    usuario.cargoUsuario AS 'Cargo do Usuário',
+    cm.nome AS 'Comando responsável',
+    cm.contato AS 'Contato do CM',
+    om.nome AS 'Nome da OM',
+    om.sigla AS 'Sigla',
+    CONCAT(endereco.logradouro, ', ', endereco.bairro, ', ', endereco.cidade, ', ', endereco.uf, ', ', endereco.cep) AS 'Endereço da OM',
+    paiol.nome AS 'Nome do Paiol',
+    paiol.capacidade AS 'Capacidade',
+    paiol.status AS 'Status do Paiol',
+    sensor.nomenclatura AS 'Nomenclatura do Arduino',
+    sensor.status AS 'Status do Arduino',
+    leitura.umidade AS 'Umidade'
+	FROM usuario
+		JOIN organizacao_militar AS om
+			ON usuario.fkOrganizacao_Militar = om.idOrganizacao_Militar
+		JOIN comando_militar AS cm
+			ON om.fkComando_Militar = cm.idComando_Militar
+		JOIN endereco
+			ON om.fkEndereco = endereco.idEndereco
+		JOIN paiol
+			ON paiol.fkOrganizacao_Militar = om.idOrganizacao_Militar
+		JOIN sensor
+			ON sensor.fkPaiol = paiol.idPaiol
+		JOIN leitura
+			ON leitura.fkSensor = sensor.idSensor;
+		
+
+-- Organização Militar + Comando + Endereço
+SELECT om.nome AS 'Nome da OM',
+    om.sigla AS 'Sigla',
+    cm.nome AS 'Comando responsável',
+    cm.contato 'Contato do CM',
+    CONCAT(endereco.logradouro, ', ', endereco.bairro, ', ', endereco.cidade, ', ', endereco.uf, ', ', endereco.cep) AS 'Endereço'
+	FROM organizacao_militar AS om
+		JOIN comando_militar AS cm
+			ON fkComando_Militar = idComando_Militar
+		JOIN endereco
+			ON fkEndereco = idEndereco;
+    
+-- Organizacao Militar + Soldado
+SELECT usuario.nome AS 'Nome do Usuário',
+    IFNULL(usuario.cim, 'Sem CIM') AS 'Carteira de Identificação Militar',
+    usuario.senha AS 'Senha (mocada)',
+    usuario.cargoUsuario AS 'Cargo do Usuário',
+    om.nome AS 'Nome',
+    om.sigla AS 'Sigla'
+	FROM usuario
+		JOIN organizacao_militar AS om
+			ON fkOrganizacao_Militar = idOrganizacao_Militar;
+
+-- Arduino + Dados do Arduino
+
+SELECT sensor.nomenclatura AS 'Nomenclatura do Arduino',
+	sensor.status AS 'Status do Arduino',
+	leitura.umidade AS 'Umidade'
+	FROM sensor
+		JOIN leitura
+			ON fkSensor = idSensor;
