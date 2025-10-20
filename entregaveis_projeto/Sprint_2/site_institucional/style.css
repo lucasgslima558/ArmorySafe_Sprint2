@@ -4,7 +4,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* Adicionado para facilitar o layout */
 }
 
 body {
@@ -13,26 +12,19 @@ body {
     color: white;
     flex-direction: column;
     min-height: 100vh;
-    /* Garante que o body ocupe a altura total da viewport */
 }
 
 button {
     cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-    /* Transições suaves para botões */
 }
-
 
 .secao-principal {
     height: 100vh;
-    /* Altura total da viewport */
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* Centraliza o conteúdo verticalmente */
     align-items: center;
-    /* Centraliza o conteúdo horizontalmente */
     text-align: center;
 }
 
@@ -40,19 +32,14 @@ button {
 header {
     display: flex;
     justify-content: space-between;
-    /* Espaça os itens do cabeçalho */
     align-items: center;
     width: 100%;
     padding: 15px 5%;
-    /* Padding responsivo */
     position: absolute;
-    /* Fixa o cabeçalho no topo */
     top: 0;
     left: 0;
     background-color: rgba(26, 29, 25, 0.8);
-    /* Fundo semi-transparente para o cabeçalho */
     z-index: 1000;
-    /* Garante que o cabeçalho fique acima de outros elementos */
 }
 
 .logo-cabecalho {
@@ -61,10 +48,8 @@ header {
 }
 
 .container-botoes-navegacao {
-    /* Container para os botões de navegação */
     display: flex;
     gap: 30px;
-    /* Espaçamento entre os botões */
 }
 
 .botao-navegacao {
@@ -74,16 +59,14 @@ header {
     font-size: 1rem;
     padding: 5px 0;
     position: relative;
-    /* Para o efeito de hover */
 }
 
 .botao-navegacao:hover {
     color: #5B9E60;
-    /* Cor de hover mais vibrante */
 }
 /*
 .botao-navegacao::after {
-    /* Efeito de sublinhado no hover 
+    /* Efeito de sublinhado no hover    
     content: '';
     position: absolute;
     left: 0;
@@ -91,15 +74,14 @@ header {
     width: 0;
     height: 2px;
     background-color: #5B9E60;
-    transition: width 0.3s ease-in-out;
 }
 */
+
 .botao-navegacao:hover::after {
     width: 100%;
 }
 
 .container-botoes-autenticacao {
-    /* Container para os botões de autenticação */
     display: flex;
     gap: 10px;
 }
@@ -139,18 +121,14 @@ header {
     flex-direction: column;
     align-items: center;
     max-width: 900px;
-    /* Limita a largura do conteúdo */
     padding: 0 20px;
     margin-top: 100px;
-    /* Espaço para o cabeçalho fixo */
 }
 
 .conteudo-principal h1 {
     font-size: 5rem;
-    /* Tamanho de fonte responsivo */
     padding-bottom: 15px;
     border-bottom: 3px solid #476C31;
-    /* Cor verde mais consistente */
     margin-bottom: 20px;
     line-height: 1.1;
 }
@@ -165,16 +143,13 @@ header {
     font-size: 1.5rem;
     line-height: 1.4;
     text-align: center;
-    /* Centraliza o texto */
     margin-bottom: 40px;
     max-width: 700px;
 }
 
-.acoes-principais /home/gabsrc/Documents/ArmorySafe_Sprint2/entregaveis_projeto/Sprint_2/site_institucional/index.html{
-    /* Container para os botões de ação */
+.acoes-principais {
     display: flex;
     gap: 20px;
-    /* Espaçamento entre os botões */
     justify-content: center;
 }
 
@@ -215,12 +190,10 @@ header {
     text-align: center;
     color: black;
     padding: 80px 20px;
-    /* Padding para espaçamento */
     background-image: url("img/ArmorySAFE 1.png");
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
-    /* Efeito parallax */
+    height: 100vh;
 }
 
 .secao-problemas h2 {
@@ -236,7 +209,6 @@ header {
     margin-bottom: 40px;
     max-width: 600px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    /* Sombra para destaque */
 }
 
 .cartao-problema--principal img {
@@ -258,7 +230,6 @@ header {
     display: flex;
     justify-content: center;
     gap: 30px;
-    /* Espaçamento entre os cartões */
     max-width: 1200px;
 }
 
@@ -266,16 +237,13 @@ header {
     background-color: #F6F6E0;
     border-radius: 15px;
     width: 300px;
-    /* Largura fixa para os cartões */
     padding: 30px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    /* Alinha o conteúdo ao topo */
     min-height: 280px;
-    /* Altura mínima para uniformidade */
 }
 
 .cartao-problema img {
@@ -297,6 +265,7 @@ header {
 
 .secao-solucao {
     width: 100%;
+    height: 100vh;
     padding: 40px 5%;
     background-image: url(img/backgroundSecao1-copia.png);
     background-size: cover;
@@ -328,7 +297,6 @@ header {
 }
 
 .container-recursos-solucao {
-    /* Container para os recursos */
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -338,25 +306,20 @@ header {
 .recurso-solucao {
     display: flex;
     align-items: flex-start;
-    /* Alinha o ícone e o texto ao topo */
     background-color: rgba(255, 255, 255, 0.05);
-    /* Fundo sutil para cada recurso */
     border-radius: 30px;
     padding: 25px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
 }
 
-.recurso-solucao:hover {
-    transform: translateY(-5px);
-    /* Efeito de leve elevação no hover */
-}
+/*.recurso-solucao:hover {
+     Efeito de leve elevação no hover 
+}*/
 
 .icone-recurso {
     width: 80px;
     height: 80px;
     min-width: 80px;
-    /* Garante que o ícone não encolha */
     margin-right: 20px;
 }
 
@@ -381,6 +344,7 @@ header {
     flex-direction: column;
     align-items: center;
     padding: 80px 20px;
+    height: 100vh;
     text-align: center;
     background-color: #2A2D29;
 }
@@ -392,7 +356,6 @@ header {
 }
 
 .container-membros-equipe {
-    /* Container para os membros da equipe */
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -401,7 +364,6 @@ header {
 }
 
 .cartao-membro-equipe {
-    /* Cartão para cada membro da equipe */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -410,22 +372,19 @@ header {
     padding: 30px;
     width: 280px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease;
 }
 
-.cartao-membro-equipe:hover {
+/* .cartao-membro-equipe:hover {
     transform: translateY(-8px);
-}
+} */
 
 .foto-membro-equipe {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    /* Imagens circulares */
     object-fit: cover;
     margin-bottom: 20px;
     border: 4px solid #476C31;
-    /* Borda verde */
 }
 
 .nome-membro-equipe {
@@ -448,9 +407,7 @@ footer {
     background-color: #1A1D19;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     flex-wrap: wrap;
-    /* Permite que os blocos quebrem a linha */
     gap: 40px;
-    /* Espaçamento entre os blocos */
 }
 
 footer h3 {
@@ -467,7 +424,6 @@ footer p {
 
 .rodape-sobre {
     text-align: left;
-    /* Alinha o texto à esquerda */
     max-width: 350px;
 }
 
@@ -477,7 +433,6 @@ footer p {
 }
 
 .rodape-contato {
-    /* Bloco para contato */
     max-width: 250px;
 }
 
@@ -501,7 +456,6 @@ footer p {
     background-color: #5B9E60;
 }
 
-/* Secao simulador financeiro */
 .secao-simulador-financeiro {
     display: flex;
     flex-direction: column;
@@ -541,7 +495,6 @@ footer p {
     display: flex;
     flex-direction: column;
 }
-
 
 .cartao-principal p {
     margin-top: 10px;
