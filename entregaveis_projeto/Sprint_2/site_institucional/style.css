@@ -3,7 +3,8 @@
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Adicionado para facilitar o layout */
+    box-sizing: border-box;
+    /* Adicionado para facilitar o layout */
 }
 
 body {
@@ -11,37 +12,47 @@ body {
     background-color: #1A1D19;
     color: white;
     flex-direction: column;
-    min-height: 100vh; /* Garante que o body ocupe a altura total da viewport */
+    min-height: 100vh;
+    /* Garante que o body ocupe a altura total da viewport */
 }
 
 button {
     cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* Transições suaves para botões */
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    /* Transições suaves para botões */
 }
 
 
 .secao-principal {
-    height: 100vh; /* Altura total da viewport */
+    height: 100vh;
+    /* Altura total da viewport */
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centraliza o conteúdo verticalmente */
-    align-items: center; /* Centraliza o conteúdo horizontalmente */
+    justify-content: center;
+    /* Centraliza o conteúdo verticalmente */
+    align-items: center;
+    /* Centraliza o conteúdo horizontalmente */
     text-align: center;
 }
 
 
 header {
     display: flex;
-    justify-content: space-between; /* Espaça os itens do cabeçalho */
+    justify-content: space-between;
+    /* Espaça os itens do cabeçalho */
     align-items: center;
     width: 100%;
-    padding: 15px 5%; /* Padding responsivo */
-    position: absolute; /* Fixa o cabeçalho no topo */
+    padding: 15px 5%;
+    /* Padding responsivo */
+    position: absolute;
+    /* Fixa o cabeçalho no topo */
     top: 0;
     left: 0;
-    background-color: rgba(26, 29, 25, 0.8); /* Fundo semi-transparente para o cabeçalho */
-    z-index: 1000; /* Garante que o cabeçalho fique acima de outros elementos */
+    background-color: rgba(26, 29, 25, 0.8);
+    /* Fundo semi-transparente para o cabeçalho */
+    z-index: 1000;
+    /* Garante que o cabeçalho fique acima de outros elementos */
 }
 
 .logo-cabecalho {
@@ -49,9 +60,11 @@ header {
     height: auto;
 }
 
-.container-botoes-navegacao { /* Container para os botões de navegação */
+.container-botoes-navegacao {
+    /* Container para os botões de navegação */
     display: flex;
-    gap: 30px; /* Espaçamento entre os botões */
+    gap: 30px;
+    /* Espaçamento entre os botões */
 }
 
 .botao-navegacao {
@@ -60,14 +73,17 @@ header {
     color: inherit;
     font-size: 1rem;
     padding: 5px 0;
-    position: relative; /* Para o efeito de hover */
+    position: relative;
+    /* Para o efeito de hover */
 }
 
 .botao-navegacao:hover {
-    color: #5B9E60; /* Cor de hover mais vibrante */
+    color: #5B9E60;
+    /* Cor de hover mais vibrante */
 }
-
-.botao-navegacao::after { /* Efeito de sublinhado no hover */
+/*
+.botao-navegacao::after {
+    /* Efeito de sublinhado no hover 
     content: '';
     position: absolute;
     left: 0;
@@ -77,12 +93,13 @@ header {
     background-color: #5B9E60;
     transition: width 0.3s ease-in-out;
 }
-
+*/
 .botao-navegacao:hover::after {
     width: 100%;
 }
 
-.container-botoes-autenticacao { /* Container para os botões de autenticação */
+.container-botoes-autenticacao {
+    /* Container para os botões de autenticação */
     display: flex;
     gap: 10px;
 }
@@ -121,15 +138,19 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 900px; /* Limita a largura do conteúdo */
+    max-width: 900px;
+    /* Limita a largura do conteúdo */
     padding: 0 20px;
-    margin-top: 100px; /* Espaço para o cabeçalho fixo */
+    margin-top: 100px;
+    /* Espaço para o cabeçalho fixo */
 }
 
 .conteudo-principal h1 {
-    font-size: 5rem; /* Tamanho de fonte responsivo */
+    font-size: 5rem;
+    /* Tamanho de fonte responsivo */
     padding-bottom: 15px;
-    border-bottom: 3px solid #476C31; /* Cor verde mais consistente */
+    border-bottom: 3px solid #476C31;
+    /* Cor verde mais consistente */
     margin-bottom: 20px;
     line-height: 1.1;
 }
@@ -143,15 +164,17 @@ header {
 .conteudo-principal p {
     font-size: 1.5rem;
     line-height: 1.4;
-    text-align: center; /* Centraliza o texto */
+    text-align: center;
+    /* Centraliza o texto */
     margin-bottom: 40px;
     max-width: 700px;
 }
 
-.acoes-principais { /* Container para os botões de ação */
+.acoes-principais /home/gabsrc/Documents/ArmorySafe_Sprint2/entregaveis_projeto/Sprint_2/site_institucional/index.html{
+    /* Container para os botões de ação */
     display: flex;
-    gap: 20px; /* Espaçamento entre os botões */
-    flex-wrap: wrap; /* Quebra de linha para botões em telas menores */
+    gap: 20px;
+    /* Espaçamento entre os botões */
     justify-content: center;
 }
 
@@ -191,11 +214,13 @@ header {
     align-items: center;
     text-align: center;
     color: black;
-    padding: 80px 20px; /* Padding para espaçamento */
+    padding: 80px 20px;
+    /* Padding para espaçamento */
     background-image: url("img/ArmorySAFE 1.png");
     background-size: cover;
     background-position: center;
-    background-attachment: fixed; /* Efeito parallax */
+    background-attachment: fixed;
+    /* Efeito parallax */
 }
 
 .secao-problemas h2 {
@@ -210,7 +235,8 @@ header {
     padding: 40px;
     margin-bottom: 40px;
     max-width: 600px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra para destaque */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    /* Sombra para destaque */
 }
 
 .cartao-problema--principal img {
@@ -230,23 +256,26 @@ header {
 
 .container-cartoes-problema {
     display: flex;
-    flex-wrap: wrap; /* Permite que os cartões quebrem a linha */
     justify-content: center;
-    gap: 30px; /* Espaçamento entre os cartões */
+    gap: 30px;
+    /* Espaçamento entre os cartões */
     max-width: 1200px;
 }
 
 .cartao-problema {
     background-color: #F6F6E0;
     border-radius: 15px;
-    width: 300px; /* Largura fixa para os cartões */
+    width: 300px;
+    /* Largura fixa para os cartões */
     padding: 30px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start; /* Alinha o conteúdo ao topo */
-    min-height: 280px; /* Altura mínima para uniformidade */
+    justify-content: flex-start;
+    /* Alinha o conteúdo ao topo */
+    min-height: 280px;
+    /* Altura mínima para uniformidade */
 }
 
 .cartao-problema img {
@@ -298,7 +327,8 @@ header {
     color: #D0D0D0;
 }
 
-.container-recursos-solucao { /* Container para os recursos */
+.container-recursos-solucao {
+    /* Container para os recursos */
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -307,8 +337,10 @@ header {
 
 .recurso-solucao {
     display: flex;
-    align-items: flex-start; /* Alinha o ícone e o texto ao topo */
-    background-color: rgba(255, 255, 255, 0.05); /* Fundo sutil para cada recurso */
+    align-items: flex-start;
+    /* Alinha o ícone e o texto ao topo */
+    background-color: rgba(255, 255, 255, 0.05);
+    /* Fundo sutil para cada recurso */
     border-radius: 30px;
     padding: 25px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -316,15 +348,16 @@ header {
 }
 
 .recurso-solucao:hover {
-    transform: translateY(-5px); /* Efeito de leve elevação no hover */
+    transform: translateY(-5px);
+    /* Efeito de leve elevação no hover */
 }
 
 .icone-recurso {
     width: 80px;
     height: 80px;
-    min-width: 80px; /* Garante que o ícone não encolha */
+    min-width: 80px;
+    /* Garante que o ícone não encolha */
     margin-right: 20px;
-    object-fit: contain; /* Garante que a imagem se ajuste sem cortar */
 }
 
 .recurso-solucao div {
@@ -358,7 +391,8 @@ header {
     color: #FFFFFF;
 }
 
-.container-membros-equipe { /* Container para os membros da equipe */
+.container-membros-equipe {
+    /* Container para os membros da equipe */
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -366,7 +400,8 @@ header {
     max-width: 1200px;
 }
 
-.cartao-membro-equipe { /* Cartão para cada membro da equipe */
+.cartao-membro-equipe {
+    /* Cartão para cada membro da equipe */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -385,10 +420,12 @@ header {
 .foto-membro-equipe {
     width: 150px;
     height: 150px;
-    border-radius: 50%; /* Imagens circulares */
+    border-radius: 50%;
+    /* Imagens circulares */
     object-fit: cover;
     margin-bottom: 20px;
-    border: 4px solid #476C31; /* Borda verde */
+    border: 4px solid #476C31;
+    /* Borda verde */
 }
 
 .nome-membro-equipe {
@@ -405,13 +442,15 @@ header {
 /* Rodapé */
 footer {
     display: flex;
-    justify-content: space-around; 
-    align-items: flex-start; 
+    justify-content: space-around;
+    align-items: flex-start;
     padding: 60px 5%;
     background-color: #1A1D19;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    flex-wrap: wrap; /* Permite que os blocos quebrem a linha */
-    gap: 40px; /* Espaçamento entre os blocos */
+    flex-wrap: wrap;
+    /* Permite que os blocos quebrem a linha */
+    gap: 40px;
+    /* Espaçamento entre os blocos */
 }
 
 footer h3 {
@@ -427,7 +466,8 @@ footer p {
 }
 
 .rodape-sobre {
-    text-align: left; /* Alinha o texto à esquerda */
+    text-align: left;
+    /* Alinha o texto à esquerda */
     max-width: 350px;
 }
 
@@ -436,7 +476,8 @@ footer p {
     margin-bottom: 20px;
 }
 
-.rodape-contato { /* Bloco para contato */
+.rodape-contato {
+    /* Bloco para contato */
     max-width: 250px;
 }
 
@@ -460,4 +501,74 @@ footer p {
     background-color: #5B9E60;
 }
 
+/* Secao simulador financeiro */
+.secao-simulador-financeiro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 50px;
+}
 
+.secao-simulador-financeiro button {
+    font-size: 1.2rem;
+    padding: 10px;
+    background-color: #476C31;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.secao-simulador-financeiro h1 {
+    margin-bottom: 20px;
+}
+
+.container {
+    display: flex;
+    gap: 20px;
+}
+
+.bloco {
+    background-color: #3b3b3b;
+    padding: 50px;
+    border: 4px double #3A5C21;
+    border-radius: 25px;
+    margin: 10px;
+    font-size: 1.2rem;
+}
+
+.coluna1 {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.cartao-principal p {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.cartao-secundario div {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.checkbox{
+    margin: 10px;
+    width: 20px;
+    height: 20px;
+}
+
+.bloco-secundario {
+    background-color: #3b3b3b;
+    padding: 25px;
+    border: 4px groove #3A5C21;
+    border-radius: 10px;
+    margin: 10px;
+    font-size: 1rem;
+}
+
+#extrato p{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

@@ -9,7 +9,7 @@
 </head>
 
 <body>
-
+    <!-- Primeira seção: Página inicial-->
     <div class="secao-principal">
         <header>
             <img class="logo-cabecalho" src="img\logo armory white 2.png" alt="ArmorySafe Logotipo">
@@ -40,6 +40,7 @@
         </div>
     </div>
 
+    <!--Segunda seção: Problemas sem a aplicação da nossa solução-->
     <div class="secao-problemas">
         <div class="cartao-problema--principal">
             <img src="img\alerta 1.png" alt="Ícone de Alerta">
@@ -68,6 +69,7 @@
         </div>
     </div>
 
+    <!--Terceira seção: Nossa solução-->
     <div class="secao-solucao">
         <div class="introducao-solucao">
             <h1>A solução <span style="color: green;">ArmorySafe</span></h1>
@@ -113,43 +115,48 @@
         </div>
     </div>
 
-    <!-- O simulador financeiro está comentado no HTML original, mantido assim -->
+    <!-- Quarta Solução: Simulador Financeiro-->
+    <div class="secao-simulador-financeiro">
 
+        <h1 style="font-size: 50px;"><b style="color:green">ArmorySafe</b> - Faça sua simulação</h1>
+        <hr>
+        <div class="container">
+            <div class="coluna1">
+                <div class="cartao-principal bloco">
+                    <h2>Simule abaixo o impacto da umidade no valor das munições armazenadas.</h2>
+
+                    <p>Informe a umidade média do paiól: <input type="text" id="iptUmidadeMedia"> </p>
+
+                    <p>Selecione o calibre da munição armazenada abaixo:</p>
+
+                    <div><input type="checkbox" value="1" id="check45mm" class="checkbox" checked onclick="validacaoCheckBox()">5,56 x 45mm</div>
+                    <div><input type="checkbox" value="2" id="check51mm" class="checkbox" checked onclick="validacaoCheckBox()">7,62 x 51mm</div>
+                    <div><input type="checkbox" value="3" id="check105mm" class="checkbox" checked onclick="validacaoCheckBox()">105mm</div>
+                </div>
+
+                <div class="cartao-secundario bloco" id="cartaosec" style="display: none;">
+                    <div id="mun45min" style="display: none;" class="bloco-secundario">I - Informe a quantidade de caixas de 5,56x45mm
+                        armazenadas:
+                        <input type="text" id="iptQtd45mm">
+                    </div>
+                    <div id="mun51min" style="display: none;" class="bloco-secundario">II - Informe a quantidade de caixas de 7,62 x 51mm
+                        armazenadas:
+                        <input type="text" id="iptQtd51mm">
+                    </div>
+                    <div id="mun105min" style="display: none;" class="bloco-secundario">III - Informe a quantidade de caixas de 105mm
+                        armazenadas: <input type="text" id="iptQtd105mm"></div>
+
+                    <div><button id="butaoCheck" style="display: none;" onclick="inserir()">Inserir</button></div>
+                </div>
+            </div>
+            <div id="extrato" class="bloco" style="display: none;"></div>
+        </div>
+    </div>
+
+    <!--Quinta seção: Membros-->
     <div class="secao-equipe">
         <h1>Equipe de Desenvolvimento</h1>
         <div class="container-membros-equipe" id="membrosEquipe">
-            <!-- Os membros da equipe serão renderizados via JavaScript -->
-            <!-- Exemplo de um membro da equipe, os outros serão gerados pelo JS -->
-            <div class="cartao-membro-equipe">
-                <img class="foto-membro-equipe" src="img/gabriel.jpg" alt="Foto de Gabriel Medeiros">
-                <h2 class="nome-membro-equipe">Gabriel Medeiros</h2>
-                <p class="cargo-membro-equipe">Desenvolvedor</p>
-            </div>
-            <div class="cartao-membro-equipe">
-                <img class="foto-membro-equipe" src="img/larissa.png" alt="Foto de Larissa Dias">
-                <h2 class="nome-membro-equipe">Larissa Dias</h2>
-                <p class="cargo-membro-equipe">Desenvolvedor</p>
-            </div>
-            <div class="cartao-membro-equipe">
-                <img class="foto-membro-equipe" src="img/lucasG.png" alt="Foto de Lucas Gomes">
-                <h2 class="nome-membro-equipe">Lucas Gomes</h2>
-                <p class="cargo-membro-equipe">Desenvolvedor</p>
-            </div>
-            <div class="cartao-membro-equipe">
-                <img class="foto-membro-equipe" src="img/lucasM.png" alt="Foto de Lucas Máximo">
-                <h2 class="nome-membro-equipe">Lucas Máximo</h2>
-                <p class="cargo-membro-equipe">Desenvolvedor</p>
-            </div>
-            <div class="cartao-membro-equipe">
-                <img class="foto-membro-equipe" src="img/matheus.png" alt="Foto de Matheus Yamakuti">
-                <h2 class="nome-membro-equipe">Matheus Yamakuti</h2>
-                <p class="cargo-membro-equipe">Desenvolvedor</p>
-            </div>
-            <div class="cartao-membro-equipe">
-                <img class="foto-membro-equipe" src="img/murilo.png" alt="Foto de Murilo Marinho">
-                <h2 class="nome-membro-equipe">Murilo Marinho</h2>
-                <p class="cargo-membro-equipe">Desenvolvedor</p>
-            </div>
         </div>
     </div>
 
@@ -178,6 +185,7 @@
 </body>
 <script>
 
+    // Membros
     let nomeMembro = ['Gabriel Medeiros', 'Larissa Dias', 'Lucas Gomes', 'Lucas Máximo', 'Matheus Yamakuti', 'Murilo Marinho'];
     let cargoMembro = ['Desenvolvedor'];
     let imagemMembro = ['img/gabriel.png', 'img/larissa.png', 'img/lucasG.png', 'img/lucasM.png', 'img/matheus.jpg', 'img/murilo.jpg'];
@@ -194,6 +202,136 @@
             </div>
         `
         contador++
+    }
+
+
+    // Simulador financeiro
+
+
+    let mun45mmValue = 0;
+    let mun51mmValue = 0;
+    let mun105mmValue = 0;
+
+    let valor45mm = 0;
+    let valor51mm = 0;
+    let valor105mm = 0;
+
+    let valorTotal = 0;
+
+    function validacaoCheckBox() {
+        let mun45mm = check45mm.checked
+        let mun51mm = check51mm.checked
+        let mun105mm = check105mm.checked
+
+        if (mun45mm) {
+            mun45min.style.display = "block"
+            mun45mmValue = check45mm.value
+        } else {
+            mun45min.style.display = "none"
+            mun45mmValue = 0
+        }
+
+        if (mun51mm) {
+            mun51min.style.display = "block"
+            mun51mmValue = check51mm.value
+        } else {
+            mun51min.style.display = "none"
+            mun51mmValue = 0
+        }
+
+        if (mun105mm) {
+            mun105min.style.display = "block"
+            mun105mmValue = check105mm.value
+        } else {
+            mun105min.style.display = "none"
+            mun105mmValue = 0;
+        }
+
+        if (mun45mm || mun51mm || mun105mm) {
+            butaoCheck.style.display = "block"
+            cartaosec.style.display = "block"
+        } else {
+            butaoCheck.style.display = "none"
+            cartaosec.style.display = "none"
+        }
+    }
+
+    function inserir() {
+
+        let qtd45mm = Number(iptQtd45mm.value)
+        let qtd51mm = Number(iptQtd51mm.value)
+        let qtd105mm = Number(iptQtd105mm.value)
+
+        valor45mm = qtd45mm * 297.8
+        valor51mm = qtd51mm * 350
+        valor105mm = qtd105mm * 8688
+
+        extrato.style.display = "block"
+
+        extrato.innerHTML = "<h3>Todos os valores a seguir foram obtidos com base em informações da CBC (Companhia Brasileira de Cartuchos) e IMBEL (Indústria de Material Bélico Brasileira)</h3>"
+
+        if (mun45mmValue != 0) {
+            extrato.innerHTML += `<p>${qtd45mm} caixas de munição 5,56x45mm | Valor total de munições: R$ ${(valor45mm).toFixed(2)}</p>`
+        }
+
+        if (mun51mmValue != 0) {
+            extrato.innerHTML += `<p>${qtd51mm} caixas de munição 7,62x51mm | Valor total de munições: R$ ${(valor51mm).toFixed(2)}</p>`
+        }
+
+        if (mun105mmValue != 0) {
+            extrato.innerHTML += `<p>${qtd105mm} caixas de munição 105mm | Valor total de munições: R$ ${(valor105mm).toFixed(2)}</p>`
+        }
+
+        valorTotal = valor45mm + valor51mm + valor105mm;
+
+        extrato.innerHTML += `<div>Valor total: R$ ${valorTotal.toFixed(2)}</div>`
+        extrato.innerHTML += '<button onclick="simular()">Simular</button>'
+
+    }
+
+    function simular() {
+        let umidadeMedia = Number(iptUmidadeMedia.value)
+
+        if (umidadeMedia < 15) {
+            extrato.innerHTML += `<div class="bloco"> <h3> Umidade abaixo de 15% - Crítico </h3> <i>Valor total do paiol: R$ ${valorTotal.toFixed(2)}</i> <p>Nesse nível de umidade a munição fica
+            seca demais e perde propriedades químicas fundamentais para o bom funcionamento, passando a não ser confiável, <br> logo tem que ser totalmente descartada.</p> <p>Perda de 100% do estoque, totalizando um prejuízo de: <span style="color: red"><b>R$ ${valorTotal.toFixed(2)}</b></span></p><h3>Com ArmorySafe, você transforma esse risco em <span style="color: green";>investimento garantido de 100%</span></div></h3>`
+        }
+
+        if (umidadeMedia >= 15 && umidadeMedia <= 34) {
+
+            var ressecamento = valorTotal * 0.3
+            var prejuizo = valorTotal - ressecamento
+            var economia = ressecamento * 0.9
+
+            extrato.innerHTML += `<div class="bloco"><h3> Umidade entre 15% a 34% - Estado de alerta </h3> <i>Valor total do paiol: R$ ${valorTotal.toFixed(2)}</i> <p>Nesse nível de umidade a munição sofre risco de ressecamento na pólvora e redução da eficiência, logo as munições tendem a falhar e desvalorizar.</p> <p>Perdas parciais que refletem em 30% do estoque, resultando em um prejuízo de <span style="color: red"><b>R$ ${ressecamento.toFixed(2)}</b></span></p> <h3>Com ArmorySafe, você reduz essas perdas em <b>90%</b>, garantindo uma economia potencial de <span style="color: green";><b>R$ ${economia.toFixed(2)}</b></span></h3> Anualmente, sua empresa pode economizar até: <span><b>R$ ${(economia * 12).toFixed(2)}</b></span></dov
+                `
+
+        }
+
+        if (umidadeMedia >= 35 && umidadeMedia <= 50) {
+
+            var ideal = valorTotal * 0.03
+            var prejuizo = valorTotal - ideal
+            var economia = ideal * 0.99
+
+            extrato.innerHTML += `<div class="bloco"><h3> Umidade entre 35% a 50% - Umidade ideal</h3> <i>Valor total do paiol: R$ ${valorTotal.toFixed(2)}</i> <p>Esse é o nível de umidade ideal para as munições, porém ainda sim estimam-se perdas de até 3% por variações aleatórias, manutenção preventiva <br> e erros humanos no monitoramento.</p> <p>Perdas parciais que refletem em 3% do estoque, resultando em um prejuízo de <span style="color: red"><b>R$ ${ideal.toFixed(2)}</b></span></p> <h3>Com ArmorySafe, você reduz essas perdas em <b>99%</b>, garantindo uma economia potencial de <span style="color: green";><b>R$ ${economia.toFixed(2)}</b></span></h3> Anualmente, sua empresa pode economizar até: <span><b>R$ ${(economia * 12).toFixed(2)}</b></span> </div>`
+
+        }
+
+        if (umidadeMedia >= 51 && umidadeMedia <= 70) {
+            var corrosao = valorTotal * 0.45
+            var prejuizo = valorTotal - corrosao
+            var economia = corrosao * 0.9
+
+            extrato.innerHTML += `<div class="bloco"> <h3> Umidade entre 51% a 70% - Estado de alerta</h3> <i>Valor total do paiol: R$ ${valorTotal.toFixed(2)}</i> <p>Com esse nível elevado de umidade, começam a ocorrer corrosão nas cápsulas metálicas das munições que refletem na inutilização parcial do arsenal.</p> <p>Perdas parciais que refletem em até 45% do estoque, resultando em um prejuízo de <span style="color: red"><b>R$ ${corrosao.toFixed(2)}</b></span></p> <h3>Com ArmorySafe, você reduz essas perdas em 90%, garantindo uma economia potencial de <span style="color: green";><b>R$ ${economia.toFixed(2)}</b></span></h3> Anualmente, sua empresa pode economizar até: <span><b>R$ ${(economia * 12).toFixed(2)}</b></span> </div>`
+        }
+
+        if (umidadeMedia > 70) {
+            var descarte = valorTotal
+            var prejuizo = valorTotal
+
+            extrato.innerHTML += `<div class="bloco"> <h3> Umidade acima de 70% - Crítico</h3> <i>Valor total do paiol: R$ ${valorTotal.toFixed(2)}</i> <p>Neste nível de umidade a oxidação das capsulas metálicas acelera e as munições são totalmente condenadas, já que a segurança no disparo se torna incerta.</p> <p>Perda de 100% do estoque totalizando um prejuízo de: <span style="color: red"><b>R$ ${prejuizo.toFixed(2)}</b></span></p><h3>Com ArmorySafe, você transforma esse risco em <span style="color: green";>investimento garantido de 100%</span></h3></div>`
+        }
     }
 
 </script>
