@@ -9,15 +9,18 @@
 </head>
 
 <body>
+    <!-- Header -->
     <div id="header">
-        <img src="img/logo armory white 2(1).png" class="logocima" alt="logocima">
-        <div id="rectangle28">
-            <div id="textoAS" class="textoAS">ArmorySafe</div>
+        <div id="logo"><img src="img/logo armory white 2(1).png" class="logocima" alt="logo armorySafe" width="100px"></div>
+        <p>ArmorySafe</p>
+        <div id="menu">
+            <a>Home</a>
+            <a>Cadastrar-se</a>
         </div>
-        <div id="login" class="siteLogin">
-        </div>
-        <!-- <img src="img/imagemMunicao.jpg" class="fundo" alt="fundo"> -->
-        <div id="containerLogin" class="containerLogin"></div>
+    </div>
+
+
+    <div id="login" class="siteLogin">
         <div id="login" class="login">Email ou CIR:</div>
         <input id="dado_login" class="insertLogin">
         <div id="senha" class="senha">Senha:</div>
@@ -25,32 +28,42 @@
         <a href="www.recsenha.armorysafe.com.br" class="recSenha">Recuperar Senha</a>
         <button onclick="entrar()" class="entrar">Entrar</button>
     </div>
-    <div id="infoComplementar" class="infoComplementar">
-        <img src="img/logo armory white 2(1).png" class="logodown" alt="logodown">
-        <div id="logodown"></div>
-        <div id="dado_frase" class="frase">Sistema de monitoramento IoT que garante a segurança e preservação das
-            munições em depósitos militares</div>
-        <div id="contato" class="contato">Contato</div>
-        <div id="dado_emailAS" class="emailAS">contato@armorysafe.com.br</div>
-        <div id="dado_TelAS" class="telAS">(11) 99999-9999</div>
-        <div id="dado_local" class="local">São Paulo - SP, Brasil</div>
+
+
+    <div id="infoComplementar">
+
+        <div class="footer">
+            <img src="img/logo armory white 2(1).png" class="logodown" alt="logodown">
+        </div>
+        <div class="footer">Sistema de monitoramento IoT que garante a segurança e preservação das
+            munições em depósitos militares
+        </div>
+
+        <div class="footer">
+            Contato
+        </div>
+        <div class="footer">
+            contato@armorysafe.com.br
+        </div>
+        <div class="footer">
+            (11) 99999-9999
+        </div>
+        <div class="footer">
+            São Paulo - SP, Brasil
+        </div>
     </div>
-    </div>
+
 </body>
 <script>
     function entrar() {
         var login = dado_login.value;
         var senha = dado_senha.value;
+
+
         if (dado_login.value == '' && dado_senha.value == '') {
             alert('Insira dados nos campos "Email ou CIR" e "Senha"')
-        } else {
-            if (dado_login.value == '') {
-                alert('Insira um login no campo "Email ou CIR"')
-            } else {
-                if (dado_senha.value == '') {
-                    alert('Insira uma senha no campo "Senha"')
-                }
-            }
+        } else if (senha === '') {
+            alert('Insira uma senha no campo "Senha"')
         }
     }
 
