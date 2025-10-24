@@ -11,60 +11,83 @@
 <body>
     <!-- Header -->
     <div id="header">
-        <div id="logo"><img src="img/logo armory white 2(1).png" class="logocima" alt="logo armorySafe" width="100px"></div>
-        <p>ArmorySafe</p>
+        <div id="logo"><img src="img/logo armory white 2(1).png" class="logocima" alt="logo armorySafe" width="100px">
+        </div>
+        <h3>ArmorySafe</h3>
         <div id="menu">
-            <a>Home</a>
-            <a>Cadastrar-se</a>
+            <a href="index.html">Home</a>
+            <a href="telacadastro.html1">Cadastrar-se</a>
         </div>
     </div>
 
-
-    <div id="login" class="siteLogin">
-        <div id="login" class="login">Email ou CIR:</div>
-        <input id="dado_login" class="insertLogin">
-        <div id="senha" class="senha">Senha:</div>
-        <input type="password" id="dado_senha" class="insertSenha">
-        <a href="www.recsenha.armorysafe.com.br" class="recSenha">Recuperar Senha</a>
-        <button onclick="entrar()" class="entrar">Entrar</button>
+    <!-- Inputs para entrada de dados para login -->
+    <div id="login">
+        <label>Login:</label>
+        <input type="text" id="iptLogin">
+        <label>Senha:</label>
+        <input type="password" id="iptSenha" placeholder="*****">
+        <span id="recuperar">
+            <input type="radio">
+            <a href="#">Recuperar Senha</a>
+        </span>
+        <button onclick="entrar()">Entrar</button>
     </div>
 
+    <!-- footer com informações -->
+    <div id="footer">
+        <div id="inform">
+            <img src="img/logo armory white 2(1).png" class="logodown" alt="logo ArmorySafe" width="150px">
+            <p>
+                Sistema de monitoramento IoT que garante a segurança e preservação das
+                munições em depósitos militares
+            </p>
+        </div>
 
-    <div id="infoComplementar">
+        <div id="contatos">
+            <h3><u>Contato</u></h3>
+            <div id="contatosFilhos">
 
-        <div class="footer">
-            <img src="img/logo armory white 2(1).png" class="logodown" alt="logodown">
-        </div>
-        <div class="footer">Sistema de monitoramento IoT que garante a segurança e preservação das
-            munições em depósitos militares
+            </div>
         </div>
 
-        <div class="footer">
-            Contato
-        </div>
-        <div class="footer">
-            contato@armorysafe.com.br
-        </div>
-        <div class="footer">
-            (11) 99999-9999
-        </div>
-        <div class="footer">
-            São Paulo - SP, Brasil
+        <div id="demo">
+            <h3>
+                <u>Demonstração</u>
+            </h3>
+            <p>
+                Solicite já uma apresentação
+                personalizada do ArmorySafe
+                para o seu quartel.
+            </p>
+            <a href="index.html">
+                <button>
+                    Simular
+                </button>
+            </a>
         </div>
     </div>
 
 </body>
 <script>
     function entrar() {
-        var login = dado_login.value;
-        var senha = dado_senha.value;
+        let login = iptLogin.value;
+        let senha = iptSenha.value;
 
 
-        if (dado_login.value == '' && dado_senha.value == '') {
+
+        if (login === '' && senha === '') {
             alert('Insira dados nos campos "Email ou CIR" e "Senha"')
         } else if (senha === '') {
             alert('Insira uma senha no campo "Senha"')
         }
+    }
+
+    let imagens = ["img/o-email 1.png", "img/telefone 1.png", "img/localizacao.png"];
+    let texto = ["contato@armorysafe.com.br", "(11)9999-99999", "Rua haddock lobo"];
+
+    for (index = 0; index < imagens.length; index++) {
+        contatosFilhos.innerHTML += `<div> <img src="./${imagens[index]}" width="40px"> ${texto[index]}<br></div>`;
+        console.log(index)
     }
 
 </script>
