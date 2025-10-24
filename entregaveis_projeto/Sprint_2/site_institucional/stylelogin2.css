@@ -5,6 +5,9 @@ body{
     margin: 0px;
     justify-content: center;
     align-items: center;
+    background-image: url(img/FundoLogin.png);
+    background-repeat: no-repeat;
+    background-size: cover, 100%;
 }
 .siteLogin {
     width: 1520px;
@@ -43,16 +46,15 @@ body{
     width: 35px;
     height: 50px;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 75px;
-    left: 559px;
-    top: -20px;
-    position: absolute;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 124px;
-    justify-content: center;
+    font-size: 2rem;
+    display: flex;
     align-items: center;
-    flex-direction: row;
+    justify-content: center;
+}
+#rectangle28{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .recSenha {
     width: 300px;
