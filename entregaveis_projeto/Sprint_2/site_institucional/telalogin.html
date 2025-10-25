@@ -27,7 +27,6 @@
         <label>Senha:</label>
         <input type="password" id="iptSenha" placeholder="*****">
         <span id="recuperar">
-            <input type="radio">
             <a href="#">Recuperar Senha</a>
         </span>
         <button onclick="entrar()">Entrar</button>
@@ -56,7 +55,7 @@
             </h3>
             <p>
                 Solicite já uma apresentação
-                personalizada do ArmorySafe
+                personalizada da ArmorySafe
                 para o seu quartel.
             </p>
             <a href="index.html">
@@ -83,7 +82,7 @@
     }
 
     let imagens = ["img/o-email 1.png", "img/telefone 1.png", "img/localizacao.png"];
-    let texto = ["contato@armorysafe.com.br", "(11)9999-99999", "Rua haddock lobo"];
+    let texto = ["contato@armorysafe.com.br", "(11)99999-9999", "Rua Haddock Lobo"];
 
     for (index = 0; index < imagens.length; index++) {
         contatosFilhos.innerHTML += `<div> <img src="./${imagens[index]}" width="40px"> ${texto[index]}<br></div>`;
