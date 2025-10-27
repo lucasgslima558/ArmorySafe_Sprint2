@@ -1,417 +1,178 @@
-body{
-    flex-wrap: wrap;
+body {
     box-sizing: border-box;
     padding: 0px;
     margin: 0px;
     justify-content: center;
     align-items: center;
-}
-.abacima {
-    width: 40px;
-    height: 50px;
-    position: absolute;
-    left: 27px;
-    top: 33px;
-}
-.logocima{
-    position: absolute;
-    top: 20px;
-    left: 30px;
-    width: 80px;
-    height: 60px;
-}
-.textoAS {
-    color: #EAEBED;
-    width: 35px;
-    height: 50px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 75px;
-    left: 559px;
-    top: -20px;
-    position: absolute;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 124px;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-}
-.fundo {
-    left: 0px;
-    top: 90px;
-    width: 100%;
-    height: 1000px;
-    position: absolute;
-    background-size: 1536px;
+    background-image: url(img/FundoLogin.png);
     background-repeat: no-repeat;
+    background-size: cover, 100%;
 }
-.cadastro {
-    width: 100%;
-    height: 90px;
-    padding: 0px;
-    margin: 0px;
-    box-sizing: border-box;
-    background: #1a1d19;
-    position: absolute;
+
+#header {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    gap: 30px;
+    background-color: #111910;
+    color: white;
+    max-width: 100%;
+    height: 100px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
-.infoComplementar {
-    width: 100%;
-    height: 280px;
-    top: 1050px;
-    left: 0px;
-    background: #111910;
-    position: absolute;
+
+#header a{
+    color: white;
+    text-decoration: none;
+    background-color: #476C31;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 5px;
 }
-.botaoCadastrar{
-    left: 710px;
-    top: 940px;
-    width: 100px;
-    height: 35px;
-    position: absolute;
-    font-size: 20px;
+
+#header a:hover{
+    background-color: white;
+    color: black;
 }
-.nome {
-    top: 140px;
-    left: 570px;
-    width: 50px;
-    height: 50px;
+
+#header h3{
+    margin-left: 100px;
+    margin-top: 50px;
+    font-size: 4.2rem;
+}
+
+#menu {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    flex-direction: row;
+    gap: 20px;
+    margin-right: 10px;
+    width: 210px;
+}
+
+#cadastro{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 5% auto;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 25px;
-    color: #ffffff;
-    position: absolute;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 30px;
+    background-color: #273324;
+    max-width: 500px;
+    height: 1100px;
+    padding: 20px;
+    border-radius: 15px;
+    color: white;
 }
-.insertNome {
-    top: 170px;
-    left: 568px;
-    width: 360px;
-    height: 25px;
-    background: #fafafa;
-    border-radius: 10px;
-    position: absolute;
-    font-size: 15px;
-}
-.sobrenome {
-    top: 125px;
-    left: 570px;
-    width: 50px;
-    height: 50px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 25px;
-    color: #ffffff;
-    position: absolute;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 30px;
-}
-.insertSobrenome {
-    top: 245px;
-    left: 568px;
-    width: 360px;
-    height: 25px;
-    border-radius: 10px;
-    background: #fafafa;
-    position: absolute;
-    font-size: 15px;
-}
-.containerCadastro {
-    left: 550px;
-    top: 120px;
-    width: 400px;
-    height: 900px;
-    background: #273324;
-    position: absolute;
-    border-radius: 36.83px;
-}
-.email {
-    top: 295px;
-    left: 570px;
-    width: 50px;
-    height: 50px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 25px;
-    color: #ffffff;
-    position: absolute;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 30px;
-}
-.insertEmail {
-    left: 568px;
-    top: 325px;
-    width: 360px;
-    height: 25px;
-    border-radius: 10px;
-    background: #fafafa;
-    position: absolute;
-    font-size: 15px;
-}
-.sobrenome {
-    top: 215px;
-    left: 570px;
-    width: 50px;
-    height: 50px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 25px;
-    color: #ffffff;
-    position: absolute;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 30px;
-}
-.sexo {
-    top: 370px;
-    left: 570px;
-    width: 50px;
-    height: 50px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 25px;
-    color: #ffffff;
-    position: absolute;
-}
-.radioSexo {
-    top: 375px;
-    left: 635px;
-    width: 200px;
-    height: 15px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
-    color: #ffffff;
-    position: absolute;
-}
-.telefoneCelular {
-    top: 410px;
-    left: 570px;
-    width: 200px;
-    height: 50px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 25px;
-    color: #ffffff;
-    position: absolute;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 30px;
-}
-.insertTelCelular {
-    top: 440px;
-    left: 568px;
-    width: 360px;
-    height: 25px;
-    border-radius: 10px;
-    background: #fafafa;
-    position: absolute;
-    font-size: 15px;
-}
-.cir{
-    top: 485px;
-    left: 570px;
-    width: 200px;
-    height: 50px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 25px;
-    color: #ffffff;
-    position: absolute;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 30px;
-}
-.insertCIR {
-    top: 515px;
-    left: 568px;
-    width: 360px;
-    height: 25px;
-    border-radius: 10px;
-    background: #fafafa;
-    position: absolute;
-    font-size: 15px;
-}
-.cargoMilitar{
-    top: 560px;
-    left: 570px;
-    width: 200px;
-    height: 50px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 25px;
-    color: #ffffff;
-    position: absolute;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 30px;
-}
-.insertCargoMilitar {
-    top: 590px;
-    left: 568px;
-    width: 360px;
-    height: 25px;
-    border-radius: 10px;
-    background: #fafafa;
-    position: absolute;
-    font-size: 15px;
-}
-.orgMilitar{  
-    top: 635px;
-    left: 570px;
+
+#cadastro input{
     width: 300px;
-    height: 50px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 25px;
-    color: #ffffff;
-    position: absolute;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 30px;
+    height: 45px;
+    font-size: large;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
 }
-.insertOrgMilitar {
-    top: 665px;
-    left: 568px;
-    width: 360px;
-    height: 25px;
-    border-radius: 10px;
-    background: #fafafa;
-    position: absolute;
-    font-size: 15px;
+
+#cadastro select{
+    width: 300px;
+    height: 45px;
+    font-size: large;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
 }
-.municipio{
-    top: 710px;
-    left: 570px;
+
+#cadastro button{
     width: 200px;
-    height: 50px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 25px;
-    color: #ffffff;
-    position: absolute;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 30px;
-}
-.insertMunicipio {
-    top: 740px;
-    left: 568px;
-    width: 360px;
-    height: 25px;
+    height: 55px;
+    border: none;
     border-radius: 10px;
-    background: #fafafa;
-    position: absolute;
-    font-size: 15px;
+    background-color: #111910;
+    color: white;
+    font-size: 1.2rem;
 }
-.senha{
-    top: 785px;
-    left: 570px;
-    width: 200px;
-    height: 50px;
+
+#cadastro button:hover{
+    background-color: #476C31;
+}
+
+#cadastro label {
+    font-size: 1.4rem;
+}
+
+#cadastro label, a, button{
+    margin-top: 20px;
+}
+
+#cadastro label, ::placeholder{
+    text-align: center;
+}
+
+#footer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 25px;
-    color: #ffffff;
-    position: absolute;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 30px;
+    background-color: #111910;
+    padding: 30px;
+    color: white;
+    font-size: 1.2rem;
 }
-.insertSenha {
-    top: 815px;
-    left: 568px;
-    width: 360px;
-    height: 25px;
+
+#inform{
+    margin-left: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100px;
+}
+
+#inform p{
+    width: 400px;
+}
+
+#contatos{
+    width: 400px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    flex-direction: column;
+    margin-bottom: 80px;
+}
+
+#contatos h3{
+    font-size: 1.6rem;
+    color: #5B9E60;
+}
+
+#demo{
+    width: 300px;
+}
+
+#demo h3{
+    font-size: 1.6rem;
+    color: #5B9E60;
+}
+
+#demo button{
+    background-color: #476C31;
+    border: none;
+    padding: 10px;
     border-radius: 10px;
-    background: #fafafa;
-    position: absolute;
-    font-size: 15px;
+    font-size: 1.1rem;
 }
-.repetirSenha{
-    top: 860px;
-    left: 570px;
-    width: 200px;
-    height: 50px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 25px;
-    color: #ffffff;
-    position: absolute;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 30px;
+
+#demo button:hover{
+    background-color: #273324;
+    color: white;
 }
-.insertRepetir {
-    top: 890px;
-    left: 568px;
-    width: 360px;
-    height: 25px;
-    border-radius: 10px;
-    background: #fafafa;
-    position: absolute;
-    font-size: 15px;
-}
-.logodown{
-   position: absolute;
-   top: 30px;
-   left: 180px;
-   width: 150px;
-   height: 100px;
-}
-.frase{
-    top: 150px;
-    left: 50px;
-    width: 430px;
-    height: 50px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 25px;
-    color: #ffffff;
-    position: absolute;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 30px;
-}
-.contato{
-    top: 40px;
-    left: 800px;
-    width: 400px;
-    height: 50px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 40px;
-    color: #ffffff;
-    position: absolute;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 30px;
-}
-.emailAS{
-    top: 100px;
-    left: 800px;
-    width: 400px;
-    height: 50px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 25px;
-    color: #ffffff;
-    position: absolute;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 30px;
-}
-.telAS{
-    top: 150px;
-    left: 800px;
-    width: 400px;
-    height: 50px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 25px;
-    color: #ffffff;
-    position: absolute;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 30px;
-}
-.local{
-    top: 200px;
-    left: 800px;
-    width: 400px;
-    height: 50px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 25px;
-    color: #ffffff;
-    position: absolute;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 30px;
+
+u{
+    color: #476C31;
 }
