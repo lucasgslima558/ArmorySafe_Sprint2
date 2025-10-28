@@ -158,6 +158,7 @@ INSERT INTO leitura (fkSensor, umidade, dtLeitura) VALUES
 -- Selecionando dados do banco
 
 -- Dados gerais
+
 SELECT usuario.nome AS 'Nome do Usuário',
 	IFNULL(usuario.cim, 'Sem CIM') AS 'Carteira de Identificação Militar',
     usuario.senha AS 'Senha (Mocada)',
@@ -187,8 +188,8 @@ SELECT usuario.nome AS 'Nome do Usuário',
 		JOIN leitura
 			ON leitura.fkSensor = sensor.idSensor;
 		
-
 -- Organização Militar + Comando + Endereço
+
 SELECT om.nome AS 'Nome da OM',
     om.sigla AS 'Sigla',
     cm.nome AS 'Comando responsável',
@@ -201,6 +202,7 @@ SELECT om.nome AS 'Nome da OM',
 			ON fkEndereco = idEndereco;
     
 -- Organizacao Militar + Soldado
+
 SELECT usuario.nome AS 'Nome do Usuário',
     IFNULL(usuario.cim, 'Sem CIM') AS 'Carteira de Identificação Militar',
     usuario.senha AS 'Senha (mocada)',
@@ -211,11 +213,36 @@ SELECT usuario.nome AS 'Nome do Usuário',
 		JOIN organizacao_militar AS om
 			ON fkOrganizacao_Militar = idOrganizacao_Militar;
 
--- Arduino + Dados do Arduino
+-- Organização militar + Paiol
 
-SELECT sensor.nomenclatura AS 'Nomenclatura do Arduino',
-	sensor.status AS 'Status do Arduino',
+SELECT om.nome AS 'Nome da OM',
+	om.sigla AS 'Sigla',
+    paiol.nome AS 'Nome do Paiol',
+    paiol.capacidade AS 'Capacidade',
+    CASE
+		WHEN paiol.status = 1 THEN 'Ativo'
+        ELSE 'Inativo'
+        END AS 'Status do Paiol'
+	FROM organizacao_militar AS om
+		JOIN paiol
+			ON fkOrganizacao_Militar = idOrganizacao_Militar;
+
+-- Paiol + Sensor + Leitura
+
+SELECT paiol.nome AS 'Nome do Paiol',
+	paiol.capacidade AS 'Capacidade',
+    CASE
+		WHEN paiol.status = 1 THEN 'Ativo'
+        ELSE 'Inativo'
+        END AS 'Status do Paiol',
+	sensor.nomenclatura AS 'Nomenclatura do Sensor',
+	CASE
+		WHEN sensor.status = 1 THEN 'Ativo'
+        ELSE 'Inativo'
+        END AS 'Status do Sensor',
 	leitura.umidade AS 'Umidade'
-	FROM sensor
+	FROM paiol
+		JOIN sensor
+			ON fkPaiol = idPaiol
 		JOIN leitura
 			ON fkSensor = idSensor;
