@@ -22,7 +22,7 @@
 
     <!-- Inputs para entrada de dados para login -->
     <div id="login">
-        <label>Login:</label>
+        <label>CIM:</label>
         <input type="text" id="iptLogin">
         <label>Senha:</label>
         <input type="password" id="iptSenha" placeholder="*****">
@@ -70,12 +70,12 @@
         let login = iptLogin.value;
         let senha = iptSenha.value;
 
-
-
         if (login === '' && senha === '') {
-            alert('Insira dados nos campos "Email ou CIR" e "Senha"')
+            alert('Insira dados nos campos "Email ou CIM" e "Senha"')
         } else if (senha === '') {
             alert('Insira uma senha no campo "Senha"')
+        } else if (login === ''){
+            alert(`Insira o CIM no campo "CIM"`)
         }
     }
 

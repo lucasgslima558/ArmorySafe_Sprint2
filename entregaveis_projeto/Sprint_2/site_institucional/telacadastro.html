@@ -24,23 +24,24 @@
     <div id="cadastro">
         <label>Nome:</label>
         <input type="text" id="iptNome">
-        <label>Sobrenome:</label>
-        <input type="password" id="iptSobrenome">
         <label>E-mail:</label>
         <input type="text" id="iptEmail">
-        <label>Gênero:</label>
-        <select name="radioGen" id="sltGenero">
-            <option value="#">Selecione...</option>
-            <option value="Feminino">Feminino</option>
-            <option value="Masculino">Masculino</option>
-            <option value="Neutro">Neutro/Prefiro Não Responder</option>
-        </select>
         <label>Telefone Celular:</label>
         <input type="text" id="iptTelCel">
-        <label>CIR:</label>
-        <input type="text" id="iptCir">
+        <label>CIM:</label>
+        <input type="text" id="iptCim">
         <label>Cargo Militar:</label>
-        <input type="text" id="iptCargoMil">
+        <select name="radioCargo" id="sltCargo">
+            <option value="#">Selecione</option>
+            <option value="Soldado">Soldado</option>
+            <option value="Cabo">Cabo</option>
+            <option value="Sargento">Sargento</option>
+            <option value="Tenente">Tenente</option>
+            <option value="Capitao">Capitão</option>
+            <option value="Major">Major</option>
+            <option value="Tenente-Coronel">Tenente-Coronel</option>
+            <option value="General">General</option>
+        </select>
         <label>Organização Militar:</label>
         <input type="text" id="iptOrgMil">
         <label>Município:</label>
@@ -92,7 +93,7 @@
         let email = iptEmail.value;
         let genero = iptGenero.value;
         let telefoneCelular = iptTelCel.value;
-        let cir = iptCir.value;
+        let cim = iptCim.value;
         let cargoMilitar = iptCargoMil.value;
         let orgMilitar = iptOrgMil.value;
         let municipio = iptMunic.value
