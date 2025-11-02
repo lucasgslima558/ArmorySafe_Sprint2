@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - ArmorySafe</title>
+    <link rel="stylesheet" href="styledashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="barra-lateral">
+        <div class="logo">
+            <img src="img/logo armory green.png" alt="Logo ARMORYSAFE">
+        </div>
+
+        <nav class="menu">
+            <a href="#" class="menu-relatorio">
+                <img src="img/icone-relatorio.png" class="icone">Relatórios</a>
+
+            <a class="menu-suporte">Suporte</a>
+
+            <a href="#" class="menu-contato">
+                <img src="img/icone-contato.png" class="icone">Contato</a>
+
+            <a href="#" class="menu-configuracao">
+                <img src="img/icone-configuracao.png" class="icone">Configurações</a>
+
+            <a href="#" class="menu-sair">
+                <img src="img/icone-sair.png" class="icone">Sair</a>
+    </div>
+    </nav>
+    <hr class="separador">
+    <div class="nome-militar">Nome de Exemplo</div>
+    <div class="email-militar">Nome@exercito.com</div>
+    </div>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main>
+        <header>
+            <h1>Relatórios</h1>
+            <hr class="separador-2">
+        </header>
+
+        <!-- CARDS -->
+        <div class="container-cards">
+            <section class="cards">
+                <div class="card">
+                    <p class="descricao">Total de Paióis</p>
+                    <h2>27</h2>
+                </div>
+
+                <div class="card">
+                    <p class="descricao">Sensores Ativos</p>
+                    <h2>54</h2>
+                </div>
+
+                <div class="card">
+                    <p class="descricao">Maior Umidade (%)</p>
+                    <h2>78</h2>
+                </div>
+
+                <div class="card">
+                    <p class="descricao">Variação da Umidade mensal</p>
+                    <h2>5%</h2>
+                </div>
+
+                <div class="card">
+                    <p class="descricao">Variação da Umidade diária</p>
+                    <h2>3%</h2>
+                </div>
+
+                <div class="card">
+                    <p class="descricao">Tempo dentro da faixa ideal</p>
+                    <h2>98%</h2>
+                </div>
+            </section>
+            <div>
+                <canvas id="myChart1" style="height: 270px;"></canvas>
+            </div>
+        </div>
+        <div style="display: flex;">
+            <div><canvas id="myChart2" style="height: 270px;"></canvas></div>
+            <div><canvas id="myChart3" style="height: 270px;"></canvas></div>
+        </div>
+
+    </main>
+    </div>
+</body>
+
+</html>
+<script>
+    const ctx = document.getElementById('myChart1');
+
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho'],
+            datasets: [{
+                label: 'Temperatura Média C°',
+                data: [22, 24, 27, 23, 20, 18, 31],
+                borderWidth: 1
+            }, {
+                label: 'Umidade Média em %',
+                data: [5, 89, 93, 10, 15, 45, 90],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+    const ctx2 = document.getElementById('myChart2');
+
+    new Chart(ctx2, {
+        type: 'line',
+        data: {
+            labels: ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00'],
+            datasets: [{
+                label: 'Temperatura Média C°',
+                data: [22, 24, 27, 23, 20, 18, 31],
+                borderWidth: 1
+            }, {
+                label: 'Umidade Média em %',
+                data: [5, 89, 93, 10, 15, 45, 90],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+        const ctx3 = document.getElementById('myChart3');
+
+    new Chart(ctx3, {
+        type: 'line',
+        data: {
+            labels: ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00'],
+            datasets: [{
+                label: 'Temperatura Média C°',
+                data: [22, 24, 27, 23, 20, 18, 31],
+                borderWidth: 1
+            }, {
+                label: 'Umidade Média em %',
+                data: [5, 89, 93, 10, 15, 45, 90],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
+
+</html>

@@ -1,0 +1,232 @@
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #f6f7f8;
+    color: #333;
+    position: fixed;
+}
+
+/* barra-lateral */
+.barra-lateral {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 230px;
+    height: 100vh;
+    background-color: #67B36B;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 10px 0;
+    box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1);
+    border-radius: 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 0px;
+}
+
+.barra-lateral .logo {
+    text-align: center;
+}
+
+.barra-lateral .logo img {
+    width: 150px;
+    height: auto;
+    margin: 8px;
+}
+
+.barra-lateral a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    padding: 12px 29px;
+    transition: background 0.3s;
+}
+
+.barra-lateral .menu {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.barra-lateral .menu:hover {
+    display: flex;
+    flex-direction: column;
+}
+
+.barra-lateral .icone {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+}
+
+.menu-relatorio {
+    color: black;
+    font-size: 14px;
+    margin-left: 20px;
+    border-radius: 15px;    
+    background-color: #4FA35A;
+    width: 130px;
+}
+
+.barra-lateral .menu-relatorio:hover{
+    background-color: rgba(255, 255, 255, 0.15);
+    padding-left: 21px;
+}
+
+.menu-suporte {
+    margin-top: 20px;
+    color: #294916;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.menu-contato {
+    margin-top: 10px;
+    color: black;
+    font-size: 14px;
+}
+
+.barra-lateral .menu-contato:hover{
+    background-color: rgba(255, 255, 255, 0.15);
+    border-left: 4px solid white;
+    padding-left: 21px;
+}
+
+.menu-configuracao {
+    color: black;
+    font-size: 14px;
+}
+
+.barra-lateral .menu-configuracao:hover{
+    background-color: rgba(255, 255, 255, 0.15);
+    border-left: 4px solid white;
+    padding-left: 21px;
+}
+
+.menu-sair {
+    margin-top: 110px;
+    color: black;
+    font-size: 14px;
+}
+
+.barra-lateral .menu-sair:hover{
+    background-color: rgba(255, 255, 255, 0.15);
+    border-left: 4px solid white;
+    padding-left: 21px;
+}
+
+.separador {
+    position: fixed;
+    border: none;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.454);
+    width: 200px;
+    margin: 465px 11px;
+}
+
+.nome-militar {
+    position: fixed;
+    color: black;
+    font-size: 14px;
+    margin: 485px 27px;
+}
+
+.email-militar {
+    position: fixed;
+    color: #5f5d5d;
+    font-size: 14px;
+    margin: 505px 27px;
+}
+
+main {
+    margin-left: 230px;
+    padding: 20px 40px;
+}
+
+/* HEADER */
+header {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin: 0px;
+}
+
+header h1 {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.filtros select {
+    margin-right: 100px;
+    margin-top: 100px;
+    padding: 8px 100px;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.separador-2 {
+    position: absolute;
+    border: none;
+    height: 1px;
+    background-color: rgba(180, 179, 179, 0.354);
+    width: 150%;
+    margin: 70px 0px;
+}
+
+/* CARDS */
+.cards {
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    max-width: 500px;
+}
+
+.container-cards {
+    display: flex;
+}
+
+.card {
+    background-color: white;
+    border-radius: 12px;
+    padding: 10px;
+    box-shadow: 5px 2px 6px rgba(0, 0, 0, 0.05);
+    max-width: 100px;
+    min-height: 100px;
+}
+
+.card .descricao {
+    font-size: 12px;
+    color: #777;
+    margin: 7px;
+}
+
+.card h2 {
+    margin: 10px;
+    color: #2E7D32;
+    font-size: 20px;
+    text-align: center;
+}
+
+.myChart1 {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    width: 300px;
+    height: 200px;
+}
+
+
+.myChart2 {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    width: 300px;
+    height: 200px;
+}
+
