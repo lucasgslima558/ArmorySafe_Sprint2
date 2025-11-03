@@ -7,6 +7,7 @@
 }
 
 body {
+    position: relative;
     display: flex;
     background-color: #1A1D19;
     color: white;
@@ -60,6 +61,7 @@ header {
     font-size: 1rem;
     padding: 5px 0;
     position: relative;
+    text-decoration: none;
 }
 
 .botao-navegacao:hover {
@@ -171,6 +173,7 @@ header {
     background-color: #476C31;
     color: white;
 }
+
 /* Seção Problema */
 .secao-problemas {
     display: flex;
@@ -183,6 +186,7 @@ header {
     background-size: cover;
     background-position: center;
     height: 100vh;
+    padding-top: 100px;
 }
 
 .secao-problemas h2 {
@@ -262,6 +266,7 @@ header {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    padding-top: 70px;
 }
 
 .introducao-solucao {
@@ -333,6 +338,7 @@ header {
     text-align: center;
     background-color: #2A2D29;
     margin-top: 15px;
+    padding-top: 80px;
 }
 
 .secao-equipe h1 {
@@ -450,6 +456,7 @@ footer p {
     margin-left: 50px;
     margin-right: 50px;
     min-height: 100vh;
+    padding-top: 50px;
 }
 
 .secao-simulador-financeiro button {
@@ -482,17 +489,18 @@ footer p {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.8);
 }
 
-.bloco input[type=text]{
-    width: 15%;
+.bloco input[type=text] {
+    width: 12%;
     padding: 5px;
     color: rgb(212, 211, 211);
     background-color: rgba(50, 50, 50);
     border: 0;
     border-bottom: 2px solid rgba(250, 250, 250);
     outline: 0;
+    margin-bottom: 10px;
 }
 
-.titulos{
+.titulos {
     color: #476C31;
 }
 
@@ -501,28 +509,28 @@ footer p {
     flex-direction: column;
 }
 
-.colunaSimulador h2{
+.colunaSimulador h2 {
     margin-bottom: 20px;
 }
 
-.colunaSimulador p{
+.colunaSimulador p {
     margin-top: 20px;
     margin-bottom: 10px;
 }
 
-.checkbox{
+.checkbox {
     appearance: none;
     width: 15px;
     height: 15px;
     border: 2px solid white;
-    border-radius: 50%; 
+    border-radius: 50%;
     cursor: pointer;
     outline: none;
     margin-top: 5px;
     margin-right: 5px;
 }
 
-.checkbox:checked{
+.checkbox:checked {
     background-color: #ffffff;
     border-color: #ffffff;
 }
@@ -534,13 +542,13 @@ footer p {
     font-size: 0.9rem;
 }
 
-#extrato{
+#extrato {
     display: flex;
     flex-direction: column;
     max-width: 800px;
 }
 
-#extrato p{
+#extrato p {
     margin-top: 10px;
     margin-bottom: 10px;
 }
@@ -550,13 +558,40 @@ footer p {
     display: flex;
 }
 
-#mensagemSimular div{
+#mensagemSimular div {
     margin-top: 20px;
     padding: 20px;
 }
 
-#graficoSimulador{
+#graficoSimulador {
     width: 250px;
 }
 
+.erro {
+    position: fixed;
+    width: 200px;
+    height: 150px;
+    top: 8%;
+    right: 1%;
+    background-color: red;
+    z-index: 1000;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid white;
+}
 
+.erro p{
+    padding: 20px;
+   
+}
+
+.butaoErro {
+    width: 20px;
+    align-self: flex-end;
+    background-color: red;
+    border: none;
+    font-size: 20px;
+    color: white;
+    border-radius: 10px;
+}
