@@ -29,7 +29,10 @@
         <span id="recuperar">
             <a href="#">Recuperar Senha</a>
         </span>
-        <button onclick="entrar()">Entrar</button>
+
+        <a href="" id="dashboard"><button onclick="entrar()">Entrar</button></a>
+
+        
     </div>
 
     <!-- footer com informações -->
@@ -76,6 +79,8 @@
             alert('Insira uma senha no campo "Senha"')
         } else if (login === ''){
             alert(`Insira o CIM no campo "CIM"`)
+        }else{
+            dashboard.href = 'dashboard.html'
         }
     }
 
