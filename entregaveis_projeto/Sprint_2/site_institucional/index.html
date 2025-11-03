@@ -11,15 +11,16 @@
 
 <body>
     <!-- Primeira seção: Página inicial-->
-    <div class="secao-principal">
+    <div class="secao-principal" id="secpri">
         <header>
             <img class="logo-cabecalho" src="img\logo armory white 2.png" alt="ArmorySafe Logotipo">
 
             <nav class="container-botoes-navegacao">
-                <button class="botao-navegacao">Início</button>
-                <button class="botao-navegacao">Solução</button>
-                <button class="botao-navegacao">Simulador</button>
-                <button class="botao-navegacao">Colaboradores</button>
+                <a class="botao-navegacao" href="#secpri">Início</a>
+                <a class="botao-navegacao" href="#secpro">Problema</a>
+                <a class="botao-navegacao" href="#secsol">Solução</a>
+                <a class="botao-navegacao" href="#secsil">Simulador</a>
+                <a class="botao-navegacao" href="#seccol">Colaboradores</a>
             </nav>
 
             <div class="container-botoes-autenticacao">
@@ -42,7 +43,7 @@
     </div>
 
     <!--Segunda seção: Problemas sem a aplicação da nossa solução-->
-    <div class="secao-problemas">
+    <div class="secao-problemas" id="secpro">
         <div class="cartao-problema--principal">
             <img src="img\alerta 1.png" alt="Ícone de Alerta">
             <h2>Por que o monitoramento é crucial?</h2>
@@ -71,13 +72,11 @@
     </div>
 
     <!--Terceira seção: Nossa solução-->
-    <div class="secao-solucao">
+    <div class="secao-solucao" id="secsol">
         <div class="introducao-solucao">
             <h1>A solução <span style="color: green;">ArmorySafe</span></h1>
             <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit hic voluptatibus alias aliquam ut
-                magni laudantium fuga obcaecati corrupti debitis, deleniti dolor voluptate cum velit facilis distinctio
-                adipisci quas doloremque.
+                Nossa solução oferece monitoramento contínuo em tempo real, com uma dashboard intuitiva para fácil acompanhamento. Alertas instantâneos, enquanto nossa infraestrutura de segurança protege seus dados 24/7. Tenha controle total e tranquilidade com a nossa tecnologia de ponta.
             </p>
         </div>
 
@@ -117,7 +116,7 @@
     </div>
 
     <!-- Quarta Solução: Simulador Financeiro-->
-    <div class="secao-simulador-financeiro" id="ref">
+    <div class="secao-simulador-financeiro" id="secsil">
 
         <h1 style="font-size: 40px;"><b style="color:green">ArmorySafe</b> - Faça sua simulação</h1>
 
@@ -128,9 +127,9 @@
 
                     <div>Informe a umidade média do paiól: <br>
                         <input placeholder="EX: 45" type="text"
-                            id="iptUmidadeMedia"> <span><input type="checkbox" > Não sei a umidade média.</span></div> 
+                            id="iptUmidadeMedia"><div><input type="checkbox" id="iptNaoUmidadeMedia" class="checkbox" onclick="mediaPadrao()"> Não sei a umidade média.</div></div> 
 
-                    <p>Selecione o calibre da munição armazenada abaixo:</p>
+                    <p class="titulos">Selecione o calibre da munição armazenada abaixo:</p>
 
                     <div><input placeholder="EX: 45" type="checkbox" id="check45mm" class="checkbox"
                             onclick="validacaoCheckBox()">5,56 x 45mm</div>
@@ -172,7 +171,7 @@
     </div>
 
     <!--Quinta seção: Membros-->
-    <div class="secao-equipe">
+    <div class="secao-equipe" id="seccol">
         <h1>Equipe de Desenvolvimento</h1>
         <div class="container-membros-equipe" id="membrosEquipe">
         </div>
@@ -181,9 +180,7 @@
     <footer>
         <div class="rodape-sobre">
             <img src="img/logo armory white 2(1).png" alt="ArmorySafe Logotipo com Mensagem">
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non, modi! Placeat cumque nam tempora.
-                Excepturi distinctio tempore quas culpa eum sit officiis. Nemo molestiae accusantium aspernatur vero nam
-                itaque ad.
+            <p>Sistema de monitoramento IoT que garante a segurança e preservação das munições em depósitos militares 
             </p>
         </div>
 
@@ -197,37 +194,53 @@
         <div class="rodape-demonstracao">
             <h3>Demonstração</h3>
             <p>Solicite já uma apresentação personalizada do ArmorySafe para o seu quartel</p>
-            <button>Solicitar</button>
         </div>
     </footer>
+
+    <img src="" alt="">
+    <div id="erros"></div>
 </body>
 <script>
 
+    iptNaoUmidadeMedia.checked = false;
+
+    function mediaPadrao(){
+        if(iptNaoUmidadeMedia.checked == true){
+            iptUmidadeMedia.value = 50;
+            iptUmidadeMedia.readOnly = true;
+        }else{
+            iptUmidadeMedia.value = ''
+        }
+    }
+
+    // ---------------------------- Variaveis globais e dependencias ---------------------------------
+
+    // Garante que as inputs Checkbox estejam desmarcadas.
     check45mm.checked = false;
     check51mm.checked = false;
     check105mm.checked = false;
 
-    // Membros
+    // Dados utilizados na seção membro
     let nomeMembro = ['Gabriel Medeiros', 'Larissa Dias', 'Lucas Gomes', 'Lucas Máximo', 'Matheus Yamakuti', 'Murilo Marinho'];
-    let cargoMembro = ['Desenvolvedor'];
-    let imagemMembro = ['img/gabriel.png', 'img/larissa.png', 'img/lucasG.png', 'img/lucasM.png', 'img/matheus.jpg', 'img/murilo.jpg'];
+    let cargoMembro = [
 
-    let contador = 0;
-    while (contador < 6) {
-        membrosEquipe.innerHTML += `
-            <div class="cartao-membro-equipe">
-                <img class="foto-membro-equipe" src="${imagemMembro[contador]}" alt="Foto de ${nomeMembro[contador]}">
-                <h2 class="nome-membro-equipe">${nomeMembro[contador]}</h2>
-                <p class="cargo-membro-equipe">${cargoMembro}</p>
-            </div>
-        `
-        contador++
-    }
+            'Desenvolvedor<br><img src="img/github-mark-white.png" style="width:15px"> <a class="botao-navegacao" href="https://github.com/gMedeiros23" target="_blank">Github</a>',
 
+            'Desenvolvedora<br><img src="img/github-mark-white.png" style="width:15px"> <a class="botao-navegacao" href="https://github.com/larissadiassptech" target="_blank">Github</a>',
+            
+            'Desenvolvedor<br><img src="img/github-mark-white.png" style="width:15px"> <a class="botao-navegacao" href="https://github.com/lucasgslima558" target="_blank">Github</a>',
 
-    // Simulador financeiro
+            'Desenvolvedor<br><img src="img/github-mark-white.png" style="width:15px"> <a class="botao-navegacao" href="https://github.com/Lucasmaximo0" target="_blank">Github</a>',
 
+            'Desenvolvedor<br><img src="img/github-mark-white.png" style="width:15px"> <a class="botao-navegacao" href="https://github.com/MatheusYuji96" target="_blank">Github</a>',
 
+            'Desenvolvedor<br><img src="img/github-mark-white.png" style="width:15px"> <a class="botao-navegacao" href="https://github.com/muriszk" target="_blank">Github</a>',
+            
+            ];
+
+    let imagemMembro = ['img/gabriel.jpg', 'img/larissa.jpg', 'img/lucasG.jpg', 'img/lucasM.jpg', 'img/fotoMatheus.jpg', 'img/murilo.jpg'];
+
+    //Variaveis utilizadas na seção Simulador Financeiro
     let mun45mmValue = 0;
     let mun51mmValue = 0;
     let mun105mmValue = 0;
@@ -237,6 +250,33 @@
     let valor105mm = 0;
 
     let valorTotal = 0;
+
+    //Garante que os inputs estejam vazios.
+    iptQtd45mm.value = '';
+    iptQtd51mm.value = '';
+    iptQtd105mm.value = '';
+
+    // -------------------------------------------- Seção Membro ---------------------------------------
+
+    // Seção <Membros> - Estrutura de Repetição
+    let contador = 0;
+    while (contador < 6) {
+        membrosEquipe.innerHTML += `
+            <div class="cartao-membro-equipe">
+                <img class="foto-membro-equipe" src="${imagemMembro[contador]}" alt="Foto de ${nomeMembro[contador]}">
+                <h2 class="nome-membro-equipe">${nomeMembro[contador]}</h2>
+                <p class="cargo-membro-equipe">${cargoMembro[contador]}</p>
+            </div>
+        `
+        contador++
+    }
+
+    //----------------------------------------- Simulador financeiro ------------------------------------
+
+    function fechar(){
+        erros.innerHTML = ''
+    }
+    // Validações
 
     function validacaoCheckBox() {
         let mun45mm = check45mm.checked
@@ -262,10 +302,35 @@
         }
     }
 
-    iptQtd45mm.value = '';
-    iptQtd51mm.value = '';
-    iptQtd105mm.value = '';
+    function validacao45mm() {
+        if (check45mm.checked == false) {
+            qtd45mm = 0;
+            valor45mm = 0;
+            iptQtd45mm.value = ''
+            erros.innerHTML = '<div class="erro"><button class="butaoErro" onclick="fechar()">X</button><p>ERRO! Selecione a munição desejada: 45mm</p></div>'
+        }
+        inserir()
+    }
+    function validacao51mm() {
+        if (check51mm.checked == false) {
+            qtd51mm = 0;
+            valor51mm = 0;
+            iptQtd51mm.value = ''
+            erros.innerHTML = '<div class="erro"><button class="butaoErro" onclick="fechar()">X</button><p>ERRO! Selecione a munição desejada: 51mm</p></div>'
+        }
+        inserir()
+    }
+    function validacao105mm() {
+        if (check105mm.checked == false) {
+            qtd105mm = 0;
+            valor105mm = 0;
+            iptQtd105mm.value = ''
+            erros.innerHTML = '<div class="erro"><button class="butaoErro" onclick="fechar()">X</button><p>ERRO! Selecione a munição desejada: 105mm</p></div>'
+        }
+        inserir()
+    }
 
+    //Funções - Calculos e inserções do simulador financeiro.
     function inserir() {
 
         extrato.innerHTML = '';
@@ -291,38 +356,10 @@
 
     }
 
-    function validacao45mm() {
-        if (check45mm.checked == false) {
-            qtd45mm = 0;
-            valor45mm = 0;
-            iptQtd45mm.value = ''
-            alert('Selecione a munição desejada: 45mm')
-        }
-        inserir()
-    }
-    function validacao51mm() {
-        if (check51mm.checked == false) {
-            qtd51mm = 0;
-            valor51mm = 0;
-            iptQtd51mm.value = ''
-            alert('Selecione a munição desejada: 51mm')
-        }
-        inserir()
-    }
-    function validacao105mm() {
-        if (check105mm.checked == false) {
-            qtd105mm = 0;
-            valor105mm = 0;
-            iptQtd105mm.value = ''
-            alert('Selecione a munição desejada: 105mm')
-        }
-        inserir()
-    }
-
     function simular() {
 
         if (check45mm.checked == false && check51mm.checked == false && check105mm.checked == false) {
-            alert('Informe uma munição!')
+            erros.innerHTML = '<div class="erro"><button class="butaoErro" onclick="fechar()">X</button><p>ERRO! Selecione a munição desejada antes de simular!</p></div>'
         } else {
 
             let umidadeMedia = Number(iptUmidadeMedia.value);
