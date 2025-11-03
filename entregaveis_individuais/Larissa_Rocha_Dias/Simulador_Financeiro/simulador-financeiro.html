@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulador ArmorySafe</title>
+</head>
+<body>
+  <h2>ArmorySafe - Simulador de Paiol</h2>
+  <p><i>Simule abaixo o impacto da umidade nas munições.</i></p>
+
+  <p>Umidade (%):<br>
+  <input type="number" id="ipt_umidade"></p>
+
+  <p>Tipo de munição:<br>
+  <select id="tipo_da_municao">
+    <option value="297.8">5,56x45mm</option>
+    <option value="350">7,62x51mm</option>
+    <option value="8688">105mm</option>
+  </select></p>
+
+  <p>Caixas armazenadas:<br>
+  <input type="number" id="ipt_caixas_armazenadas"></p>
+
+  <button onclick="simular()">Simular</button>
+
+  <div id="div_msg"></div>
+
+  <script>
+    function simular() {
+      let umid = Number (ipt_umidade.value);
+      let preco = Number (tipo_da_municao.value);
+      let qtd = Number (document.getElementById("qtd").value);
+
+      let total = preco * qtd;
+      let perda = 0;
+      let msg = "";
+
+      if (umid < 15 || umid > 70) {
+        perda = 1;
+        msg = "Crítico - perda total";
+      } else if (umid <= 34 || umid >= 51) {
+        perda = umid <= 34 ? 0.3 : 0.45;
+        msg = "Alerta - perda parcial";
+      } else {
+        perda = 0.03;
+        msg = "Ideal - perdas mínimas";
+      }
+
+      let prejuizo = total * perda;
+      let economia = prejuizo * 0.9;
+
+      div_msg.innerHTML = `
+        <hr>
+        <h3>Resultado</h3>
+        <p><b>Umidade:</b> ${umid}%</p>
+        <p><b>Situação:</b> ${msg}</p>
+        <p><b>Valor total:</b> R$ ${total.toFixed(2)}</p>
+        <p><b>Perda estimada:</b> R$ ${prejuizo.toFixed(2)}</p>
+        <p><b>Economia com ArmorySafe:</b> R$ ${economia.toFixed(2)}</p>
+      `;
+    }
+  </script>
+</body>
+</html>
