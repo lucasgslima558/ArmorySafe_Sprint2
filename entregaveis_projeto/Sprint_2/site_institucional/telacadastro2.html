@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - ArmorySafe</title>
-    <link rel="stylesheet" href="stylelogin2.css">
+    <title>Cadastro - ArmorySafe</title>
+    <link rel="stylesheet" href="stylecadastro2.css">
 </head>
 
 <body>
@@ -23,6 +23,7 @@
     </div>
     <!--miolo-->
     <div id="arealogin">
+
         <div id="elipse">
             <img src="img/Ellipse 22.png" class="imagem circulo-topo" alt="circulo verde" width="350px">
         </div>
@@ -31,28 +32,108 @@
         </div>
         <div id="trianguloMeio">
             <img src="img/Polygon 3.png" class="imagem triangulo-meio" alt="triangulo verde" width="500px">
+            <label id="faca-cadastro">Faça o Cadastro em nossa</label>
+            <label id="plataforma">Plataforma</label>
         </div>
+
+        <!-- começo retangulo login -->
         <div id="bloco-login">
-            <img src="img/Rectangle 6.png" class="retangulo-login" alt="retangulo login" width="350px">
+            <label id="bem-vindo"><i>Bem-vindo à Área de CADASTRO</i></label><br><br>
+            <label id="preencher">Preencha os dados do cadastro</label><br><br>
+            <label id="nome">Nome</label><br>
+            <input type="text" id="iptNome">
+            <label id="email">E-Mail</label><br>
+            <input type="text" id="iptEmail">
+            <label id="telCel">Telefone Celular:</label><br>
+            <input type="text" id="iptTelCel" placeholder="(**)*****-****">
+            <label id="cim">CIM:</label><br>
+            <input type="text" id="iptCim">
+            <label id="cargoMilitar">Cargo Militar:</label>
+            <select name="selectCargo" id="sltCargo">
+                <option value="#">Selecione</option>
+                <option value="Soldado">Soldado</option>
+                <option value="Cabo">Cabo</option>
+                <option value="Sargento">Sargento</option>
+                <option value="Tenente">Tenente</option>
+                <option value="Capitao">Capitão</option>
+                <option value="Major">Major</option>
+                <option value="Tenente-Coronel">Tenente-Coronel</option>
+                <option value="General">General</option>
+            </select>
+            <label id="orgMil">Organização Militar:</label><br>
+            <input type="text" id="iptOrgMil">
+            <label id="municipio">Município:</label><br>
+            <input type="text" id="iptMunic">
+            <label id="senha">Senha:</label><br>
+            <input type="password" id="iptSenha" placeholder="*****">
+            <label id="confSenha">Confirme a Senha:</label><br>
+            <input type="password" id="iptConfSenha" placeholder="******">
+
+            <a href="" id="dashboard"><button onclick="entrar()">Entrar</button></a>
         </div>
     </div>
+
     <!-- footer -->
     <div id="footer">
         <div id="logoinfo">
-            <img src="img/logo armory white 2(1).png" class="logofooter" alt="logo ArmorySafe">
+            <img src="img/logo armory white 2(1).png" class="logofooter" alt="logo ArmorySafe" width="200px">
             <p>Sistema de monitoramento IoT que garante a segurança e preservação das munições em depósitos
                 militares</p>
         </div>
         <div id="contatos">
             <h3>Contatos</h3>
-            <img src="img/" alt="">
-            <p></p>
-            <img src="" alt="">
-            <p></p>
-            <img src="" alt="">
-            <p></p>
+            <div id="contatosFilhos">
+
+            </div>
         </div>
     </div>
 </body>
+<script>
+    function cadastrar() {
+        let nome = iptNome.value;
+        let email = iptEmail.value;
+        let telefoneCelular = iptTelCel.value;
+        let cim = iptCim.value;
+        let cargoMilitar = sltCargo.value;
+        let orgMilitar = iptOrgMil.value;
+        let municipio = iptMunic.value
+        let senha = iptSenha.value;
+        let confirmSenha = iptConfSenha.value;
+        if (iptNome.value == '' && iptEmail.value == '' && iptTelCel.value == '' && iptCim.value == '' && sltCargo.value == '#' && iptOrgMil.value == '' && iptMunic.value == '' && iptSenha.value == '' && iptConfSenha.value == '') {
+            alert(`Insira dados em todos os campos`)
+        } else if (nome.length < 2 || iptNome.value == '') {
+            alert('Insira o seu nome')
+        } else if (!email.includes('@') || !email.includes('.com')) {
+            alert(`Insira um email contendo "@" e ".com"`)
+        } else if (email.length <= 6) {
+            alert(`E-mail muito curto`)
+        } else if (telefoneCelular.length < 14) {
+            alert('Insira o DDD ou número digitado está curto')
+        } else if (iptCim.value == '') {
+            alert('Insira seu CIM')
+        } else if (sltCargo.value == '#') {
+            alert('Selecione o cargo militar')
+        } else if (iptOrgMil.value == '' || orgMilitar.length <= 2) {
+            alert('Insira a Organização Militar ao qual está lotado')
+        } else if (iptMunic.value == '' || municipio.length <= 1) {
+            alert('Insira o município onde está lotado')
+        } else if (iptSenha.value == '') {
+            alert('Insira uma senha')
+        } else if (senha.length < 5) {
+            alert('Senha muito curta. Insira uma senha com no mínimo 6 caracteres')
+        } else if (iptConfSenha.value == '') {
+            alert('Digite novamente a senha no "Confirme a Senha"')
+        } else if (confirmSenha != senha) {
+            alert('A senha deve ser a mesma do "Confirme a Senha"')
+        }
+    }
+    let imagens = ["img/o-email 1.png", "img/telefone 1.png", "img/localizacao.png"];
+    let texto = ["contato@armorysafe.com.br", "(11)99999-9999", "Rua Haddock Lobo"];
+
+    for (index = 0; index < imagens.length; index++) {
+        contatosFilhos.innerHTML += `<div> <img src="./${imagens[index]}" width="40px"> ${texto[index]}<br></div>`;
+        console.log(index)
+    }
+</script>
 
 </html>

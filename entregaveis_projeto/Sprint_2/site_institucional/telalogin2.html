@@ -23,6 +23,7 @@
     </div>
     <!--miolo-->
     <div id="arealogin">
+
         <div id="elipse">
             <img src="img/Ellipse 22.png" class="imagem circulo-topo" alt="circulo verde" width="350px">
         </div>
@@ -31,14 +32,63 @@
         </div>
         <div id="trianguloMeio">
             <img src="img/Polygon 3.png" class="imagem triangulo-meio" alt="triangulo verde" width="500px">
+            <label id="faca-login">Faça o Login em nossa</label>
+            <label id="plataforma">Plataforma</label>
         </div>
 
         <!-- começo retangulo login -->
         <div id="bloco-login">
-            <img src="img/Rectangle 6.png" class="retangulo-login" alt="retangulo login" width="350px">
+            <label id="bem-vindo"><i>Bem-vindo à Área de LOGIN</i></label><br><br>
+            <label id="preencher">Preencha os dados do login para acessar</label><br><br>
+            <label id="cim">CIM:</label>
+            <input type="number" id="iptLogin" placeholder="0000000000" min="0">
+            <div id="mensagem1"></div>
+            <label id="senha">Senha:</label>
+            <input type="password" id="iptSenha" placeholder="******">
+            <div id="mensagem2"></div>
+            <a href="#" id="recuperar">Recuperar Senha</a>
+
+            <a href="" id="dashboard"><button onclick="entrar()">Entrar</button></a>
         </div>
     </div>
-    <!-- footer -->
-</body>
 
+    <!-- footer -->
+    <div id="footer">
+        <div id="logoinfo">
+            <img src="img/logo armory white 2(1).png" class="logofooter" alt="logo ArmorySafe" width="200px">
+            <p>Sistema de monitoramento IoT que garante a segurança e preservação das munições em depósitos
+                militares</p>
+        </div>
+        <div id="contatos">
+            <h3>Contatos</h3>
+            <div id="contatosFilhos">
+
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+     function entrar() {
+        let login = Number(iptLogin.value);
+        let senha = iptSenha.value;
+
+        if (login === '' || login.length < 8 || login.length > 10 || login % 1 != 0){
+            mensagem1.innerHTML = `Insira o CIM válido no campo "CIM"`
+        } else if (senha === '') {
+            mensagem2.innerHTML = 'Insira uma senha no campo "Senha"'
+        } else if (senha.length < 6){
+            mensagem2.innerHTML = `Insira uma senha com no mínimo 7 caracteres`
+        } else{
+            dashboard.href = 'dashboard.html'
+        }
+    }
+
+    let imagens = ["img/o-email 1.png", "img/telefone 1.png", "img/localizacao.png"];
+    let texto = ["contato@armorysafe.com.br", "(11)99999-9999", "Rua Haddock Lobo"];
+
+    for (index = 0; index < imagens.length; index++) {
+        contatosFilhos.innerHTML += `<div> <img src="./${imagens[index]}" width="40px"> ${texto[index]}<br></div>`;
+        console.log(index)
+    }
+</script>
 </html>

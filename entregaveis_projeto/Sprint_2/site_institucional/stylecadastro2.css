@@ -4,8 +4,7 @@ body{
     margin: 0px;
     justify-content: center;
     align-items: center;
-    background-color: #476C31;
-    background-repeat: no-repeat;
+    background-color: #273121;
     background-size: cover, 100%;
 }
 
@@ -15,9 +14,9 @@ body{
     justify-content: space-between;
     text-align: center;
     gap: 30px;
-    background-color: #1A1D19;
+    background-color: #111910;
     color: white;
-    max-width: 100%;
+    max-width: 100vw;
     height: 100px;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -76,13 +75,326 @@ body{
     width: 210px;
 }
 
+.arealogin{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 5% auto;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #273121;
+    max-width: 500px;
+    height: auto;
+    padding: 20px;
+}
+
+#circulo-topo{
+    background-color: #273121;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+#triangulo-baixo{
+    background-color: #273121;
+    display: block;
+    justify-content: center;
+    align-self: flex-end;
+    flex-direction: row;
+}
+
+#trianguloMeio{
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    left: 55%;
+    top: 20%;
+}
+
+#trianguloMeio label{
+    font-family: Arial, Helvetica, sans-serif;   
+    color: #FFFFFF;
+}
+
+#faca-cadastro{
+    position: absolute;
+    font-size: 2rem;
+    left: 14%;
+    top: 35%;
+    width: 400px;
+    height: 40px;
+}
+
+#plataforma{
+    position: absolute;
+    font-size: 2.6rem;
+    left: 32%;
+    top: 43%;
+    width: 380px;
+    height: 40px;
+}
+
+#retangulo-login{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex-direction: row;
+}
+
+#bloco-login{
+    position: absolute;
+    background-color: white;
+    width: 30vw;
+    height: auto;
+    border-radius: 3%;
+    margin: auto;
+    left: 20%;
+    top: 25%;
+}
+
+#bem-vindo{
+    position: absolute;
+    font-size: 1.5rem;
+    left: 12%;
+    top: 4%;
+    width: 400px;
+    height: 40px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+}
+
+#preencher{
+    position: absolute;
+    font-size: 1rem;
+    left: 25%;
+    top: 15%;
+    width: 320px;
+    height: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#nome{
+    position: absolute;
+    font-size: 1rem;
+    left: 23%;
+    top: 25%;
+    width: 320px;
+    height: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#email{
+    position: absolute;
+    font-size: 1rem;
+    left: 23%;
+    top: 35%;
+    width: 320px;
+    height: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#telCel{
+    position: absolute;
+    font-size: 1rem;
+    left: 23%;
+    top: 45%;
+    width: 320px;
+    height: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#cim{
+    position: absolute;
+    font-size: 1rem;
+    left: 23%;
+    top: 55%;
+    width: 320px;
+    height: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#cargoMilitar{
+    position: absolute;
+    font-size: 1rem;
+    left: 23%;
+    top: 65%;
+    width: 320px;
+    height: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#orgMil{
+    position: absolute;
+    font-size: 1rem;
+    left: 23%;
+    top: 75%;
+    width: 320px;
+    height: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#municipio{
+    position: absolute;
+    font-size: 1rem;
+    left: 23%;
+    top: 85%;
+    width: 320px;
+    height: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#senha{
+    position: absolute;
+    font-size: 1rem;
+    left: 23%;
+    top: 95%;
+    width: 320px;
+    height: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#confSenha{
+    position: absolute;
+    font-size: 1rem;
+    left: 23%;
+    top: 105%;
+    width: 320px;
+    height: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#bloco-login input{
+    font-size: medium;
+    margin-top: 50px;
+}
+
+#iptNome{
+    position: absolute;
+    border: #FFFFFF;
+    border-bottom: 1px solid black;
+    left: 23%;
+    top: 20%;
+    width: 240px;
+    height: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#iptEmail{
+    position: absolute;
+    border: #FFFFFF;
+    border-bottom: 1px solid black;
+    left: 23%;
+    top: 45%;
+    width: 240px;
+    height: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#iptTelCel{
+    position: absolute;
+    border: #FFFFFF;
+    border-bottom: 1px solid black;
+    left: 23%;
+    top: 70%;
+    width: 240px;
+    height: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#iptCim{
+    position: absolute;
+    border: #FFFFFF;
+    border-bottom: 1px solid black;
+    left: 23%;
+    top: 95%;
+    width: 240px;
+    height: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#sltCargo{
+    position: absolute;
+    border: #FFFFFF;
+    border-bottom: 1px solid black;
+    left: 23%;
+    top: 120%;
+    width: 240px;
+    height: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#iptOrgMil{
+    position: absolute;
+    border: #FFFFFF;
+    border-bottom: 1px solid black;
+    left: 23%;
+    top: 145%;
+    width: 240px;
+    height: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#iptMunic{
+    position: absolute;
+    border: #FFFFFF;
+    border-bottom: 1px solid black;
+    left: 23%;
+    top: 170%;
+    width: 240px;
+    height: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#iptSenha{
+    position: absolute;
+    border: #FFFFFF;
+    border-bottom: 1px solid black;
+    left: 23%;
+    top: 195%;
+    width: 240px;
+    height: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#iptConfSenha{
+    position: absolute;
+    border: #FFFFFF;
+    border-bottom: 1px solid black;
+    left: 23%;
+    top: 220%;
+    width: 240px;
+    height: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#bloco-login input, ::placeholder{
+    text-align: center;
+}
+
+#bloco-login button{
+    position: absolute;
+    left: 13%;
+    top: 85%;
+    width: 340px;
+    height: 40px;
+    border: none;
+    border-radius: 7px;
+    background-color: limegreen;
+    color: white;
+    font-size: 1.0rem;
+}
+
+#bloco-login button:hover{
+    background-color: #476C31;
+}
+
 #footer{
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #1A1D19;
+    background-color: #111910;
     padding: 30px;
     color: #FFFFFF;
     font-size: 1.2rem;
@@ -109,9 +421,4 @@ body{
     justify-content: center;
     flex-direction: column;
     margin-bottom: 80px;
-}
-
-#contatos h3{
-    font-size: 1.6rem;
-    color: #5B9E60;
 }
