@@ -76,7 +76,9 @@
         <div class="introducao-solucao">
             <h1>A solução <span style="color: green;">ArmorySafe</span></h1>
             <p>
-                Nossa solução oferece monitoramento contínuo em tempo real, com uma dashboard intuitiva para fácil acompanhamento. Alertas instantâneos, enquanto nossa infraestrutura de segurança protege seus dados 24/7. Tenha controle total e tranquilidade com a nossa tecnologia de ponta.
+                Nossa solução oferece monitoramento contínuo em tempo real, com uma dashboard intuitiva para fácil
+                acompanhamento. Alertas instantâneos, enquanto nossa infraestrutura de segurança protege seus dados
+                24/7. Tenha controle total e tranquilidade com a nossa tecnologia de ponta.
             </p>
         </div>
 
@@ -126,8 +128,10 @@
                     <h2 class="titulos">Simule abaixo o impacto da umidade no valor das munições armazenadas.</h2>
 
                     <div>Informe a umidade média do paiól: <br>
-                        <input placeholder="EX: 45" type="text"
-                            id="iptUmidadeMedia"><div><input type="checkbox" id="iptNaoUmidadeMedia" class="checkbox" onclick="mediaPadrao()"> Não sei a umidade média.</div></div> 
+                        <input placeholder="EX: 45" type="text" id="iptUmidadeMedia">
+                        <div><input type="checkbox" id="iptNaoUmidadeMedia" class="checkbox" onclick="mediaPadrao()">
+                            Não sei a umidade média.</div>
+                    </div>
 
                     <p class="titulos">Selecione o calibre da munição armazenada abaixo:</p>
 
@@ -149,7 +153,8 @@
                         <input placeholder="EX: 45" type="text" id="iptQtd51mm" onkeyup="validacao51mm()">
                     </div>
                     <div id="mun105min" class="bloco-secundario">III - Quantidade de caixas de 105mm
-                        armazenadas:<br> <input placeholder="EX: 45" type="text" id="iptQtd105mm" onkeyup="validacao105mm()">
+                        armazenadas:<br> <input placeholder="EX: 45" type="text" id="iptQtd105mm"
+                            onkeyup="validacao105mm()">
                     </div>
                 </div>
             </div>
@@ -180,7 +185,7 @@
     <footer>
         <div class="rodape-sobre">
             <img src="img/logo armory white 2(1).png" alt="ArmorySafe Logotipo com Mensagem">
-            <p>Sistema de monitoramento IoT que garante a segurança e preservação das munições em depósitos militares 
+            <p>Sistema de monitoramento IoT que garante a segurança e preservação das munições em depósitos militares
             </p>
         </div>
 
@@ -204,11 +209,11 @@
 
     iptNaoUmidadeMedia.checked = false;
 
-    function mediaPadrao(){
-        if(iptNaoUmidadeMedia.checked == true){
+    function mediaPadrao() {
+        if (iptNaoUmidadeMedia.checked == true) {
             iptUmidadeMedia.value = 50;
             iptUmidadeMedia.readOnly = true;
-        }else{
+        } else {
             iptUmidadeMedia.value = ''
         }
     }
@@ -224,19 +229,19 @@
     let nomeMembro = ['Gabriel Medeiros', 'Larissa Dias', 'Lucas Gomes', 'Lucas Máximo', 'Matheus Yamakuti', 'Murilo Marinho'];
     let cargoMembro = [
 
-            'Desenvolvedor<br><img src="img/github-mark-white.png" style="width:15px"> <a class="botao-navegacao" href="https://github.com/gMedeiros23" target="_blank">Github</a>',
+        'Desenvolvedor<br><img src="img/github-mark-white.png" style="width:15px"> <a class="botao-navegacao" href="https://github.com/gMedeiros23" target="_blank">Github</a>',
 
-            'Desenvolvedora<br><img src="img/github-mark-white.png" style="width:15px"> <a class="botao-navegacao" href="https://github.com/larissadiassptech" target="_blank">Github</a>',
-            
-            'Desenvolvedor<br><img src="img/github-mark-white.png" style="width:15px"> <a class="botao-navegacao" href="https://github.com/lucasgslima558" target="_blank">Github</a>',
+        'Desenvolvedora<br><img src="img/github-mark-white.png" style="width:15px"> <a class="botao-navegacao" href="https://github.com/larissadiassptech" target="_blank">Github</a>',
 
-            'Desenvolvedor<br><img src="img/github-mark-white.png" style="width:15px"> <a class="botao-navegacao" href="https://github.com/Lucasmaximo0" target="_blank">Github</a>',
+        'Desenvolvedor<br><img src="img/github-mark-white.png" style="width:15px"> <a class="botao-navegacao" href="https://github.com/lucasgslima558" target="_blank">Github</a>',
 
-            'Desenvolvedor<br><img src="img/github-mark-white.png" style="width:15px"> <a class="botao-navegacao" href="https://github.com/MatheusYuji96" target="_blank">Github</a>',
+        'Desenvolvedor<br><img src="img/github-mark-white.png" style="width:15px"> <a class="botao-navegacao" href="https://github.com/Lucasmaximo0" target="_blank">Github</a>',
 
-            'Desenvolvedor<br><img src="img/github-mark-white.png" style="width:15px"> <a class="botao-navegacao" href="https://github.com/muriszk" target="_blank">Github</a>',
-            
-            ];
+        'Desenvolvedor<br><img src="img/github-mark-white.png" style="width:15px"> <a class="botao-navegacao" href="https://github.com/MatheusYuji96" target="_blank">Github</a>',
+
+        'Desenvolvedor<br><img src="img/github-mark-white.png" style="width:15px"> <a class="botao-navegacao" href="https://github.com/muriszk" target="_blank">Github</a>',
+
+    ];
 
     let imagemMembro = ['img/gabriel.jpg', 'img/larissa.jpg', 'img/lucasG.jpg', 'img/lucasM.jpg', 'img/fotoMatheus.jpg', 'img/murilo.jpg'];
 
@@ -273,7 +278,7 @@
 
     //----------------------------------------- Simulador financeiro ------------------------------------
 
-    function fechar(){
+    function fechar() {
         erros.innerHTML = ''
     }
     // Validações
@@ -414,11 +419,20 @@
                     labels: ['Economia(%)', 'Perda(%)'],
                     datasets: [{
                         label: 'Porcento(%): ',
-                        data: [1, 99],
+                        data: [99, 1],
                         borderWidth: 1
                     }]
                 },
                 options: {
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Porcentagem de Economia:',
+                            font: { size: 15 },
+                            color: '#fff',
+
+                        }
+                    },
                     scales: {
                         y: {
                             beginAtZero: true
