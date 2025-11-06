@@ -48,7 +48,7 @@
             <div id="mensagem2"></div>
             <a href="#" id="recuperar">Recuperar Senha</a>
 
-            <a href="" id="dashboard"><button onclick="entrar()">Entrar</button></a>
+            <button onclick="entrar()">Entrar</button>
         </div>
     </div>
 
@@ -72,8 +72,11 @@
         let login = Number(iptLogin.value);
         let senha = iptSenha.value;
 
-        if (login === '' || login.length < 8 || login.length > 10 || login % 1 != 0){
-            mensagem1.innerHTML = `Insira o CIM válido no campo "CIM"`
+        if (iptLogin.value === '' && senha === ''){
+            mensagem1.innerHTML = `Insira a CIM no campo`
+            mensagem2.innerHTML = `Insira a Senha no campo`
+        } else if (login.length < 8 || login.length > 10 || login % 1 != 0){
+            mensagem1.innerHTML = `Insira a CIM válido no campo "CIM"`
         } else if (senha === '') {
             mensagem2.innerHTML = 'Insira uma senha no campo "Senha"'
         } else if (senha.length < 6){
