@@ -35,42 +35,44 @@
             <label id="faca-cadastro">Faça o Cadastro em nossa</label>
             <label id="plataforma">Plataforma</label>
         </div>
+    </div>
 
-        <!-- começo retangulo login -->
-        <div id="bloco-login">
-            <span id="bloco-login-filho">
-                <label id="bem-vindo"><i>Bem-vindo à <br> Área de CADASTRO</i></label><br><br>
-                <label id="preencher">Preencha os dados do cadastro</label><br><br>
-                <label id="nome">Nome</label><br>
-                <input type="text" id="iptNome">
-                <label id="email">E-Mail</label><br>
-                <input type="text" id="iptEmail">
-                <label id="telCel">Telefone Celular:</label><br>
-                <input type="text" id="iptTelCel" placeholder="(**)*****-****">
-                <label id="cim">CIM:</label><br>
-                <input type="text" id="iptCim">
-                <label id="cargoMilitar">Cargo Militar:</label>
-                <select name="selectCargo" id="sltCargo">
-                    <option value="#">Selecione</option>
-                    <option value="Soldado">Soldado</option>
-                    <option value="Cabo">Cabo</option>
-                    <option value="Sargento">Sargento</option>
-                    <option value="Tenente">Tenente</option>
-                    <option value="Capitao">Capitão</option>
-                    <option value="Major">Major</option>
-                    <option value="Tenente-Coronel">Tenente-Coronel</option>
-                    <option value="General">General</option>
-                </select>
-                <label id="orgMil">Organização Militar:</label><br>
-                <input type="text" id="iptOrgMil">
-                <label id="municipio">Município:</label><br>
-                <input type="text" id="iptMunic">
-                <label id="senha">Senha:</label><br>
-                <input type="password" id="iptSenha" placeholder="*****">
-                <label id="confSenha">Confirme a Senha:</label><br>
-                <input type="password" id="iptConfSenha" placeholder="******">
-                <a href="" id="dashboard"><button onclick="entrar()">Entrar</button></a>
-            </span>
+    <!-- começo retangulo login -->
+    <div id="bloco-login">
+        <div id="bloco-login-itens">
+            <h1 id="bem-vindo"><i>Bem-vindo à <br> Área de CADASTRO</i></h1>
+            <h1 id="preencher">Preencha os dados do cadastro</h1>
+
+            <label for="nome">Nome</label>
+            <input type="text" id="iptNome">
+            <label id="email">E-Mail</label>
+            <input type="number" id="iptEmail">
+            <label id="telCel">Telefone Celular:</label>
+            <input type="text" id="iptTelCel" placeholder="(**)*****-****">
+            <label id="cim">CIM:</label>
+            <input type="text" id="iptCim">
+            <label id="cargoMilitar">Cargo Militar:</label>
+
+            <select name="selectCargo" id="sltCargo">
+                <option value="#">Selecione</option>
+                <option value="Soldado">Soldado</option>
+                <option value="Cabo">Cabo</option>
+                <option value="Sargento">Sargento</option>
+                <option value="Tenente">Tenente</option>
+                <option value="Capitao">Capitão</option>
+                <option value="Major">Major</option>
+                <option value="Tenente-Coronel">Tenente-Coronel</option>
+                <option value="General">General</option>
+            </select>
+            <label id="orgMil">Organização Militar:</label>
+            <input type="text" id="iptOrgMil">
+            <label id="municipio">Município:</label>
+            <input type="text" id="iptMunic">
+            <label id="senha">Senha:</label>
+            <input type="password" id="iptSenha" placeholder="*****">
+            <label id="confSenha">Confirme a Senha:</label>
+            <input type="password" id="iptConfSenha" placeholder="******">
+            <a href="" id="dashboard"><button onclick="entrar()">Entrar</button></a>
         </div>
     </div>
 

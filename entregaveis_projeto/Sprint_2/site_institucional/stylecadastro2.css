@@ -1,4 +1,4 @@
-body{
+body {
     box-sizing: border-box;
     padding: 0px;
     margin: 0px;
@@ -8,7 +8,7 @@ body{
     background-size: cover, 100%;
 }
 
-#header{
+#header {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -21,51 +21,51 @@ body{
     font-family: Arial, Helvetica, sans-serif;
 }
 
-#header a{
+#header a {
     text-decoration: none;
     padding: 10px;
     border-radius: 5px;
     margin-top: 5px;
 }
 
-.botoes-redirecionamento{
+.botoes-redirecionamento {
     border-radius: 5px;
     padding: 15px;
     font-size: 0.9rem;
     font-weight: bold;
 }
 
-.botao-home{
+.botao-home {
     background-color: #476C31;
     color: #FFFFFF;
     border: 1px solid #476C31;
 }
 
-.botao-home:hover{
+.botao-home:hover {
     background-color: #5B9E60;
     border-color: #5B9E60;
 }
 
-.botao-cadastro{
+.botao-cadastro {
     background-color: #FFFFFF;
     color: #3A5C21;
     border: 1px solid #FFFFFF;
 }
 
-.botao-cadastro:hover{
+.botao-cadastro:hover {
     background-color: #E0E0E0;
     color: #3A5C21;
     border-color: #E0E0E0;
 }
 
-#header h3{
+#header h3 {
     margin-left: 100px;
     margin-top: 50px;
     font-size: 4.2rem;
     font-weight: 100;
 }
 
-#menu{
+#menu {
     display: flex;
     align-items: center;
     justify-content: end;
@@ -75,27 +75,20 @@ body{
     width: 210px;
 }
 
-.arealogin{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    margin: 5% auto;
+#arealogin {
     font-family: Arial, Helvetica, sans-serif;
     background-color: #273121;
-    max-width: 500px;
-    height: auto;
-    padding: 20px;
+    max-width: 100%;
 }
 
-#circulo-topo{
+#circulo-topo {
     background-color: #273121;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
 }
 
-#triangulo-baixo{
+#triangulo-baixo {
     background-color: #273121;
     display: block;
     justify-content: center;
@@ -103,7 +96,7 @@ body{
     flex-direction: row;
 }
 
-#trianguloMeio{
+#trianguloMeio {
     display: flex;
     flex-direction: row;
     position: absolute;
@@ -111,12 +104,12 @@ body{
     top: 20%;
 }
 
-#trianguloMeio label{
-    font-family: Arial, Helvetica, sans-serif;   
+#trianguloMeio label {
+    font-family: Arial, Helvetica, sans-serif;
     color: #FFFFFF;
 }
 
-#faca-cadastro{
+#faca-cadastro {
     position: absolute;
     font-size: 2rem;
     left: 14%;
@@ -125,7 +118,7 @@ body{
     height: 40px;
 }
 
-#plataforma{
+#plataforma {
     position: absolute;
     font-size: 2.6rem;
     left: 32%;
@@ -134,249 +127,38 @@ body{
     height: 40px;
 }
 
-#retangulo-login{
+#retangulo-login {
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
     flex-direction: row;
 }
 
-#bloco-login{
+#bloco-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
     background-color: white;
     width: 30vw;
-    height: 1150px;
-    border-radius: 3%;
+    height: 700px;
+    border-radius: 40px;
     left: 20%;
     top: 25%;
 }
-#bloco-login-filho{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
 
-#bem-vindo{
-    position: absolute;
-    font-size: 1.5rem;
-    left: 12%;
-    top: 4%;
-    width: 400px;
-    height: 40px;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-weight: bold;
-}
-
-#preencher{
-    position: absolute;
-    font-size: 1rem;
-    left: 25%;
-    top: 15%;
-    width: 320px;
-    height: 40px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-#nome{
-    position: absolute;
-    font-size: 1rem;
-    left: 23%;
-    top: 25%;
-    width: 320px;
-    height: 40px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-#email{
-    position: absolute;
-    font-size: 1rem;
-    left: 23%;
-    top: 35%;
-    width: 320px;
-    height: 40px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-#telCel{
-    position: absolute;
-    font-size: 1rem;
-    left: 23%;
-    top: 45%;
-    width: 320px;
-    height: 40px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-#cim{
-    position: absolute;
-    font-size: 1rem;
-    left: 23%;
-    top: 55%;
-    width: 320px;
-    height: 40px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-#cargoMilitar{
-    position: absolute;
-    font-size: 1rem;
-    left: 23%;
-    top: 65%;
-    width: 320px;
-    height: 40px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-#orgMil{
-    position: absolute;
-    font-size: 1rem;
-    left: 23%;
-    top: 75%;
-    width: 320px;
-    height: 40px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-#municipio{
-    position: absolute;
-    font-size: 1rem;
-    left: 23%;
-    top: 85%;
-    width: 320px;
-    height: 40px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-#senha{
-    position: absolute;
-    font-size: 1rem;
-    left: 23%;
-    top: 95%;
-    width: 320px;
-    height: 40px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-#confSenha{
-    position: absolute;
-    font-size: 1rem;
-    left: 23%;
-    top: 105%;
-    width: 320px;
-    height: 40px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-#bloco-login input{
+#bloco-login input {
     font-size: medium;
-    margin-top: 50px;
-}
-
-#iptNome{
-    position: absolute;
-    border: #FFFFFF;
+    outline: none;
     border-bottom: 1px solid black;
-    left: 23%;
-    top: 20%;
-    width: 240px;
-    height: 40px;
-    font-family: Arial, Helvetica, sans-serif;
 }
 
-#iptEmail{
-    position: absolute;
-    border: #FFFFFF;
-    border-bottom: 1px solid black;
-    left: 23%;
-    top: 45%;
-    width: 240px;
-    height: 40px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-#iptTelCel{
-    position: absolute;
-    border: #FFFFFF;
-    border-bottom: 1px solid black;
-    left: 23%;
-    top: 70%;
-    width: 240px;
-    height: 40px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-#iptCim{
-    position: absolute;
-    border: #FFFFFF;
-    border-bottom: 1px solid black;
-    left: 23%;
-    top: 95%;
-    width: 240px;
-    height: 40px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-#sltCargo{
-    position: absolute;
-    border: #FFFFFF;
-    border-bottom: 1px solid black;
-    left: 23%;
-    top: 120%;
-    width: 240px;
-    height: 40px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-#iptOrgMil{
-    position: absolute;
-    border: #FFFFFF;
-    border-bottom: 1px solid black;
-    left: 23%;
-    top: 145%;
-    width: 240px;
-    height: 40px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-#iptMunic{
-    position: absolute;
-    border: #FFFFFF;
-    border-bottom: 1px solid black;
-    left: 23%;
-    top: 170%;
-    width: 240px;
-    height: 40px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-#iptSenha{
-    position: absolute;
-    border: #FFFFFF;
-    border-bottom: 1px solid black;
-    left: 23%;
-    top: 195%;
-    width: 240px;
-    height: 40px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-#iptConfSenha{
-    position: absolute;
-    border: #FFFFFF;
-    border-bottom: 1px solid black;
-    left: 23%;
-    top: 220%;
-    width: 240px;
-    height: 40px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-#bloco-login input, ::placeholder{
+#bloco-login input,
+::placeholder {
     text-align: center;
 }
 
-#bloco-login button{
+#bloco-login button {
     position: absolute;
     left: 13%;
     top: 85%;
@@ -389,11 +171,66 @@ body{
     font-size: 1.0rem;
 }
 
-#bloco-login button:hover{
+#bloco-login button:hover {
     background-color: #476C31;
 }
 
-#footer{
+#bloco-login-itens {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    border: none;
+    margin: 5%;
+}
+
+#bloco-login-itens input{
+    border-bottom: 1px solid black;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+#bem-vindo {
+    position: absolute;
+    font-size: 1.5rem;
+    left: 12%;
+    top: 4%;
+    width: 400px;
+    height: 40px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+}
+
+#preencher {
+    position: absolute;
+    font-size: 1rem;
+    left: 25%;
+    top: 15%;
+    width: 320px;
+    height: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* #nome {
+    position: absolute;
+    font-size: 1rem;
+    left: 23%;
+    top: 25%;
+    width: 320px;
+    height: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+} */
+
+#bloco-login-itens {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#footer {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -401,11 +238,12 @@ body{
     font-family: Arial, Helvetica, sans-serif;
     background-color: #111910;
     padding: 30px;
+    margin-top: 15%;
     color: #FFFFFF;
     font-size: 1.2rem;
 }
 
-#logoinfo{
+#logoinfo {
     margin-left: 150px;
     display: flex;
     align-items: center;
@@ -414,11 +252,11 @@ body{
     width: 100px;
 }
 
-#logoinfo p{
+#logoinfo p {
     width: 400px;
 }
 
-#contatos{
+#contatos {
     width: 400px;
     height: 100px;
     display: flex;
