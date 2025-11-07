@@ -40,7 +40,7 @@ body {
     gap: 10px;
     text-decoration: none;
     padding: 12px 29px;
-    transition: background 0.3s;
+    transition:  0.3s;
 }
 
 .barra-lateral .menu {
