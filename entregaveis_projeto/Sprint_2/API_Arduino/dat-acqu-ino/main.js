@@ -1,4 +1,4 @@
-// importa os bibliotecas necessários
+// importa os bibliotecas necessárias
 const serialport = require('serialport');
 const express = require('express');
 const mysql = require('mysql2');
