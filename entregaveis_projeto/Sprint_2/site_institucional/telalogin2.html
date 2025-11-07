@@ -15,13 +15,13 @@
             <div id="logo"><img src="img/logo armory white 2(1).png" class="logoheader" alt="logo ArmorySafe"
                     width="100rem"></div>
         </a>
-        <h3>ArmorySafe</h3>
+        <h1>ArmorySafe</h1>
         <div id="menu">
             <a class="botoes-redirecionamento botao-home" href="index.html">Home</a>
             <a class="botoes-redirecionamento botao-cadastro" href="telacadastro2.html">Cadastro</a>
         </div>
     </div>
-    <!--miolo-->
+    <!--miolo contendo imagens-->
     <div id="arealogin">
 
         <div id="elipse">
@@ -32,16 +32,16 @@
         </div>
         <div id="trianguloMeio">
             <img src="img/Polygon 3.png" class="imagem triangulo-meio" alt="triangulo verde" width="500px">
-            <label id="faca-login">Faça o Login em nossa</label>
-            <label id="plataforma">Plataforma</label>
+            <label id="faca-login">Entre em nossa</label>
+            <label id="plataforma">Plataforma!</label>
         </div>
 
         <!-- começo retangulo login -->
         <div id="bloco-login">
-            <label id="bem-vindo"><i>Bem-vindo à Área de LOGIN</i></label><br><br>
+            <label id="bem-vindo"><i>Bem-vindo ao LOGIN</i></label><br><br>
             <label id="preencher">Preencha os dados do login para acessar</label><br><br>
             <label id="cim">CIM:</label>
-            <input type="number" id="iptLogin" placeholder="0000000000" min="0">
+            <input type="number" id="iptLogin" placeholder="Digite aqui o seu CIM" min="0">
             <div id="mensagem1"></div>
             <label id="senha">Senha:</label>
             <input type="password" id="iptSenha" placeholder="******">
@@ -68,20 +68,20 @@
     </div>
 </body>
 <script>
-     function entrar() {
+    function entrar() {
         let login = Number(iptLogin.value);
         let senha = iptSenha.value;
 
-        if (iptLogin.value === '' && senha === ''){
+        if (iptLogin.value === '' && senha === '') {
             mensagem1.innerHTML = `Insira a CIM no campo`
             mensagem2.innerHTML = `Insira a Senha no campo`
-        } else if (login.length < 8 || login.length > 10 || login % 1 != 0){
+        } else if (login.length < 8 || login.length > 10 || login % 1 != 0) {
             mensagem1.innerHTML = `Insira a CIM válido no campo "CIM"`
         } else if (senha === '') {
             mensagem2.innerHTML = 'Insira uma senha no campo "Senha"'
-        } else if (senha.length < 6){
+        } else if (senha.length < 6) {
             mensagem2.innerHTML = `Insira uma senha com no mínimo 7 caracteres`
-        } else{
+        } else {
             dashboard.href = 'dashboard.html'
         }
     }
@@ -94,4 +94,5 @@
         console.log(index)
     }
 </script>
+
 </html>

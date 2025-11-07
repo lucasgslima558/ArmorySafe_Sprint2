@@ -145,11 +145,16 @@ body{
     position: absolute;
     background-color: white;
     width: 30vw;
-    height: auto;
+    height: 1150px;
     border-radius: 3%;
-    margin: auto;
     left: 20%;
     top: 25%;
+}
+#bloco-login-filho{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 #bem-vindo{
