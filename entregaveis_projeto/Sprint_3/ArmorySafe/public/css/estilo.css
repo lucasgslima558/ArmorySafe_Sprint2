@@ -1,0 +1,597 @@
+/* Reset e Estilos Básicos */
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    display: flex;
+    background-color: #1A1D19;
+    color: white;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+button {
+    cursor: pointer;
+}
+
+.secao-principal {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 5px 5%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(26, 29, 25);
+    z-index: 1000;
+}
+
+.logo-cabecalho {
+    width: 75px;
+    height: auto;
+}
+
+.container-botoes-navegacao {
+    display: flex;
+    gap: 30px;
+    margin-left: 5%;
+}
+
+.botao-navegacao {
+    background: none;
+    border: none;
+    color: inherit;
+    font-size: 1rem;
+    padding: 5px 0;
+    position: relative;
+    text-decoration: none;
+}
+
+.botao-navegacao:hover {
+    color: #5B9E60;
+}
+
+.botao-navegacao:hover::after {
+    width: 100%;
+}
+
+.container-botoes-autenticacao {
+    display: flex;
+    gap: 10px;
+}
+
+.botao-autenticacao {
+    border-radius: 5px;
+    padding: 8px 15px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.botao-login {
+    background-color: #476C31;
+    color: #FFFFFF;
+    border: 1px solid #476C31;
+}
+
+.botao-login:hover {
+    background-color: #5B9E60;
+    border-color: #5B9E60;
+}
+
+.botao-cadastro {
+    background-color: #FFFFFF;
+    color: #476C31;
+    border: 1px solid #FFFFFF;
+}
+
+.botao-cadastro:hover {
+    background-color: #E0E0E0;
+    color: #3A5C21;
+    border-color: #E0E0E0;
+}
+
+.conteudo-principal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 900px;
+    padding: 0 20px;
+    margin-top: 100px;
+}
+
+.conteudo-principal h1 {
+    font-size: 5rem;
+    padding-bottom: 15px;
+    border-bottom: 3px solid #476C31;
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
+
+.conteudo-principal h3 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    color: #D0D0D0;
+}
+
+.conteudo-principal p {
+    font-size: 1.5rem;
+    line-height: 1.4;
+    text-align: center;
+    margin-bottom: 40px;
+    max-width: 700px;
+}
+
+.acoes-principais {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.botao-acao {
+    width: 220px;
+    height: 55px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 7px;
+    text-transform: uppercase;
+}
+
+.botao-primario {
+    background-color: #476C31;
+    color: white;
+    border: none;
+}
+
+.botao-primario:hover {
+    background-color: #5B9E60;
+}
+
+.botao-secundario {
+    background: none;
+    color: #476C31;
+    border: #476C31 solid 2px;
+}
+
+.botao-secundario:hover {
+    background-color: #476C31;
+    color: white;
+}
+
+/* Seção Problema */
+.secao-problemas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: black;
+    padding: 80px 20px;
+    background-image: url("../assets/imgs/ArmorySAFE 1.png");
+    background-size: cover;
+    background-position: center;
+    height: 130vh;
+    padding-top: 100px;
+}
+
+.secao-problemas h2 {
+    color: #333;
+}
+
+.cartao-problema--principal {
+    background-color: #F6F6E0;
+    border-radius: 15px;
+    padding: 40px;
+    margin-bottom: 40px;
+    max-width: 600px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.cartao-problema--principal img {
+    width: 90px;
+    margin-bottom: 20px;
+}
+
+.cartao-problema--principal h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.cartao-problema--principal p {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.container-cartoes-problema {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1200px;
+}
+
+.cartao-problema {
+    background-color: #F6F6E0;
+    border-radius: 15px;
+    width: 300px;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    max-height: 280px;
+}
+
+.cartao-problema img {
+    width: 70px;
+    margin-bottom: 15px;
+}
+
+.cartao-problema h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.cartao-problema p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #555;
+}
+
+/* Seção Solução */
+
+.secao-solucao {
+    width: 100%;
+    height: 130vh;
+    padding: 40px 5%;
+    background-image: url(img/backgroundSecao1-copia.png);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 70px;
+}
+
+.introducao-solucao {
+    text-align: center;
+    margin-bottom: 45px;
+    max-width: 900px;
+}
+
+.introducao-solucao h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.introducao-solucao h1 span {
+    color: #476C31;
+}
+
+.introducao-solucao p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #D0D0D0;
+}
+
+.container-recursos-solucao {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 50%;
+}
+
+.recurso-solucao {
+    display: flex;
+    align-items: flex-start;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 30px;
+    padding: 22px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.icone-recurso {
+    height: 50px;
+    max-width: 50px;
+    margin-right: 20px;
+}
+
+.recurso-solucao div {
+    flex-grow: 1;
+}
+
+.recurso-solucao h2 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: #5B9E60;
+}
+
+.recurso-solucao p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #E0E0E0;
+}
+
+/*Seção Membro*/
+.secao-equipe {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 20px;
+    min-height: 100vh;
+    text-align: center;
+    background-color: #2A2D29;
+    margin-top: 15px;
+    padding-top: 80px;
+}
+
+.secao-equipe h1 {
+    font-size: 3rem;
+    margin-bottom: 30px;
+    color: #FFFFFF;
+}
+
+.container-membros-equipe {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    max-width: 1200px;
+}
+
+.cartao-membro-equipe {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    padding: 30px;
+    width: 280px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    height: 270px;
+}
+
+.foto-membro-equipe {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 4px solid #476C31;
+}
+
+.nome-membro-equipe {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    color: #5B9E60;
+}
+
+.cargo-membro-equipe {
+    font-size: 1.1rem;
+    color: #D0D0D0;
+}
+
+/* Rodapé */
+
+footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 60px 5%;
+    background-color: #1A1D19;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+footer h3 {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    color: #5B9E60;
+}
+
+footer p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #E0E0E0;
+}
+
+.rodape-sobre {
+    text-align: left;
+    max-width: 350px;
+}
+
+.rodape-sobre img {
+    width: 120px;
+    margin-bottom: 20px;
+}
+
+.rodape-contato {
+    max-width: 250px;
+}
+
+.rodape-demonstracao {
+    max-width: 300px;
+    text-align: center;
+}
+
+.rodape-demonstracao button {
+    background-color: #476C31;
+    color: white;
+    border-radius: 7px;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.rodape-demonstracao button:hover {
+    background-color: #5B9E60;
+}
+
+/* Simulador Financeiro */
+
+.secao-simulador-financeiro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 25px;
+    margin-left: 50px;
+    margin-right: 50px;
+    /* min-height: 100vh; */
+    padding-top: 50px;
+}
+
+.secao-simulador-financeiro button {
+    font-size: 1.2rem;
+    padding: 10px;
+    background-color: #476C31;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.secao-simulador-financeiro h1 {
+    margin-bottom: 20px;
+}
+
+.containerSimulador {
+    display: flex;
+    gap: 18px;
+}
+
+.bloco {
+    background-color: rgba(50, 50, 50);
+    padding: 25px;
+    border: 2px solid #26311f;
+    border-radius: 25px;
+    margin: 10px;
+    font-size: 0.9rem;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.8);
+}
+
+.bloco input[type=text] {
+    width: 12%;
+    padding: 5px;
+    color: rgb(212, 211, 211);
+    background-color: rgba(50, 50, 50);
+    border: 0;
+    border-bottom: 2px solid rgba(250, 250, 250);
+    outline: 0;
+    margin-bottom: 10px;
+}
+
+.titulos {
+    color: #476C31;
+}
+
+.colunaSimulador {
+    display: flex;
+    flex-direction: column;
+}
+
+.colunaSimulador h2 {
+    margin-bottom: 20px;
+}
+
+.colunaSimulador p {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.checkbox {
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border: 2px solid white;
+    border-radius: 50%;
+    cursor: pointer;
+    outline: none;
+    margin-top: 5px;
+    margin-right: 5px;
+}
+
+.checkbox:checked {
+    background-color: #ffffff;
+    border-color: #ffffff;
+}
+
+.bloco-secundario {
+    padding: 10px;
+    border-radius: 15px;
+    margin: 5px;
+    font-size: 0.9rem;
+}
+
+#extrato {
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+}
+
+#extrato p {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#mensagemSimular {
+    width: 100%;
+    display: flex;
+}
+
+#mensagemSimular div {
+    margin-top: 20px;
+    padding: 20px;
+}
+
+#graficoSimulador {
+    width: 250px;
+}
+
+.erro {
+    position: fixed;
+    width: 200px;
+    height: 150px;
+    top: 8%;
+    right: 1%;
+    background-color: red;
+    z-index: 1000;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid white;
+}
+
+.erro p {
+    padding: 20px;
+
+}
+
+.butaoErro {
+    width: 20px;
+    align-self: flex-end;
+    background-color: red;
+    border: none;
+    font-size: 20px;
+    color: white;
+    border-radius: 10px;
+}

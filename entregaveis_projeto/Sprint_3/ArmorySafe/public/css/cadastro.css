@@ -1,0 +1,267 @@
+body {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+    justify-content: center;
+    align-items: center;
+    background-color: #273121;
+    background-size: cover, 100%;
+}
+
+#header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    gap: 30px;
+    background-color: #111910;
+    color: white;
+    max-width: 100vw;
+    height: 100px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#header a {
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.botoes-redirecionamento {
+    border-radius: 5px;
+    padding: 15px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.botao-home {
+    background-color: #476C31;
+    color: #FFFFFF;
+    border: 1px solid #476C31;
+}
+
+.botao-home:hover {
+    background-color: #5B9E60;
+    border-color: #5B9E60;
+}
+
+.botao-cadastro {
+    background-color: #FFFFFF;
+    color: #3A5C21;
+    border: 1px solid #FFFFFF;
+}
+
+.botao-cadastro:hover {
+    background-color: #E0E0E0;
+    color: #3A5C21;
+    border-color: #E0E0E0;
+}
+
+#header h3 {
+    margin-left: 100px;
+    margin-top: 50px;
+    font-size: 4.2rem;
+    font-weight: 100;
+}
+
+#menu {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    flex-direction: row;
+    gap: 20px;
+    margin-right: 10px;
+    width: 210px;
+}
+
+#arealogin {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #273121;
+    max-width: 100%;
+}
+
+#circulo-topo {
+    background-color: #273121;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+#triangulo-baixo {
+    background-color: #273121;
+    display: block;
+    justify-content: center;
+    align-self: flex-end;
+    flex-direction: row;
+}
+
+#trianguloMeio {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    left: 55%;
+    top: 20%;
+}
+
+#trianguloMeio label {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #FFFFFF;
+}
+
+#faca-cadastro {
+    position: absolute;
+    font-size: 2rem;
+    left: 14%;
+    top: 35%;
+    width: 400px;
+    height: 40px;
+}
+
+#plataforma {
+    position: absolute;
+    font-size: 2.6rem;
+    left: 32%;
+    top: 43%;
+    width: 380px;
+    height: 40px;
+}
+
+#retangulo-login {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex-direction: row;
+}
+
+#bloco-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background-color: white;
+    width: 30vw;
+    height: 700px;
+    border-radius: 40px;
+    left: 20%;
+    top: 25%;
+}
+
+#bloco-login input {
+    font-size: medium;
+    outline: none;
+    border-bottom: 1px solid black;
+}
+
+#bloco-login input,
+::placeholder {
+    text-align: center;
+}
+
+#bloco-login button {
+    position: absolute;
+    left: 13%;
+    top: 85%;
+    width: 340px;
+    height: 40px;
+    border: none;
+    border-radius: 7px;
+    background-color: limegreen;
+    color: white;
+    font-size: 1.0rem;
+}
+
+#bloco-login button:hover {
+    background-color: #476C31;
+}
+
+#bloco-login-itens {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    border: none;
+    margin: 5%;
+}
+
+#bloco-login-itens input{
+    border-bottom: 1px solid black;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+#bem-vindo {
+    position: absolute;
+    font-size: 1.5rem;
+    left: 12%;
+    top: 4%;
+    width: 400px;
+    height: 40px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+}
+
+#preencher {
+    position: absolute;
+    font-size: 1rem;
+    left: 25%;
+    top: 15%;
+    width: 320px;
+    height: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* #nome {
+    position: absolute;
+    font-size: 1rem;
+    left: 23%;
+    top: 25%;
+    width: 320px;
+    height: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+} */
+
+#bloco-login-itens {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #111910;
+    padding: 30px;
+    margin-top: 15%;
+    color: #FFFFFF;
+    font-size: 1.2rem;
+}
+
+#logoinfo {
+    margin-left: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100px;
+}
+
+#logoinfo p {
+    width: 400px;
+}
+
+#contatos {
+    width: 400px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 80px;
+}
