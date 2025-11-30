@@ -18,7 +18,7 @@
         <h1>ArmorySafe</h1>
         <div id="menu">
             <a class="botoes-redirecionamento botao-home" href="index.html">Home</a>
-            <a class="botoes-redirecionamento botao-login" href="telalogin2.html">Login</a>
+            <a class="botoes-redirecionamento botao-login" href="telalogin.html">Login</a>
         </div>
     </div>
     <!--miolo contendo imagens-->
@@ -53,7 +53,7 @@
                 </div>
                 <div class="campo">
                     <label id="cim">CIM (apenas números):</label>
-                    <input type="text" id="iptCIM" placeholder="Digite aqui o seu CIM" min="0">
+                    <input type="text" id="iptCim" placeholder="Digite aqui o seu CIM" min="0">
                     <div id="msgCim"></div>
                 </div>
                 <div class="campo">
@@ -74,23 +74,23 @@
                 <div class="campo">
                     <label id="orgM">Organização Militar:</label>
                     <input type="text" id="iptOrgM" placeholder="Digite aqui a sua Org. Militar">
+                    <div id="msgOrg"></div>
                 </div>
-                <div id="msgOrg"></div>
                 <div class="campo">
                     <label id="municipio">Município:</label>
                     <input type="text" id="iptMunicipio" placeholder="Digite aqui o Município da Org.">
+                    <div id="msgMunic"></div>
                 </div>
-                <div id="msgMunic"></div>
                 <div class="campo">
                     <label id="senha">Senha:</label>
                     <input type="password" id="iptSenha" placeholder="******">
+                    <div id="msgSenha"></div>
                 </div>
-                <div id="msgSenha"></div>
                 <div class="campo">
                     <label id="confSenha">Confirme a Senha:</label>
                     <input type="password" id="iptConfSenha" placeholder="******">
+                    <div id="msgConf"></div>
                 </div>
-                <div id="msgConf"></div>
 
                 <button onclick="cadastrar()">Cadastrar</button>
             </div>
@@ -116,14 +116,14 @@
     function cadastrar() {
         let nome = iptNome.value;
         let email = iptEmail.value;
-        let cim = Number(iptCIM.value);
+        let cim = Number(iptCim.value);
         let cargoMiliar = sltCargo.value;
         let orgMilitar = iptOrgM.value;
         let municipio = iptMunicipio.value
         let senha = iptSenha.value;
         let confirmSenha = iptConfSenha.value;
         if (iptNome.value == '' || nome.length < 7){
-            msgNome.innerHTML = `Insira o seu Nome Completo` /*&& iptEmail.value == '' && iptCim.value == '' && sltCargo.value == '#' && iptOrgMil.value == '' && iptMunic.value == '' && iptSenha.value == '' && iptConfSenha.value == '') {*/
+            msgNome.innerHTML = `Insira o seu nome completo`
         }
         if (!email.includes('@') || !email.includes('.com')) {
             msgEmail.innerHTML = `Insira um e-mail contendo "@" e ".com"`
@@ -136,10 +136,10 @@
             msgCim.innerHTML = `Insira seu CIM contendo Dez dígitos`
         }
         if (sltCargo.value == '#') {
-            msgCargo = `Selecione o seu cargo militar`
+            msgCargo.innerHTML = `Selecione o seu cargo militar`
         }
         if (iptOrgM.value == '' || orgMilitar.length <= 2) {
-            msgOrg.innerHTML = `Insira a Organização Militar ao qual está lotado`
+            msgOrg.innerHTML = `Insira a sua Organização Militar`
         }
         if (iptMunicipio.value == '' || municipio.length <= 1) {
             msgMunic.innerHTML = `Insira o município onde está lotado`
@@ -150,7 +150,7 @@
             msgSenha.innerHTML = `Senha muito curta. Insira uma senha com no mínimo 6 caracteres`
         }
         if (iptConfSenha.value == '') {
-            msgConf.innerHTML = `Digite novamente a senha no "Confirme a Senha"`
+            msgConf.innerHTML = `Digite novamente a senha`
         } else if (confirmSenha != senha) {
             msgConf.innerHTML = `A senha deve ser a mesma do "Confirme a Senha"`
         } else {

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - ArmorySafe</title>
+    <link rel="stylesheet" href="styledashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="barra-lateral">
+        <div class="logo">
+            <img src="img/logo armory green.png" alt="Logo ARMORYSAFE">
+        </div>
+
+        <nav class="menu">
+            <a href="#" class="menu-relatorio">
+                <img src="img/icone-relatorio.png" class="icone">Relatórios</a>
+
+            <a class="menu-suporte">Suporte</a>
+
+            <a href="mailto:armorysafe@armorysafe.com" class="menu-contato">
+                <img src="img/icone-contato.png" class="icone">Contato</a>
+
+            <a href="telalogin.html" class="menu-sair">
+                <img src="img/icone-sair.png" class="icone">Sair</a>
+
+        </nav>
+        <hr class="separador">
+        <div class="nome-militar">Soldado</div>
+        <div class="email-militar">Soldado@exercito.com</div>
+    </div>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main>
+        <header>
+            <h1>Relatórios</h1>
+            <hr class="separador-2">
+        </header>
+
+        <!-- CARDS -->
+        <div class="container-cards">
+            <section class="cards">
+                <div class="card">
+                    <p class="descricao">Umidade máxima registrada - Hoje </p>
+                    <h2>40%</h2>
+                </div>
+
+                <div class="card">
+                    <p class="descricao">Umidade mínima registrada - Hoje</p>
+                    <h2>30%</h2>
+                </div>
+
+                <div class="card">
+                    <p class="descricao">Variação entre umidade máxima e minima - Hoje</p>
+<<<<<<< HEAD
+                    <h2>75%</h2>
+=======
+                    <h2>25%</h2>
+>>>>>>> 7181c2eda7555ead2577f33e41b83c72694ecca8
+                </div>
+
+                <div class="card">
+                    <p class="descricao">Tempo fora do intervalo ideal - Hoje</p>
+                    <h2>5min</h2>
+                </div>
+
+                <div class="card">
+                    <p class="descricao">Porcentagem do Tempo na Faixa Ideal(35–50%) - Diário </p>
+                    <h2>40,33%</h2>
+                </div>
+
+                <div class="card">
+                    <p class="descricao">Porcentagem do Tempo na Faixa Ideal(35–50%) - Semanal </p>
+                    <h2>35%</h2>
+                </div>
+    
+            </section>
+            <div>
+                <h4>Leituras de Umidade em Intervalo de 1 Minuto</h4>
+                <canvas id="myChart1" class="graficos"></canvas>
+            </div>
+        </div>
+        <div style="display: flex;">
+            <div><h4>Média de Umidade por Dia (Últimos 9 dias)</h4><canvas id="myChart2" class="graficos"></canvas></div>
+            <div><h4>Resumo Semanal de Controle de Umidade</h4><canvas id="myChart3" class="graficos"></canvas></div>
+        </div>
+        </div>
+    </main>
+</body>
+
+</html>
+<script>
+    const ctx = document.getElementById('myChart1');
+
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['07:01', '07:02', '07:03', '07:04', '07:05', '07:06', '07:07', '07:08', '07:09', '07:10'],
+            datasets: [{
+                label: 'Umidade Média em %',
+                data: [30, 31, 32, 33, 34, 35, 36, 37, 38, 38, 37, 39, 40],
+                borderColor: 'blue',
+                borderWidth: 1
+            },
+            {
+                label: 'Limite Máximo (50%)',
+                data: [50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50],
+                borderColor: 'red',
+                borderWidth: 2,
+                borderDash: [5, 5],
+                borderColor: 'red'
+            },
+            {
+                label: 'Limite Mínimo (35%)',
+                data: [35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35],
+                borderColor: 'blue',
+                borderWidth: 2,
+                borderDash: [5, 5],
+                borderColor: 'red'
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+
+    const ctx2 = document.getElementById('myChart2');
+
+    new Chart(ctx2, {
+        type: 'line',
+        data: {
+            labels: ['01/11', '02/11', '03/11', '04/11', '05/11', '06/11', '07/11', '08/11', '09/11'],
+            datasets: [{
+                label: 'Umidade Média em %',
+                data: [34, 50, 55, 30, 25, 40, 35, 57, 42, 40, 23, 53],
+                borderColor: 'blue',
+                borderWidth: 1
+            },
+            {
+                label: 'Limite Máximo (50%)',
+                data: [50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50],
+                borderColor: 'red',
+                borderWidth: 2,
+                borderDash: [5, 5],
+                borderColor: 'red'
+            },
+            {
+                label: 'Limite Mínimo (35%)',
+                data: [35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35],
+                borderColor: 'blue',
+                borderWidth: 2,
+                borderDash: [5, 5],
+                borderColor: 'red'
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    const ctx3 = document.getElementById('myChart3');
+
+    new Chart(ctx3, {
+        type: 'bar',
+        data: {
+<<<<<<< HEAD
+            labels: ['outubro-01', 'outubro-02', 'outubro-03', 'outubro-04', 'novembro-01', 'novembro-02'],
+            datasets: [{
+                label: 'Umidade Média Mensal(%)',
+                data: [10, 55, 40, 45, 30, 30],
+=======
+            labels: ['Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado','Domingo'],
+            datasets: [{
+                label: 'Umidade Média Semanal(%)',
+                data: [10, 55, 40, 45, 30, 30, 35],
+>>>>>>> 7181c2eda7555ead2577f33e41b83c72694ecca8
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+
+</script>
+
+</html>

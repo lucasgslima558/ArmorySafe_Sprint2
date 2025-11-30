@@ -134,31 +134,43 @@ body {
     flex-direction: row;
 }
 
-#bloco-login {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#bloco-cadastro {
     position: absolute;
+    display: flex;
     background-color: white;
     width: 30vw;
-    height: 700px;
-    border-radius: 40px;
-    left: 20%;
-    top: 25%;
+    height: 65vh;
+    border-radius: 3%;
+    margin: auto;
 }
 
-#bloco-login input {
+#bloco-cadastro #preencher {
+    position: absolute;
+    top: 30%;
+}
+
+#bloco-cadastro-itens {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    border: none;
+    margin: 5%;
+}
+
+#bloco-cadastro input {
     font-size: medium;
     outline: none;
     border-bottom: 1px solid black;
 }
 
-#bloco-login input,
+#bloco-cadastro input,
 ::placeholder {
     text-align: center;
 }
 
-#bloco-login button {
+#bloco-cadastro button {
     position: absolute;
     left: 13%;
     top: 85%;
@@ -171,21 +183,12 @@ body {
     font-size: 1.0rem;
 }
 
-#bloco-login button:hover {
+#bloco-cadastro button:hover {
     background-color: #476C31;
 }
 
-#bloco-login-itens {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    margin: 0;
-    border: none;
-    margin: 5%;
-}
 
-#bloco-login-itens input{
+#bloco-cadastro-itens input{
     border-bottom: 1px solid black;
     border-top: none;
     border-left: none;
@@ -223,7 +226,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 } */
 
-#bloco-login-itens {
+#bloco-cadastro-itens {
     display: flex;
     align-items: center;
     justify-content: center;

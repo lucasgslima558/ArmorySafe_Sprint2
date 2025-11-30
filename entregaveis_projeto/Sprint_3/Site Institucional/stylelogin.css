@@ -50,13 +50,13 @@ body {
     border-color: #5B9E60;
 }
 
-.botao-login {
+.botao-cadastro {
     background-color: #FFFFFF;
     color: #3A5C21;
     border: 1px solid #FFFFFF;
 }
 
-.botao-login:hover {
+.botao-cadastro:hover {
     background-color: #E0E0E0;
     color: #3A5C21;
     border-color: #E0E0E0;
@@ -88,7 +88,7 @@ body {
     margin: 5% auto;
     background-color: #273121;
     max-width: 100%;
-    height: auto;
+    height: 100%;
     padding: 20px;
 }
 
@@ -145,181 +145,85 @@ body {
     flex-direction: row;
 }
 
-.regular-login {
-    height: 700px;
-    position: relative;
-}
-
 #bloco-login {
     position: absolute;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     background-color: white;
-    padding: 10px;
     width: 30vw;
-    border-radius: 5%;
+    height: 65vh;
+    border-radius: 3%;
     margin: auto;
     left: 20%;
-    top: -83%;
-}
-
-#bloco-login input, select {
-    border: none;
-    border-bottom: 1px solid black;
-    height: 32px;
-    font-size: 1rem;
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-}
-
-.campo {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    margin-bottom: 40px;
+    top: 25%;
 }
 
 #bem-vindo {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: center;
+    position: absolute;
     font-size: 1.2rem;
-    padding: 18px 0 22px 20px;
+    left: 16%;
+    top: 4%;
+    width: 320px;
+    height: 40px;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight: bold;
 }
 
 #preencher {
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    padding: 0 0 29px 0;
+    position: absolute;
     font-size: 1rem;
+    left: 20%;
+    top: 15%;
+    width: 320px;
+    height: 40px;
     font-family: Arial, Helvetica, sans-serif;
     color: #0000007f;
 }
 
-#nome {
-    display: flex;
-    justify-content: flex-start;
-    width: 260px;
-    font-size: 1rem;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-#iptNome {
-    border: #FFFFFF;
-    border-bottom: 1px solid black;
-    width: 260px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-#email {
-    font-size: 1rem;
-    width: 260px;
-    height: 20px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-#iptEmail {
-    border: #FFFFFF;
-    border-bottom: 1px solid black;
-    display: flex;
-    justify-content: center;
-    width: 260px;
-    height: 40px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
 #cim {
+    position: absolute;
     font-size: 1rem;
-    width: 260px;
-    height: 20px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-#iptCIM {
-    border: #FFFFFF;
-    border-bottom: 1px solid black;
-    width: 260px;
-    height: 40px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-#cargoM {
-    font-size: 1rem;
-    width: 260px;
-    height: 20px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-#sltCargo {
-    border: #FFFFFF;
-    border-bottom: 1px solid black;
-    width: 260px;
-    height: 40px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-#orgM {
-    font-size: 1rem;
-    width: 260px;
-    height: 20px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-#iptOrgM {
-    border: #FFFFFF;
-    border-bottom: 1px solid black;
-    width: 260px;
-    height: 40px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-#municipio {
-    font-size: 1rem;
-    width: 260px;
-    height: 20px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-#iptMunicipio {
-    border: #FFFFFF;
-    border-bottom: 1px solid black;
-    width: 260px;
+    left: 23%;
+    top: 25%;
+    width: 320px;
     height: 40px;
     font-family: Arial, Helvetica, sans-serif;
 }
 
 #senha {
+    position: absolute;
     font-size: 1rem;
-    width: 260px;
-    height: 20px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-#iptSenha {
-    border: #FFFFFF;
-    border-bottom: 1px solid black;
-    width: 260px;
+    left: 23%;
+    top: 50%;
+    width: 320px;
     height: 40px;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-#confSenha {
-    font-size: 1rem;
-    width: 260px;
-    height: 20px;
+#bloco-login input {
+    font-size: medium;
+    margin-top: 50px;
+}
+
+#iptLogin {
+    position: absolute;
+    border: #FFFFFF;
+    border-bottom: 1px solid black;
+    left: 23%;
+    top: 20%;
+    width: 240px;
+    height: 40px;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-#iptConfSenha {
+#iptSenha {
+    position: absolute;
     border: #FFFFFF;
     border-bottom: 1px solid black;
-    width: 260px;
+    left: 23%;
+    top: 45%;
+    width: 240px;
     height: 40px;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -345,9 +249,12 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-/*#recuperar {
+#recuperar {
+    position: absolute;
     font-size: 1rem;
-    width: 150px;
+    left: 34%;
+    top: 72%;
+    width: 320px;
     height: 40px;
     color: black;
     font-size: 1.2rem;
@@ -360,17 +267,19 @@ body {
 
 #recuperar input {
     width: 15px;
-}*/
+}
 
 #bloco-login button {
-    width: 260px;
+    position: absolute;
+    left: 13%;
+    top: 85%;
+    width: 340px;
     height: 40px;
     border: none;
     border-radius: 7px;
     background-color: limegreen;
     color: white;
     font-size: 1.0rem;
-    margin-bottom: 40px;
 }
 
 #bloco-login button:hover {
