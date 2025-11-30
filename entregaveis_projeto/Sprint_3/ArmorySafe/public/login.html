@@ -19,7 +19,7 @@
     <div id="header">
         <a href="">
             <div id="logo"><img src="assets/imgs/logo armory green.png" class="logoheader" alt="logo ArmorySafe"
-            width="100rem"></div>
+                    width="100rem"></div>
         </a>
         <h1><a href="index.html">ArmorySafe</a></h1>
         <div id="menu">
@@ -52,6 +52,7 @@
             <label id="senha">Senha:</label>
             <input type="password" id="iptSenha" placeholder="******">
             <div id="mensagem2"></div>
+            <div id="div_aguardar" style="display: none;">teste</div> <!--Adicionar o loading-->
             <a href="#" id="recuperar">Recuperar Senha</a>
 
             <button onclick="entrar()">Entrar</button>
@@ -79,14 +80,13 @@
 
 <script>
 
-
     function entrar() {
         aguardar();
 
-        var emailVar = email_input.value;
-        var senhaVar = senha_input.value;
+        var cim = iptLogin.value;
+        var senha = iptSenha.value;
 
-        if (emailVar == "" || senhaVar == "") {
+        if (cim == "" || senha == "") {
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
             finalizarAguardar();
@@ -96,8 +96,8 @@
             setInterval(sumirMensagem, 5000)
         }
 
-        console.log("FORM LOGIN: ", emailVar);
-        console.log("FORM SENHA: ", senhaVar);
+        console.log("FORM LOGIN: ", cim);
+        console.log("FORM SENHA: ", senha);
 
         fetch("/usuarios/autenticar", {
             method: "POST",
@@ -105,8 +105,8 @@
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                emailServer: emailVar,
-                senhaServer: senhaVar
+                cim: cim,
+                senha: senha
             })
         }).then(function (resposta) {
             console.log("ESTOU NO THEN DO entrar()!")
@@ -117,14 +117,19 @@
                 resposta.json().then(json => {
                     console.log(json);
                     console.log(JSON.stringify(json));
-                    sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.ID_USUARIO = json.id;
-                    sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
-
-                    setTimeout(function () {
-                        window.location = "./dashboard/cards.html";
-                    }, 1000); // apenas para exibir o loading
+                    sessionStorage.NIVEL_USUARIO = json.cargoUsuario
+                    
+                    if (json.cargoUsuario == 'usuario') {
+                        setTimeout(function () {
+                            window.location = "./dashboard/cards.html";
+                        }, 1000); // apenas para exibir o loading
+                    }else{
+                        setTimeout(function () {
+                            window.location = "http://localhost:3334";
+                        },1000); // apenas para exibir o loading
+                    }
 
                 });
 
