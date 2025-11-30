@@ -44,44 +44,34 @@
         <div class="container-cards">
             <section class="cards">
                 <div class="card">
-                    <p class="descricao">Umidade máxima registrada - Hoje </p>
+                    <p class="descricao">Umidade máxima registrada - Últimas 24 horas </p>
                     <h2>40%</h2>
                 </div>
 
                 <div class="card">
-                    <p class="descricao">Umidade mínima registrada - Hoje</p>
+                    <p class="descricao">Umidade mínima registrada - Últimas 24 horas </p>
                     <h2>30%</h2>
                 </div>
 
                 <div class="card">
-                    <p class="descricao">Variação entre umidade máxima e minima - Hoje</p>
-                    <h2>25%</h2>
+                    <p class="descricao">Tendência Semanal da Umidade</p>
+                    <h2>-2% (Queda)</h2>
                 </div>
 
                 <div class="card">
-                    <p class="descricao">Tempo fora do intervalo ideal - Hoje</p>
-                    <h2>5min</h2>
-                </div>
-
-                <div class="card">
-                    <p class="descricao">Porcentagem do Tempo na Faixa Ideal(35–50%) - Diário </p>
-                    <h2>40,33%</h2>
-                </div>
-
-                <div class="card">
-                    <p class="descricao">Porcentagem do Tempo na Faixa Ideal(35–50%) - Semanal </p>
-                    <h2>35%</h2>
+                    <p class="descricao">Média de tempo fora do intervalo ideal - Últimos sete dias</p>
+                    <h2>50,4min</h2>
                 </div>
     
             </section>
-            <div>
-                <h4>Leituras de Umidade em Intervalo de 1 Minuto</h4>
+            <div id="graficoSuperior">
+                <h4>Evolução da umidade nas últimas 24 horas</h4>
                 <canvas id="myChart1" class="graficos"></canvas>
             </div>
         </div>
         <div style="display: flex;">
-            <div><h4>Média de Umidade por Dia (Últimos 9 dias)</h4><canvas id="myChart2" class="graficos"></canvas></div>
-            <div><h4>Resumo Semanal de Controle de Umidade</h4><canvas id="myChart3" class="graficos"></canvas></div>
+            <div><h4>Tendência Semanal da Umidade</h4><canvas id="myChart2" class="graficos"></canvas></div>
+            <div><h4>Tempo fora do limite ideal em minutos - Últimos sete dias</h4><canvas id="myChart3" class="graficos"></canvas></div>
         </div>
         </div>
     </main>
@@ -94,26 +84,28 @@
     new Chart(ctx, {
         type: 'line',
         data: {
-            labels: ['07:01', '07:02', '07:03', '07:04', '07:05', '07:06', '07:07', '07:08', '07:09', '07:10'],
+            labels: ['07:00', '08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00', '24:00', '19:00', '20:00', '21:00', '22:00', '23:00', '24:00'],
             datasets: [{
                 label: 'Umidade Média em %',
-                data: [30, 31, 32, 33, 34, 35, 36, 37, 38, 38, 37, 39, 40],
-                borderColor: 'blue',
+                data: [30, 31, 32, 33, 34, 35, 36, 37, 38, 38, 37, 39, 40, 31, 32, 33, 34, 35, 36, 37, 38, 38, 37, 39, 40],
+                borderColor: 'green',
                 borderWidth: 1
             },
             {
                 label: 'Limite Máximo (50%)',
-                data: [50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50],
+                data: [50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50],
                 borderColor: 'red',
                 borderWidth: 2,
+                pointRadius: 0,
                 borderDash: [5, 5],
                 borderColor: 'red'
             },
             {
                 label: 'Limite Mínimo (35%)',
-                data: [35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35],
-                borderColor: 'blue',
+                data: [35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35],
+                borderColor: 'red',
                 borderWidth: 2,
+                pointRadius: 0,
                 borderDash: [5, 5],
                 borderColor: 'red'
             }]
@@ -133,28 +125,12 @@
     new Chart(ctx2, {
         type: 'line',
         data: {
-            labels: ['01/11', '02/11', '03/11', '04/11', '05/11', '06/11', '07/11', '08/11', '09/11'],
+            labels: ['01/11', '02/11', '03/11', '04/11', '05/11', '06/11', '07/11'],
             datasets: [{
-                label: 'Umidade Média em %',
-                data: [34, 50, 55, 30, 25, 40, 35, 57, 42, 40, 23, 53],
-                borderColor: 'blue',
+                label: 'Umidade Média em (%) - Últimos sete dias',
+                data: [50, 47, 42, 37, 34, 32, 30],
+                borderColor: 'green',
                 borderWidth: 1
-            },
-            {
-                label: 'Limite Máximo (50%)',
-                data: [50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50],
-                borderColor: 'red',
-                borderWidth: 2,
-                borderDash: [5, 5],
-                borderColor: 'red'
-            },
-            {
-                label: 'Limite Mínimo (35%)',
-                data: [35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35],
-                borderColor: 'blue',
-                borderWidth: 2,
-                borderDash: [5, 5],
-                borderColor: 'red'
             }]
         },
         options: {
@@ -171,11 +147,12 @@
     new Chart(ctx3, {
         type: 'bar',
         data: {
-            labels: ['Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado','Domingo'],
+            labels: ['01/11', '02/11', '03/11', '04/11', '05/11', '06/11', '07/11'],
             datasets: [{
-                label: 'Umidade Média Semanal(%)',
-                data: [10, 55, 40, 45, 30, 30, 35],
-                borderWidth: 1
+                label: 'Tempo total fora do intervalo ideal (min) - Últimos sete dias',
+                data: [50, 40, 30, 10, 20, 50, 20],
+                borderWidth: 1,
+                backgroundColor: 'green'
             }]
         },
         options: {
