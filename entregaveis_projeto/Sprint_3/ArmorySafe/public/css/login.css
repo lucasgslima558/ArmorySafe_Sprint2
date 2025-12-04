@@ -75,6 +75,10 @@ body {
     font-weight: 100;
 }
 
+#mensagem_erro{
+    display: none;
+}
+
 #menu {
     display: flex;
     align-items: center;

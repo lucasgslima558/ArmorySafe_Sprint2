@@ -56,6 +56,8 @@
             <a href="#" id="recuperar">Recuperar Senha</a>
 
             <button onclick="entrar()">Entrar</button>
+
+            <div id="mensagem_erro"> Preencha todos os campos</div>
         </div>
     </div>
 
@@ -86,9 +88,8 @@
         var cim = iptLogin.value;
         var senha = iptSenha.value;
 
-        if (cim == "" || senha == "") {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+        if (cim == 0 || senha == "") {
+            mensagem_erro.style.display = "block"
             finalizarAguardar();
             return false;
         }
