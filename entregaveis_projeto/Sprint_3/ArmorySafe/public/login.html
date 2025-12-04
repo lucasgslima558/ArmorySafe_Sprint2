@@ -52,7 +52,7 @@
             <label id="senha">Senha:</label>
             <input type="password" id="iptSenha" placeholder="******">
             <div id="mensagem2"></div>
-            <div id="div_aguardar" style="display: none;">teste</div> <!--Adicionar o loading-->
+            <div id="div_aguardar" style="display: none;"></div> <!--Adicionar o loading-->
             <a href="#" id="recuperar">Recuperar Senha</a>
 
             <button onclick="entrar()">Entrar</button>
@@ -127,7 +127,7 @@
                         }, 1000); // apenas para exibir o loading
                     }else{
                         setTimeout(function () {
-                            window.location = "http://localhost:3334";
+                            window.location = "./public/index.html";
                         },1000); // apenas para exibir o loading
                     }
 
