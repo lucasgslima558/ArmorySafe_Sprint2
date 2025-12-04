@@ -11,74 +11,52 @@ function autenticar(req, res) {
     } else {
 
         usuarioModel.autenticar(cim, senha)
-            .then(
-                function (resultadoAutenticar) {
-                    console.log(`\nResultados encontrados: ${resultadoAutenticar.length}`);
-                    console.log(`Resultados: ${JSON.stringify(resultadoAutenticar)}`); // transforma JSON em String
+            .then(function (resultadoAutenticar) {
 
-                    if (resultadoAutenticar.length == 1) {
-                        console.log(resultadoAutenticar);
+                if (resultadoAutenticar.length == 1) {
+                    res.json({
+                        id: resultadoAutenticar[0].idUsuario,
+                        cim: resultadoAutenticar[0].cim,
+                        nome: resultadoAutenticar[0].nome,
+                        senha: resultadoAutenticar[0].senha,
+                        cargoUsuario: resultadoAutenticar[0].cargoUsuario
+                    });
 
-                        res.json({
-                            id: resultadoAutenticar[0].id,
-                            cim: resultadoAutenticar[0].cim,
-                            nome: resultadoAutenticar[0].nome,
-                            senha: resultadoAutenticar[0].senha,
-                            cargoUsuario: resultadoAutenticar[0].cargoUsuario
-                        });
-
-                    } else if (resultadoAutenticar.length == 0) {
-                        res.status(403).send("Cim e/ou senha inválido(s)");
-                    } else {
-                        res.status(403).send("Mais de um usuário com o mesmo login e senha!");
-                    }
+                } else if (resultadoAutenticar.length == 0) {
+                    res.status(403).send("Cim e/ou senha inválido(s)");
+                } else {
+                    res.status(403).send("Mais de um usuário com o mesmo login!");
                 }
-            ).catch(
-                function (erro) {
-                    console.log(erro);
-                    console.log("\nHouve um erro ao realizar o login! Erro: ", erro.sqlMessage);
-                    res.status(500).json(erro.sqlMessage);
-                }
-            );
+            })
+            .catch(function (erro) {
+                console.log("ERRO LOGIN:", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            });
     }
-
 }
 
 function cadastrar(req, res) {
-    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
-    var nome = req.body.nomeServer;
-    var email = req.body.emailServer;
-    var senha = req.body.senhaServer;
-    var fkEmpresa = req.body.idEmpresaVincularServer;
 
-    // Faça as validações dos valores
-    if (nome == undefined) {
-        res.status(400).send("Seu nome está undefined!");
-    } else if (email == undefined) {
-        res.status(400).send("Seu email está undefined!");
-    } else if (senha == undefined) {
-        res.status(400).send("Sua senha está undefined!");
-    } else if (fkEmpresa == undefined) {
-        res.status(400).send("Sua empresa a vincular está undefined!");
-    } else {
+    var nome = req.body.nome;
+    var cim = req.body.cim;
+    var cargo = req.body.cargo;
+    var organizacao = req.body.organizacao;
+    var senha = req.body.senha;
 
-        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nome, email, senha, fkEmpresa)
-            .then(
-                function (resultado) {
-                    res.json(resultado);
-                }
-            ).catch(
-                function (erro) {
-                    console.log(erro);
-                    console.log(
-                        "\nHouve um erro ao realizar o cadastro! Erro: ",
-                        erro.sqlMessage
-                    );
-                    res.status(500).json(erro.sqlMessage);
-                }
-            );
-    }
+    if (!nome) return res.status(400).send("Nome undefined");
+    if (!cim) return res.status(400).send("CIM undefined");
+    if (!cargo) return res.status(400).send("Cargo undefined");
+    if (!organizacao) return res.status(400).send("Organização undefined");
+    if (!senha) return res.status(400).send("Senha undefined");
+
+    usuarioModel.cadastrar(organizacao, nome, cim, cargo, senha)
+        .then(function (resultado) {
+            res.json(resultado);
+        })
+        .catch(function (erro) {
+            console.log("ERRO CADASTRO:", erro.sqlMessage);
+            res.status(500).json(erro.sqlMessage);
+        });
 }
 
 module.exports = {

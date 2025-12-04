@@ -1,24 +1,21 @@
-var database = require("../database/config")
+var database = require("../database/config");
 
 function autenticar(cim, senha) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", cim, senha)
     var instrucaoSql = `
-        SELECT idUsuario, cim, nome, senha, cargoUsuario FROM usuario WHERE cim = '${cim}' AND senha = '${senha}';
+        SELECT idUsuario, cim, nome, senha, cargoUsuario 
+        FROM usuario 
+        WHERE cim = '${cim}' AND senha = '${senha}';
     `;
-    console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
 
-// Coloque os mesmos parâmetros aqui. Vá para a var instrucaoSql
-function cadastrar(nome, email, senha, fkEmpresa) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, email, senha, fkEmpresa);
-    
-    // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
-    //  e na ordem de inserção dos dados.
+function cadastrar(organizacao, nome, cim, cargo, senha) {
+
     var instrucaoSql = `
-        INSERT INTO usuario (nome, email, senha, fk_empresa) VALUES ('${nome}', '${email}', '${senha}', '${fkEmpresa}');
+        INSERT INTO usuario (fkOrganizacao_Militar, nome, cim, cargoUsuario, senha)
+        VALUES ('${organizacao}', '${nome}', '${cim}', '${cargo}', '${senha}');
     `;
-    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+
     return database.executar(instrucaoSql);
 }
 
