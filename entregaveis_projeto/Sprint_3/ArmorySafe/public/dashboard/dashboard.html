@@ -77,20 +77,20 @@
 
         <div class="barra-lateral">
             <div class="logo">
-                <img src="img/logo armory green.png" alt="Logo ARMORYSAFE">
+                <img src="./assets/imgs/armory green.png" alt="Logo ARMORYSAFE">
             </div>
 
             <nav class="menu">
                 <a href="#" class="menu-relatorio">
-                    <img src="img/icone-relatorio.png" class="icone">Relatórios</a>
+                    <img src="./assets/imgs/icone-relatorio.png" class="icone">Relatórios</a>
 
                 <a class="menu-suporte">Suporte</a>
 
                 <a href="mailto:armorysafe@armorysafe.com" class="menu-contato">
-                    <img src="img/icone-contato.png" class="icone">Contato</a>
+                    <img src="./assets/imgs/icone-contato.png" class="icone">Contato</a>
 
                 <a href="telalogin.html" class="menu-sair">
-                    <img src="img/icone-sair.png" class="icone">Sair</a>
+                    <img src="./assets/imgs/icone-sair.png" class="icone">Sair</a>
 
             </nav>
             <hr class="separador">
@@ -109,7 +109,7 @@
             <div class="container-cards">
                 <section class="cards">
                     <div class="card">
-                        <p class="descricao">Umidade máxima registrada - Últimas 24 horas </p>
+                        <p class="descricao">Umidade máxima registrada</p>
                         <h2>40%</h2>
                     </div>
 
@@ -119,22 +119,27 @@
                     </div>
 
                     <div class="card">
-                        <p class="descricao">Tendência Semanal da Umidade</p>
+                        <p class="descricao">Umidade Semanal da Umidade</p>
                         <h2>-2% (Queda)</h2>
                     </div>
 
                     <div class="card">
-                        <p class="descricao">Média de tempo fora do intervalo ideal - Últimos sete dias</p>
-                        <h2>50,4min</h2>
+                        <p class="descricao">Tempo fora do intervalo ideal - Últimos sete dias</p>
+                        <h2>5 min</h2>
+                    </div>
+
+                    <div class="card">
+                        <p class="descricao">Tempo fora do intervalo ideal - Últimos sete dias</p>
+                        <h2>5 min</h2>
                     </div>
 
                 </section>
                 <div id="graficoSuperior">
-                    <h4>Evolução da umidade nas últimas 24 horas</h4>
+                    <h4>Monitoramento de Umidade</h4>
                     <canvas id="myChart1" class="graficos"></canvas>
                 </div>
             </div>
-            <div style="display: flex;">
+            <!-- <div style="display: flex;">
                 <div>
                     <h4>Tendência Semanal da Umidade</h4><canvas id="myChart2" class="graficos"></canvas>
                 </div>
@@ -142,7 +147,7 @@
                     <h4>Tempo fora do limite ideal em minutos - Últimos sete dias</h4><canvas id="myChart3"
                         class="graficos"></canvas>
                 </div>
-            </div>
+            </div> -->
             </div>
         </main>
 
@@ -152,6 +157,7 @@
 
 <script>
     // inicio dashboard (chartJs)
+    let umidadeMaxima = [];
 
     const ctx = document.getElementById('myChart1');
 
@@ -161,13 +167,13 @@
             labels: ['07:00', '08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00', '24:00', '19:00', '20:00', '21:00', '22:00', '23:00', '24:00'],
             datasets: [{
                 label: 'Umidade Média em %',
-                data: [30, 31, 32, 33, 34, 35, 36, 37, 38, 38, 37, 39, 40, 31, 32, 33, 34, 35, 36, 37, 38, 38, 37, 39, 40],
+                data: [30, 31, 32, 33, 34, 35, 36, 37, 38, 38, 37, 39, 40, 31, 32, 33, 34, 35, 36, 37, 38, 38, 37, 39, 40], // aqui serão inserido dados do banco de dados
                 borderColor: 'green',
                 borderWidth: 1
             },
             {
                 label: 'Limite Máximo (50%)',
-                data: [50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50],
+                data: [50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50], // aqui serão inseridos dados do banco de dados
                 borderColor: 'red',
                 borderWidth: 2,
                 pointRadius: 0,
@@ -176,7 +182,7 @@
             },
             {
                 label: 'Limite Mínimo (35%)',
-                data: [35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35],
+                data: [35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35], // aqui serã inseridos dados do banco de dados
                 borderColor: 'red',
                 borderWidth: 2,
                 pointRadius: 0,
@@ -202,7 +208,7 @@
             labels: ['01/11', '02/11', '03/11', '04/11', '05/11', '06/11', '07/11'],
             datasets: [{
                 label: 'Umidade Média em (%) - Últimos sete dias',
-                data: [50, 47, 42, 37, 34, 32, 30],
+                data: [50, 47, 42, 37, 34, 32, 30], // aqui serão inseridos dados do banco de dados
                 borderColor: 'green',
                 borderWidth: 1
             }]
@@ -224,7 +230,7 @@
             labels: ['01/11', '02/11', '03/11', '04/11', '05/11', '06/11', '07/11'],
             datasets: [{
                 label: 'Tempo total fora do intervalo ideal (min) - Últimos sete dias',
-                data: [50, 40, 30, 10, 20, 50, 20],
+                data: [50, 40, 30, 10, 20, 50, 20], // aqui serão inseridos dados do banco de dados
                 borderWidth: 1,
                 backgroundColor: 'green'
             }]
@@ -239,13 +245,15 @@
     });
 
 
-    // início base para o projeto
+    // INÍCIO DA BASE (DA API)
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
     let proximaAtualizacao;
 
     window.onload = exibirAquariosDoUsuario();
 
+
+    // mostra dados referentes a aquários inseridos no banco de dados
     function exibirAquariosDoUsuario() {
         var aquarios = JSON.parse(sessionStorage.AQUARIOS);
         aquarios.forEach(item => {
