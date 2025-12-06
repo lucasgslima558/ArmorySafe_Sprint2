@@ -86,7 +86,8 @@ INSERT INTO usuario (fkOrganizacao_Militar, nome, cim, senha, cargoUsuario) VALU
 	(1, 'Roberto Lima', '1234567890', 'senha123', 'General'),
 	(2, 'Gabriela Gomes', '0987654321', 'segura456', 'Sargento'),
 	(3, 'Ronaldo Nascimento', '1122334455', 'teste789', 'Major'),
-	(4, 'Victor Duarte', '5566778899', 'militar2024', 'Subtenente')
+	(4, 'Victor Duarte', '5566778899', 'militar2024', 'Subtenente'),
+    (4, 'Paulo Rocha', NULL, 'u7t4092pe', 'Civil');
 
 -- Criação de tabela de paiol
 
@@ -149,30 +150,27 @@ CREATE TABLE leitura (
 -- Inserindo dados na tabela
 
 INSERT INTO leitura (fkSensor, umidade, dtLeitura) VALUES
-	(1, 27.45, '2025-02-11 08:30:00'),
-	(2, 26.80, '2025-03-02 10:15:00'),
-	(3, 29.50, '2025-03-16 11:30:00'),
-	(4, 25.90, '2025-04-02 12:00:00');
+	(1, 30.45, CURRENT_DATE);
     
 -- Selecionando dados do banco
 
 -- Dados gerais
 
-SELECT usuario.nome AS 'Nome do Usuário',
-	usuario.cim AS 'Carteira de Identificação Militar',
-    usuario.senha AS 'Senha (Mocada)',
-    usuario.cargoUsuario AS 'Cargo do Usuário',
-    cm.nome AS 'Comando responsável',
-    cm.contato AS 'Contato do CM',
-    om.nome AS 'Nome da OM',
-    om.sigla AS 'Sigla',
-    CONCAT(endereco.logradouro, ', ', endereco.bairro, ', ', endereco.cidade, ', ', endereco.uf, ', ', endereco.cep) AS 'Endereço da OM',
-    paiol.nome AS 'Nome do Paiol',
-    paiol.capacidade AS 'Capacidade',
-    paiol.status AS 'Status do Paiol',
-    sensor.nomenclatura AS 'Nomenclatura do Arduino',
-    sensor.status AS 'Status do Arduino',
-    leitura.umidade AS 'Umidade'
+SELECT usuario.nome AS nomeUsuario,
+	IFNULL(usuario.cim, 'Sem CIM') AS cim,
+    usuario.senha AS senha,
+    usuario.cargoUsuario AS cargoUsuario,
+    cm.nome AS nomeCM,
+    cm.contato AS contato,
+    om.nome AS nomeOM,
+    om.sigla AS sigla,
+    CONCAT(endereco.logradouro, ', ', endereco.bairro, ', ', endereco.cidade, ', ', endereco.uf, ', ', endereco.cep) AS endereco,
+    paiol.nome AS nomePaiol,
+    paiol.capacidade AS capacidade,
+    paiol.status AS statusPaiol,
+    sensor.nomenclatura AS nomeSensor,
+    sensor.status AS statusSensor,
+    leitura.umidade AS umidade
 	FROM usuario
 		JOIN organizacao_militar AS om
 			ON usuario.fkOrganizacao_Militar = om.idOrganizacao_Militar
@@ -189,59 +187,145 @@ SELECT usuario.nome AS 'Nome do Usuário',
 		
 -- Organização Militar + Comando + Endereço
 
-SELECT om.nome AS 'Nome da OM',
-    om.sigla AS 'Sigla',
-    cm.nome AS 'Comando responsável',
-    cm.contato 'Contato do CM',
-    CONCAT(endereco.logradouro, ', ', endereco.bairro, ', ', endereco.cidade, ', ', endereco.uf, ', ', endereco.cep) AS 'Endereço'
+SELECT om.nome AS nomeOM,
+    om.sigla AS sigla,
+    cm.nome AS nomeCM,
+    cm.contato AS contatoCM,
+    CONCAT(endereco.logradouro, ', ', endereco.bairro, ', ', endereco.cidade, ', ', endereco.uf, ', ', endereco.cep) AS endereco
 	FROM organizacao_militar AS om
 		JOIN comando_militar AS cm
 			ON fkComando_Militar = idComando_Militar
 		JOIN endereco
 			ON fkEndereco = idEndereco;
     
--- Organizacao Militar + Soldado
+-- Organização Militar + Soldado
 
-SELECT usuario.nome AS 'Nome do Usuário',
-    usuario.cim AS 'Carteira de Identificação Militar',
-    usuario.senha AS 'Senha (mocada)',
-    usuario.cargoUsuario AS 'Cargo do Usuário',
-    om.nome AS 'Nome',
-    om.sigla AS 'Sigla'
+SELECT usuario.nome AS nomeUsuario,
+    IFNULL(usuario.cim, 'Sem CIM') AS cim,
+    usuario.senha AS senha,
+    usuario.cargoUsuario AS cargoUsuario,
+    om.nome AS nomeOM,
+    om.sigla AS sigla
 	FROM usuario
 		JOIN organizacao_militar AS om
 			ON fkOrganizacao_Militar = idOrganizacao_Militar;
 
 -- Organização militar + Paiol
 
-SELECT om.nome AS 'Nome da OM',
-	om.sigla AS 'Sigla',
-    paiol.nome AS 'Nome do Paiol',
-    paiol.capacidade AS 'Capacidade',
+SELECT om.nome AS nomeOM,
+	om.sigla AS sigla,
+    paiol.nome AS nomePaiol,
+    paiol.capacidade AS capacidade,
     CASE
 		WHEN paiol.status = 1 THEN 'Ativo'
         ELSE 'Inativo'
-        END AS 'Status do Paiol'
+        END AS statusPaiol
 	FROM organizacao_militar AS om
 		JOIN paiol
 			ON fkOrganizacao_Militar = idOrganizacao_Militar;
 
 -- Paiol + Sensor + Leitura
 
-SELECT paiol.nome AS 'Nome do Paiol',
-	paiol.capacidade AS 'Capacidade',
+SELECT paiol.nome AS nomePaiol,
+	paiol.capacidade AS capacidade,
     CASE
 		WHEN paiol.status = 1 THEN 'Ativo'
         ELSE 'Inativo'
-        END AS 'Status do Paiol',
-	sensor.nomenclatura AS 'Nomenclatura do Sensor',
+        END AS statusPaiol,
+	sensor.nomenclatura AS nomeSensor,
 	CASE
 		WHEN sensor.status = 1 THEN 'Ativo'
         ELSE 'Inativo'
-        END AS 'Status do Sensor',
-	leitura.umidade AS 'Umidade'
+        END AS statusSensor,
+	leitura.umidade AS umidade
 	FROM paiol
 		JOIN sensor
 			ON fkPaiol = idPaiol
 		JOIN leitura
 			ON fkSensor = idSensor;
+            
+-- Criação de Views
+
+-- View geral
+
+CREATE VIEW vw_geral AS
+SELECT usuario.nome AS nomeUsuario,
+	IFNULL(usuario.cim, 'Sem CIM') AS cim,
+    usuario.senha AS senha,
+    usuario.cargoUsuario AS cargoUsuario,
+    cm.nome AS nomeCM,
+    cm.contato AS contato,
+    om.nome AS nomeOM,
+    om.sigla AS sigla,
+    CONCAT(end.logradouro, ', ', end.bairro, ', ', end.cidade, ', ', end.uf, ', ', end.cep) AS endereco,
+    p.nome AS nomePaiol,
+    p.capacidade AS capacidade,
+    p.status AS statusPaiol,
+    s.nomenclatura AS nomeSensor,
+    s.status AS statusSensor,
+    l.umidade AS umidade
+	FROM usuario
+		JOIN organizacao_militar AS om
+			ON usuario.fkOrganizacao_Militar = om.idOrganizacao_Militar
+		JOIN comando_militar AS cm
+			ON om.fkComando_Militar = cm.idComando_Militar
+		JOIN endereco end
+			ON om.fkEndereco = end.idEndereco
+		JOIN paiol p
+			ON p.fkOrganizacao_Militar = om.idOrganizacao_Militar
+		JOIN sensor s
+			ON s.fkPaiol = p.idPaiol
+		JOIN leitura l
+			ON l.fkSensor = s.idSensor;
+            
+-- View OM, CM, Endereço
+
+CREATE VIEW vw_om_cm_endereco AS
+SELECT cm.nome AS nomeCM,
+	cm.contato AS contato,
+	om.nome AS nomeOM,
+	om.sigla AS sigla,
+    CONCAT(end.logradouro, ', ', end.bairro, ', ', end.cidade, ', ', end.uf, ', ', end.cep) AS endereco
+    FROM comando_militar cm
+	JOIN organizacao_militar om 
+		ON cm.idComando_Militar = om.fkComando_Militar
+	JOIN endereco end
+		ON om.fkEndereco = end.idEndereco;
+        
+-- View OM, Paiol, Sensor, Leitura
+
+CREATE VIEW vw_om_paiol_sensor_leitura AS
+SELECT om.nome AS nomeOM,
+	om.sigla AS sigla,
+    p.nome AS nomePaiol,
+    p.capacidade AS capacidade,
+    p.status AS statusPaiol,
+    s.nomenclatura AS nomeSensor,
+    s.status AS statusSensor,
+    l.umidade AS umidade,
+    l.dtLeitura AS dtHoraLeitura
+    FROM organizacao_militar om
+    JOIN paiol p
+		ON p.fkOrganizacao_Militar = om.idOrganizacao_Militar
+	JOIN sensor s
+		ON s.fkPaiol = p.idPaiol
+	JOIN leitura l
+		ON l.fkSensor = s.idSensor;
+
+-- View para Dashboard
+
+CREATE VIEW vw_dashboard AS
+SELECT p.nome AS nomePaiol,
+	p.status AS statusPaiol,
+    MAX(l.umidade) AS umidade_maxima,
+	MIN(l.umidade) AS umidade_minima,
+    DAY(l.dtLeitura) AS dia_leitura,
+    MINUTE(l.dtLeitura) AS minuto_leitura,
+    COUNT(l.idLeitura) AS quantidade_emissoes
+    FROM sensor s
+	JOIN leitura l
+		ON l.fkSensor = s.idSensor
+	JOIN paiol p
+		ON s.fkPaiol = p.idPaiol
+	WHERE DAY(l.dtLeitura) = DAY(CURDATE()) AND p.idPaiol = 1
+	GROUP BY l.dtLeitura;
