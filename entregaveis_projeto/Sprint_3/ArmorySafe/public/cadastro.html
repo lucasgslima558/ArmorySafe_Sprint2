@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro - ArmorySafe</title>
+    <title>Cadastro | ArmorySafe</title>
     <link rel="stylesheet" href="css/cadastro.css">
 </head>
 
@@ -15,14 +15,14 @@
             <div id="logo"><img src="./assets/imgs/logo armory white 2(1).png" class="logoheader" alt="logo ArmorySafe"
                     width="100rem"></div>
         </a>
-        <h3>ArmorySafe</h3>
+        <h3><a id="nomeSolucao" href="index.html">ArmorySafe</a></h3>
         <div id="menu">
             <a class="botoes-redirecionamento botao-home" href="index.html">Home</a>
-            <a class="botoes-redirecionamento botao-cadastro" href="cadastro.html">Cadastro</a>
+            <a class="botoes-redirecionamento botao-login" href="login.html">Login</a>
         </div>
     </div>
 
-    <div id="arealogin">
+    <div id="areaCadastro">
         <div id="elipse">
             <img src="./assets/imgs/Ellipse 22.png" class="imagem circulo-topo" alt="circulo verde" width="350px">
         </div>
@@ -32,13 +32,13 @@
         <div id="trianguloMeio">
             <img src="./assets/imgs/Polygon 3.png" class="imagem triangulo-meio" alt="triangulo verde" width="500px">
             <label id="faca-cadastro">Faça o Cadastro em nossa</label>
-            <label id="plataforma">Plataforma</label>
+            <label id="plataforma">Plataforma!</label>
         </div>
     </div>
 
     <!-- cadastro -->
-    <div id="bloco-login">
-        <div id="bloco-login-itens">
+    <div id="blocoCadastro">
+        <div id="blocoCadastroItens">
             <h1 id="bem-vindo"><i>Bem-vindo à <br> Área de CADASTRO</i></h1>
             <h1 id="preencher">Preencha os dados do cadastro</h1>
 
@@ -136,7 +136,7 @@
             });
     }
 
-    let imagens = ["img/o-email 1.png", "img/telefone 1.png", "img/localizacao.png"];
+    let imagens = ["assets/imgs/o-email 1.png", "assets/imgs/telefone 1.png", "assets/imgs/localizacao.png"];
     let texto = ["contato@armorysafe.com.br", "(11)99999-9999", "Rua Haddock Lobo"];
 
     for (index = 0; index < imagens.length; index++) {

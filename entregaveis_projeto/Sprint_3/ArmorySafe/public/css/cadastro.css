@@ -46,13 +46,13 @@ body {
     border-color: #5B9E60;
 }
 
-.botao-cadastro {
+.botao-login {
     background-color: #FFFFFF;
     color: #3A5C21;
     border: 1px solid #FFFFFF;
 }
 
-.botao-cadastro:hover {
+.botao-login:hover {
     background-color: #E0E0E0;
     color: #3A5C21;
     border-color: #E0E0E0;
@@ -65,6 +65,11 @@ body {
     font-weight: 100;
 }
 
+#nomeSolucao {
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
 #menu {
     display: flex;
     align-items: center;
@@ -75,7 +80,7 @@ body {
     width: 210px;
 }
 
-#arealogin {
+#areaCadastro {
     font-family: Arial, Helvetica, sans-serif;
     background-color: #273121;
     max-width: 100%;
@@ -127,14 +132,14 @@ body {
     height: 40px;
 }
 
-#retangulo-login {
+#retanguloCadastro {
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
     flex-direction: row;
 }
 
-#bloco-login {
+#blocoCadastro {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -147,18 +152,18 @@ body {
     top: 25%;
 }
 
-#bloco-login input {
+#blocoCadastro input {
     font-size: medium;
     outline: none;
     border-bottom: 1px solid black;
 }
 
-#bloco-login input,
+#blocoCadastro input,
 ::placeholder {
     text-align: center;
 }
 
-#bloco-login button {
+#blocoCadastro button {
     position: absolute;
     left: 13%;
     top: 85%;
@@ -171,11 +176,11 @@ body {
     font-size: 1.0rem;
 }
 
-#bloco-login button:hover {
+#blocoCadastro button:hover {
     background-color: #476C31;
 }
 
-#bloco-login-itens {
+#blocoCadastroItens {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -185,7 +190,7 @@ body {
     margin: 5%;
 }
 
-#bloco-login-itens input{
+#blocoCadastroItens input{
     border-bottom: 1px solid black;
     border-top: none;
     border-left: none;
@@ -239,7 +244,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 } */
 
-#bloco-login-itens {
+#blocoCadastroItens {
     display: flex;
     align-items: center;
     justify-content: center;

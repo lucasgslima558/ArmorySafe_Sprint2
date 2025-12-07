@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>ArmorySafe | Login</title>
+    <title>Login | ArmorySafe</title>
 
     <script src="./js/sessao.js"></script>
 
@@ -18,10 +18,10 @@
     <!-- header -->
     <div id="header">
         <a href="">
-            <div id="logo"><img src="assets/imgs/logo armory green.png" class="logoheader" alt="logo ArmorySafe"
+            <div id="logo"><img src="assets/imgs/logo armory white 2(1).png" class="logoheader" alt="logo ArmorySafe"
                     width="100rem"></div>
         </a>
-        <h1><a href="index.html">ArmorySafe</a></h1>
+        <h3><a id="nomeSolucao" href="index.html">ArmorySafe</a></h3>
         <div id="menu">
             <a class="botoes-redirecionamento botao-home" href="index.html">Home</a>
             <a class="botoes-redirecionamento botao-cadastro" href="cadastro.html">Cadastro</a>
@@ -64,15 +64,12 @@
     <!-- footer -->
     <div id="footer">
         <div id="logoinfo">
-            <img src="img/logo armory white 2(1).png" class="logofooter" alt="logo ArmorySafe" width="200px">
-            <p>Sistema de monitoramento IoT que garante a segurança e preservação das munições em depósitos
-                militares</p>
+            <img src="./assets/imgs/logo armory white 2(1).png" class="logofooter" alt="logo ArmorySafe" width="200px">
+            <p>Sistema de monitoramento IoT que garante a segurança e preservação das munições</p>
         </div>
         <div id="contatos">
             <h3>Contatos</h3>
-            <div id="contatosFilhos">
-
-            </div>
+            <div id="contatosFilhos"></div>
         </div>
     </div>
 
@@ -149,6 +146,13 @@
         })
 
         return false;
+    }
+
+    let imagens = ["assets/imgs/o-email 1.png", "assets/imgs/telefone 1.png", "assets/imgs/localizacao.png"];
+    let texto = ["contato@armorysafe.com.br", "(11)99999-9999", "Rua Haddock Lobo"];
+
+    for (index = 0; index < imagens.length; index++) {
+        contatosFilhos.innerHTML += `<div> <img src="./${imagens[index]}" width="40px"> ${texto[index]}<br></div>`;
     }
 
     function sumirMensagem() {

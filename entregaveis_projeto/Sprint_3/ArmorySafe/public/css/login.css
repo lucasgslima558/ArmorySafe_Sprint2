@@ -8,12 +8,6 @@ body {
     background-size: cover, 100%;
 }
 
-#header a{
-    font-style: none;
-    text-decoration: none;
-    color: #3A5C21;
-}
-
 #header {
     display: flex;
     align-items: center;
@@ -35,7 +29,15 @@ body {
 }
 
 #header h3 {
-    font-size: 7rem;
+    margin-left: 100px;
+    margin-top: 50px;
+    font-size: 2rem;
+    font-weight: 100;
+}
+
+#nomeSolucao {
+    color: #FFFFFF;
+    font-weight: bold;
 }
 
 .botoes-redirecionamento {
@@ -68,12 +70,13 @@ body {
     border-color: #E0E0E0;
 }
 
-#header h3 {
+/*#header h3 {
+    color: #FFFFFF;
     margin-left: 100px;
     margin-top: 50px;
     font-size: 4.2rem;
     font-weight: 100;
-}
+}*/
 
 #mensagem_erro{
     display: none;
