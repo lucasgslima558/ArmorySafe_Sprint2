@@ -38,7 +38,7 @@ body {
     gap: 10px;
     text-decoration: none;
     padding: 12px 29px;
-    transition:  0.3s;
+    transition: 0.3s;
 }
 
 .barra-lateral .menu {
@@ -62,12 +62,12 @@ body {
     color: black;
     font-size: 14px;
     margin-left: 17px;
-    border-radius: 15px;    
+    border-radius: 15px;
     background-color: #4FA35A;
     width: 110px;
 }
 
-.barra-lateral .menu-relatorio:hover{
+.barra-lateral .menu-relatorio:hover {
     background-color: rgba(255, 255, 255, 0.15);
     padding-left: 21px;
 }
@@ -85,7 +85,7 @@ body {
     font-size: 14px;
 }
 
-.barra-lateral .menu-contato:hover{
+.barra-lateral .menu-contato:hover {
     background-color: rgba(255, 255, 255, 0.15);
     border-left: 4px solid white;
     padding-left: 21px;
@@ -96,7 +96,7 @@ body {
     font-size: 14px;
 }
 
-.barra-lateral .menu-configuracao:hover{
+.barra-lateral .menu-configuracao:hover {
     background-color: rgba(255, 255, 255, 0.15);
     border-left: 4px solid white;
     padding-left: 21px;
@@ -108,7 +108,7 @@ body {
     font-size: 14px;
 }
 
-.barra-lateral .menu-sair:hover{
+.barra-lateral .menu-sair:hover {
     background-color: rgba(255, 255, 255, 0.15);
     border-left: 4px solid white;
     padding-left: 21px;
@@ -169,19 +169,24 @@ header h1 {
 .cards {
     margin-top: 20px;
     display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
     gap: 20px;
-    flex-wrap: wrap;
-    max-width: 400px;
-    max-height: 200px;
+    max-width: 20%;
+    max-height: 20%;
     margin-right: -15px;
     margin-left: 100px;
 }
 
 .container-cards {
     display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
-.container-cards h4{
+.container-cards h4 {
     margin: 0;
     margin-top: 10px;
 }
@@ -191,11 +196,11 @@ header h1 {
     border-radius: 12px;
     padding: 10px;
     box-shadow: 5px 2px 6px rgba(0, 0, 0, 0.05);
-    max-width: 150px;
+    max-width: 900px;
     min-height: 110px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    /* justify-content: space-between; */
 }
 
 .card .descricao {
@@ -203,22 +208,22 @@ header h1 {
     color: #777;
     margin: 7px;
     text-align: center;
-    
+
 }
 
 .card h2 {
     margin: 10px;
     color: #2E7D32;
     font-size: 20px;
-    text-align:center;
+    text-align: center;
 }
 
 .graficos {
+    /* margin-top: 200px; */
     width: 600px;
 }
 
 
-#graficoSuperior{
+#graficoSuperior {
     margin-left: 10%;
 }
-1
