@@ -163,15 +163,15 @@
         // atualiza KPIs também (caso tenham mudado)
         carregarCards();
 
+        setInterval(atualizarGraficoTempoReal, 200);
     }
-    setTimeout(atualizarGraficoTempoReal, 200);
 
     function atualizarGraficoTempoReal() {
         fetch(`/dashboard/umidadeAtual/${idPaiol}`, { cache: 'no-store' })
             .then(res => res.json())
             .then(resultado => {
                 if (!Array.isArray(resultado) || resultado.length === 0) {
-                    proximaAtualizacao = setTimeout(atualizarGraficoTempoReal, 200);
+                    proximaAtualizacao = setInterval(atualizarGraficoTempoReal, 200);
                     return;
                 }
 
@@ -188,7 +188,7 @@
                 let dados = chartInstance.data.datasets[0].data;
 
                 if (momento === labels[labels.length - 1]) {
-                    proximaAtualizacao = setTimeout(atualizarGraficoTempoReal, 200);
+                    proximaAtualizacao = setInterval(atualizarGraficoTempoReal, 200);
                     return;
                 }
 
@@ -205,9 +205,9 @@
             })
             .catch(err => {
                 console.error("Erro ao obter última leitura:", err);
-                proximaAtualizacao = setTimeout(atualizarGraficoTempoReal, 200);
+                proximaAtualizacao = setInterval(atualizarGraficoTempoReal, 200);
             });
-            setTimeout(atualizarGraficoTempoReal, 200);
+            setInterval(atualizarGraficoTempoReal, 200);
     }
 
     window.addEventListener("load", iniciarPagina);
