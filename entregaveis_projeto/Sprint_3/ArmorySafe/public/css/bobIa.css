@@ -1,0 +1,131 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    background-color: #F5F5F5;
+}
+
+/* ============================
+   BARRA LATERAL
+============================ */
+.barra-lateral {
+    width: 250px;
+    background-color: #5EA66D;
+    height: 100vh;
+    padding: 20px;
+    border-radius: 0 25px 25px 0;
+    color: white;
+}
+
+.logo img {
+    width: 140px;
+    display: block;
+    margin: 0 auto 25px auto;
+}
+
+.menu {
+    margin-top: 20px;
+}
+
+.menu .item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+}
+
+.menu .item:hover {
+    background-color: #70B87F;
+}
+
+.icone {
+    width: 20px;
+}
+
+.separador {
+    border: none;
+    border-top: 1px solid #FFFFFF88;
+    margin: 25px 0;
+}
+
+.rodape-lateral {
+    margin-top: 20px;
+}
+
+.nome {
+    font-weight: bold;
+}
+
+.email {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* ============================
+   CONTEÚDO PRINCIPAL
+============================ */
+.conteudo {
+    flex: 1;
+    padding: 40px;
+}
+
+.titulo {
+    font-size: 34px;
+    color: #1F1F1F;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+
+.card-bobia {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 2px 10px #00000020;
+    width: 70%;
+    margin: 0 auto; 
+}
+
+
+textarea {
+    width: 100%;
+    height: 120px;
+    border-radius: 10px;
+    border: 1px solid #CCCCCC;
+    padding: 10px;
+    font-size: 16px;
+
+    
+    resize: none;        
+    box-sizing: border-box; 
+}
+
+button {
+    margin-top: 15px;
+    padding: 12px 20px;
+    background-color: #5EA66D;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #6EC67F;
+}
+
+
+#resposta {
+    margin-top: 20px;
+    background-color: #EFEFEF;
+    padding: 15px;
+    border-radius: 10px;
+    display: none;
+}

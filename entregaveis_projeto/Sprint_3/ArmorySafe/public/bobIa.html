@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BobIA - ArmorySafe</title>
+    <link rel="stylesheet" href="css/bobIa.css">
+</head>
+
+<body>
+
+    <aside class="barra-lateral">
+        <div class="logo">
+            <img src="assets/imgs/logo armory green.png" alt="Logo ARMORYSAFE">
+        </div>
+
+        <nav class="menu">
+           
+            <a class="item"><img src="assets/imgs/icone-sair.png" class="icone">Sair</a>
+        </nav>
+
+        <hr class="separador">
+
+        <div class="rodape-lateral">
+            <p class="nome">Soldado</p>
+            <p class="email">Soldado@exercito.com</p>
+        </div>
+    </aside>
+
+    <main class="conteudo">
+        <h1 class="titulo">Faça sua pergunta</h1>
+
+        <div class="card-bobia">
+            <textarea id="pergunta" placeholder="Digite a pergunta..."></textarea>
+            <button onclick="gerarResposta()">Gerar Resposta</button>
+
+            <h3>Resposta da IA:</h3>
+            <div id="resposta"></div>
+        </div>
+    </main>
+
+    <script>
+        async function gerarResposta() {
+            const pergunta = document.getElementById('pergunta').value;
+
+            const response = await fetch('/perguntar', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ pergunta })
+            });
+
+            const data = await response.json();
+
+            resposta.style.display = 'block';
+            document.getElementById('resposta').innerText = data.resultado;
+        }
+    </script>
+
+</body>
+</html>
