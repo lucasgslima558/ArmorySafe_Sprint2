@@ -29,6 +29,7 @@ function ultimasLeituras(idPaiol, limite = 12) {
             DATE_FORMAT(l.dtLeitura, '%H:%i') AS momento_grafico
         FROM leitura l
         JOIN sensor s ON s.idSensor = l.fkSensor
+        WHERE s.fkPaiol = ${idPaiol}
         ORDER BY l.dtLeitura DESC
         LIMIT ${limite};
     `;
