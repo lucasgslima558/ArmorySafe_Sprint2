@@ -37,14 +37,6 @@ CREATE TABLE organizacao_militar (
     sigla VARCHAR(10)
 );
 
--- Inserindo dados na tabela
-
-INSERT INTO organizacao_militar (fkComando_Militar, fkEndereco, nome, sigla) VALUES
-	(1, 1, 'Batalhão de Suprimento', 'B Sup'),
-	(2, 2, 'Base Logística do Exército', 'Ba Log Ex'),
-	(3, 3, 'Regimento de Cavalaria', 'RCav'),
-	(4, 4, 'Centro de Instrução de Artilharia', 'CIArt');
-
 -- Criação de tabela de cadastro Usuário
 
 CREATE TABLE usuario (	
