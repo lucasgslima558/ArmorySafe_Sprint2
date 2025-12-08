@@ -71,7 +71,7 @@
 <script>
     let idPaiol = 1;
     let chartInstance = null;
-    let proximaAtualizacao = null;
+    // let proximaAtualizacao = null;
 
     function iniciarPagina() {
         idPaiol = Number(sessionStorage.ID_PAIOL) || 1;
@@ -163,7 +163,7 @@
         // atualiza KPIs também (caso tenham mudado)
         carregarCards();
 
-        proximaAtualizacao = setTimeout(atualizarGraficoTempoReal, 200);
+         setTimeout(atualizarGraficoTempoReal, 200);
     }
 
     function atualizarGraficoTempoReal() {
@@ -202,7 +202,7 @@
 
                 carregarCards();
 
-                proximaAtualizacao = setTimeout(atualizarGraficoTempoReal, 200);
+                setTimeout(atualizarGraficoTempoReal, 200);
             })
             .catch(err => {
                 console.error("Erro ao obter última leitura:", err);
