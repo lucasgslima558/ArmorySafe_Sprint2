@@ -7,7 +7,7 @@ function ultimaLeitura(idPaiol) {
             l.idLeitura,
             l.umidade,
             l.dtLeitura,
-            DATE_FORMAT(l.dtLeitura, '%H:%i:%s') AS momento_grafico,
+            DATE_FORMAT(l.dtLeitura, '%H:%i') AS momento_grafico,
             s.fkPaiol
         FROM leitura l
         JOIN sensor s ON s.idSensor = l.fkSensor
@@ -20,13 +20,13 @@ function ultimaLeitura(idPaiol) {
 }
 
 // 2. LISTA DAS ÚLTIMAS N LEITURAS
-function ultimasLeituras(idPaiol, limite = 24) {
+function ultimasLeituras(idPaiol, limite = 12) {
     const sql = `
         SELECT 
             l.idLeitura,
             l.umidade,
             l.dtLeitura,
-            DATE_FORMAT(l.dtLeitura, '%H:%i:%s') AS momento_grafico
+            DATE_FORMAT(l.dtLeitura, '%H:%i') AS momento_grafico
         FROM leitura l
         JOIN sensor s ON s.idSensor = l.fkSensor
         WHERE s.fkPaiol = ${idPaiol}

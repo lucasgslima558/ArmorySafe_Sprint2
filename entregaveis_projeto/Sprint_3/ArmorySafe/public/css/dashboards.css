@@ -5,6 +5,7 @@ body {
     color: #333;
     display: flex;
     min-height: 100vh;
+    position: fixed;
 }
 
 /* barra-lateral */
@@ -89,7 +90,7 @@ body {
 /* MAIN */
 main {
     width: 100%;
-    padding: 20px 40px;
+    /* padding: 20px 40px; */
 }
 
 /* HEADER */
@@ -117,17 +118,19 @@ header h1 {
 
 /* CARDS */
 .cards {
-    margin-top: 20px;
+    margin-top: 20px auto;
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
     gap: 20px;
+    /* flex-wrap: wrap; */
 }
 
 .container-cards {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-left: 3%;
 }
 
 .container-cards h4 {
@@ -161,9 +164,9 @@ header h1 {
     width: 100%;
     max-width: 1400px;
     /* Aumentado */
-    height: 500px;
+    height: 350px;
     /* Adicionado */
-    margin: 40px auto;
+    margin: 20px auto;
 }
 
 #graficoSuperior {
