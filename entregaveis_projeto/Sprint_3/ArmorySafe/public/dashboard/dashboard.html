@@ -21,7 +21,8 @@
             <img src="../assets/imgs/logo armory white 2.png" alt="Logo ARMORYSAFE" width="100px">
         </div>
         <nav class="menu">
-            <a href="./dashboard.html" class="menu-relatorio"><img src="../assets/imgs/icone-relatorio.png" class="icone">Relatórios</a>
+            <a href="./dashboard.html" class="menu-relatorio"><img src="../assets/imgs/icone-relatorio.png"
+                    class="icone">Relatórios</a>
             <a class="menu-suporte">Suporte</a>
             <a href="mailto:armorysafe@armorysafe.com" class="menu-contato">
                 <img src="../assets/imgs/icone-contato.png" class="icone">Contato
@@ -170,10 +171,7 @@
         fetch(`/dashboard/umidadeAtual/${idPaiol}`, { cache: 'no-store' })
             .then(res => res.json())
             .then(resultado => {
-                if (!Array.isArray(resultado) || resultado.length === 0) {
-                    proximaAtualizacao = setInterval(atualizarGraficoTempoReal, 2000);
-                    return;
-                }
+                if (!Array.isArray(resultado) || resultado.length === 0) return;
 
                 const dado = resultado[0];
                 const momento = dado.momento_grafico || dado.dtLeitura;
@@ -187,10 +185,7 @@
                 let labels = chartInstance.data.labels;
                 let dados = chartInstance.data.datasets[0].data;
 
-                if (momento === labels[labels.length - 1]) {
-                    proximaAtualizacao = setInterval(atualizarGraficoTempoReal, 2000);
-                    return;
-                }
+                if (momento === labels[labels.length - 1]) return;
 
                 labels.shift();
                 labels.push(momento);
@@ -199,16 +194,11 @@
                 dados.push(umid);
 
                 chartInstance.update();
-
                 carregarCards();
-
-                proximaAtualizacao = setInterval(atualizarGraficoTempoReal, 2000);
             })
-            .catch(err => {
-                console.error("Erro ao obter última leitura:", err);
-                proximaAtualizacao = setInterval(atualizarGraficoTempoReal, 2000);
-            });
+            .catch(err => console.error("Erro ao obter última leitura:", err));
     }
+
 
     window.addEventListener("load", iniciarPagina);
 
