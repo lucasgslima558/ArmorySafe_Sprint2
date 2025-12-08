@@ -8,4 +8,5 @@ router.get("/ultimasLeituras/:idPaiol", dashboardController.ultimasLeituras);
 router.get("/umidadeAtual/:idPaiol", dashboardController.ultimaLeitura);
 router.get("/umidadeMaxima/:idPaiol", dashboardController.umidadeMaxima);
 
+
 module.exports = router;

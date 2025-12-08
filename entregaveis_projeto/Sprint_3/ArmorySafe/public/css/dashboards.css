@@ -3,23 +3,21 @@ body {
     font-family: 'Inter', sans-serif;
     background-color: #f6f7f8;
     color: #333;
-    position: fixed;
     display: flex;
+    min-height: 100vh;
 }
 
 /* barra-lateral */
 .barra-lateral {
     width: 210px;
-    height: 100vh;
+    height: 950px;
+    min-width: 210px;
     background-color: #67B36B;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
     padding: 10px 0;
     box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1);
-    border-radius: 25px;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-    padding-top: 0px;
+    border-radius: 0 25px 25px 0;
 }
 
 .barra-lateral .logo {
@@ -27,9 +25,9 @@ body {
 }
 
 .barra-lateral .logo img {
-    width: 150px;
+    width: 100px;
     height: auto;
-    margin: 8px;
+    margin: 8px auto;
 }
 
 .barra-lateral a {
@@ -46,18 +44,13 @@ body {
     flex-direction: column;
 }
 
-
-.barra-lateral .menu:hover {
-    display: flex;
-    flex-direction: column;
-}
-
 .barra-lateral .icone {
     width: 20px;
     height: 20px;
     margin-right: 8px;
 }
 
+/* itens */
 .menu-relatorio {
     color: black;
     font-size: 14px;
@@ -67,128 +60,78 @@ body {
     width: 110px;
 }
 
-.barra-lateral .menu-relatorio:hover {
-    background-color: rgba(255, 255, 255, 0.15);
-    padding-left: 21px;
+.menu-suporte,
+.menu-contato,
+.menu-configuracao,
+.menu-sair {
+    color: black;
+    font-size: 14px;
 }
 
 .menu-suporte {
     margin-top: 20px;
-    color: #294916;
     font-weight: 600;
-    font-size: 15px;
+    color: #294916;
 }
 
-.menu-contato {
-    margin-top: 10px;
-    color: black;
-    font-size: 14px;
-}
-
-.barra-lateral .menu-contato:hover {
-    background-color: rgba(255, 255, 255, 0.15);
-    border-left: 4px solid white;
-    padding-left: 21px;
-}
-
-.menu-configuracao {
-    color: black;
-    font-size: 14px;
-}
-
-.barra-lateral .menu-configuracao:hover {
-    background-color: rgba(255, 255, 255, 0.15);
-    border-left: 4px solid white;
-    padding-left: 21px;
-}
-
-.menu-sair {
-    margin-top: 110px;
-    color: black;
-    font-size: 14px;
-}
-
-.barra-lateral .menu-sair:hover {
-    background-color: rgba(255, 255, 255, 0.15);
-    border-left: 4px solid white;
-    padding-left: 21px;
-}
-
-.separador {
-    position: fixed;
-    border: none;
-    height: 1px;
-    background-color: rgba(255, 255, 255, 0.454);
-    width: 200px;
-    margin: 465px 11px;
-}
-
-.nome-militar {
-    position: fixed;
-    color: black;
-    font-size: 14px;
-    margin: 485px 27px;
-}
-
+.nome-militar,
 .email-militar {
-    position: fixed;
-    color: #5f5d5d;
+    color: black;
     font-size: 14px;
-    margin: 505px 27px;
+    margin-left: 20px;
 }
 
+.barra-lateral .info-usuario {
+    margin-top: auto;
+    padding: 20px;
+}
+
+/* MAIN */
 main {
-    padding: 0px 40px;
-    width: 89%;
+    width: 100%;
+    padding: 20px 40px;
 }
 
 /* HEADER */
 header {
-    position: relative;
     display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    margin: 0px;
+    align-items: center;
+    justify-content: center;
 }
 
 header h1 {
     font-size: 24px;
     font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .separador-2 {
-    position: absolute;
     border: none;
     height: 1px;
     background-color: rgba(180, 179, 179, 0.354);
-    width: 150%;
-    margin: 60px 0px;
+    width: 100%;
+    margin: 20px 0;
 }
 
 /* CARDS */
 .cards {
     margin-top: 20px;
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;
     justify-content: center;
-    flex-direction: row;
     gap: 20px;
-    max-width: 20%;
-    max-height: 20%;
-    margin-right: -15px;
-    margin-left: 100px;
 }
 
 .container-cards {
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
+    align-items: center;
 }
 
 .container-cards h4 {
-    margin: 0;
-    margin-top: 10px;
+    margin: 10px 0 0 0;
 }
 
 .card {
@@ -196,11 +139,8 @@ header h1 {
     border-radius: 12px;
     padding: 10px;
     box-shadow: 5px 2px 6px rgba(0, 0, 0, 0.05);
-    max-width: 900px;
+    width: 240px;
     min-height: 110px;
-    display: flex;
-    flex-direction: column;
-    /* justify-content: space-between; */
 }
 
 .card .descricao {
@@ -208,7 +148,6 @@ header h1 {
     color: #777;
     margin: 7px;
     text-align: center;
-
 }
 
 .card h2 {
@@ -219,11 +158,93 @@ header h1 {
 }
 
 .graficos {
-    /* margin-top: 200px; */
-    width: 600px;
+    width: 100%;
+    max-width: 1400px;
+    /* Aumentado */
+    height: 500px;
+    /* Adicionado */
+    margin: 40px auto;
+}
+
+#graficoSuperior {
+    max-width: 900px;
+    /* Aumentado */
+    margin-left: 0;
 }
 
 
-#graficoSuperior {
-    margin-left: 10%;
+
+/*                      MEDIA QUERIES                        */
+
+@media (max-width: 1100px) {
+    .barra-lateral {
+        width: 180px;
+        min-width: 180px;
+    }
+
+    .cards {
+        gap: 10px;
+    }
+
+    .card {
+        width: 200px;
+    }
+}
+
+@media (max-width: 820px) {
+    body {
+        flex-direction: column;
+    }
+
+    .barra-lateral {
+        width: 100%;
+        height: auto;
+        border-radius: 0;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 10px;
+    }
+
+    main {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .cards {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 540px) {
+    header h1 {
+        font-size: 20px;
+    }
+
+    .barra-lateral {
+        flex-direction: column;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .graficos {
+        max-width: 100%;
+    }
+}
+
+@media (min-width: 1600px) {
+    body {
+        zoom: 1.2;
+    }
+
+    .card h2 {
+        font-size: 26px;
+    }
+
+    .card .descricao {
+        font-size: 16px;
+    }
 }

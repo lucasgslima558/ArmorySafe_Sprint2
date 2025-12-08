@@ -1,19 +1,6 @@
 // src/models/dashboardModel.js
 const database = require("../database/config");
 
-/*
-    IMPORTANTE:
-    Seu ambiente usa "query()", portanto:
-    - LIMIT ? NÃO funciona
-    - vários "?" NÃO funcionam
-    - Vamos interpolar manualmente os valores
-
-    ESTA VERSÃO ESTÁ PRONTA PARA USO
-*/
-
-// ===============================
-// 1. ÚLTIMA LEITURA (1 registro)
-// ===============================
 function ultimaLeitura(idPaiol) {
     const sql = `
         SELECT 
@@ -32,9 +19,7 @@ function ultimaLeitura(idPaiol) {
     return database.executar(sql);
 }
 
-// ====================================
 // 2. LISTA DAS ÚLTIMAS N LEITURAS
-// ====================================
 function ultimasLeituras(idPaiol, limite = 24) {
     const sql = `
         SELECT 
@@ -52,9 +37,7 @@ function ultimasLeituras(idPaiol, limite = 24) {
     return database.executar(sql);
 }
 
-// ====================================
 // 3. KPI → Umidade máxima e mínima HOJE
-// ====================================
 function umidadeMaxima(idPaiol) {
     const sql = `
         SELECT
