@@ -71,7 +71,7 @@
 <script>
     let idPaiol = 1;
     let chartInstance = null;
-    // let proximaAtualizacao = null;
+    let proximaAtualizacao = null;
 
     function iniciarPagina() {
         idPaiol = Number(sessionStorage.ID_PAIOL) || 1;
@@ -163,7 +163,7 @@
         // atualiza KPIs também (caso tenham mudado)
         carregarCards();
 
-        setInterval(atualizarGraficoTempoReal, 200);
+        proximaAtualizacao = setInterval(atualizarGraficoTempoReal, 2000);
     }
 
     function atualizarGraficoTempoReal() {
@@ -171,7 +171,7 @@
             .then(res => res.json())
             .then(resultado => {
                 if (!Array.isArray(resultado) || resultado.length === 0) {
-                    proximaAtualizacao = setInterval(atualizarGraficoTempoReal, 200);
+                    proximaAtualizacao = setInterval(atualizarGraficoTempoReal, 2000);
                     return;
                 }
 
@@ -188,7 +188,7 @@
                 let dados = chartInstance.data.datasets[0].data;
 
                 if (momento === labels[labels.length - 1]) {
-                    proximaAtualizacao = setInterval(atualizarGraficoTempoReal, 200);
+                    proximaAtualizacao = setInterval(atualizarGraficoTempoReal, 2000);
                     return;
                 }
 
@@ -202,12 +202,12 @@
 
                 carregarCards();
 
+                proximaAtualizacao = setInterval(atualizarGraficoTempoReal, 2000);
             })
             .catch(err => {
                 console.error("Erro ao obter última leitura:", err);
-                proximaAtualizacao = setInterval(atualizarGraficoTempoReal, 200);
+                proximaAtualizacao = setInterval(atualizarGraficoTempoReal, 2000);
             });
-            setInterval(atualizarGraficoTempoReal, 200);
     }
 
     window.addEventListener("load", iniciarPagina);
