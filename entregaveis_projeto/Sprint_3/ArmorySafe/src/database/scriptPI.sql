@@ -9,18 +9,6 @@ CREATE TABLE comando_militar (
     nome VARCHAR(50) NOT NULL UNIQUE,
     contato VARCHAR(10) NOT NULL
 );
-	
--- Inserindo dados na tabela
-
-INSERT INTO comando_militar (nome, contato) VALUES
-	('Comando Militar da Amazônia', '99198231'),
-	('Comando Militar do Leste', '34901923'),
-	('Comando Militar do Nordeste', '9948382'),
-	('Comando Militar do Norte', '39299112'),
-	('Comando Militar do Oeste', '33321231'),
-	('Comando Militar do Planalto', '998763452'),
-    ('Comando Militar do Sudeste', '198534563'),
-    ('Comando Militar do Sul', '945321765');
 
 -- Criação de tabela para endereço de OM
 
@@ -32,14 +20,6 @@ CREATE TABLE endereco (
     uf CHAR(2) NOT NULL,
     cep CHAR(8) NOT NULL
 );
-
--- Inserindo dados na tabela
-
-INSERT INTO endereco (logradouro, bairro, cidade, uf, cep) VALUES
-	('Rua das Acácias', 'Centro', 'Brasília', 'DF', '70000000'),
-	('Av. Getúlio Vargas', 'São Pedro', 'Rio de Janeiro', 'RJ', '20000000'),
-	('Rua XV de Novembro', 'Centro', 'Curitiba', 'PR', '80000000'),
-	('Av. Independência', 'Bela Vista', 'São Paulo', 'SP', '01000000');
 
 -- Criação de tabela para organização militar
 
@@ -80,15 +60,6 @@ CREATE TABLE usuario (
     dtCadastro DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
--- Inserindo dados na tabela
-
-INSERT INTO usuario (fkOrganizacao_Militar, nome, cim, senha, cargoUsuario) VALUES
-	(1, 'Roberto Lima', '1234567890', 'senha123', 'General'),
-	(2, 'Gabriela Gomes', '0987654321', 'segura456', 'Sargento'),
-	(3, 'Ronaldo Nascimento', '1122334455', 'teste789', 'Major'),
-	(4, 'Victor Duarte', '5566778899', 'militar2024', 'Subtenente'),
-    (4, 'Paulo Rocha', NULL, 'u7t4092pe', 'Civil');
-
 -- Criação de tabela de paiol
 
 CREATE TABLE paiol (
@@ -103,13 +74,7 @@ CREATE TABLE paiol (
     dtCadastro DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
--- Inserindo dados na tabela
 
-INSERT INTO paiol (fkOrganizacao_Militar, nome, capacidade, status) VALUES
-	(1, 'Paiol Alpha', 100, 1),
-	(2, 'Paiol Charlie', 80, 0),
-	(3, 'Paiol Delta', 120, 1),
-	(4, 'Paiol Omega', 60, 1);
     
 -- Criação de tabela Arduino
 
@@ -125,14 +90,6 @@ CREATE TABLE sensor (
     dtInstalacao DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
--- Inserindo dados na tabela
-
-INSERT INTO sensor (fkPaiol, tipoSensor, nomenclatura, status, dtInstalacao) VALUES
-	(1, 'DHT11', 'S_UMID_01', 1, '2025-02-10 08:00:00'),
-	(2, 'DHT11', 'S_UMID_02', 1, '2025-03-01 09:00:00'),
-	(3, 'DHT11', 'S_UMID_03', 0, '2025-03-15 10:00:00'),
-	(4, 'DHT11', 'S_UMID_04', 1, '2025-04-01 11:00:00');
-
 -- Criação de tabela Dados de Arduino
 
 CREATE TABLE leitura (
@@ -146,13 +103,6 @@ CREATE TABLE leitura (
 		CHECK (umidade >= 0 AND umidade <= 100),
     dtLeitura DATETIME
 );
-
--- Inserindo dados na tabela
-
-INSERT INTO leitura (fkSensor, umidade, dtLeitura) VALUES
-	(1, 30.45, CURRENT_DATE);
-    
--- Selecionando dados do banco
 
 -- Dados gerais
 
@@ -346,129 +296,3 @@ WHERE DATE(l.dtLeitura) = CURDATE()
 GROUP BY p.idPaiol;
 
 SELECT * FROM vw_umidadeMaxima;
-
-INSERT INTO sensor (fkPaiol, tipoSensor, nomenclatura, status, dtInstalacao) VALUES
-(1, 'DHT11', 'S_UMID_A1', 1, '2025-01-10 08:00:00'),
-(1, 'DHT11', 'S_TEMP_A1', 1, '2025-01-10 08:00:00'),
-(2, 'DHT11', 'S_UMID_C1', 1, '2025-02-10 09:00:00'),
-(3, 'DHT11', 'S_UMID_D1', 1, '2025-03-15 10:00:00'),
-(4, 'DHT11', 'S_UMID_O1', 1, '2025-04-01 11:00:00');
-
-DELETE FROM leitura WHERE fkSensor = 1;
-
-INSERT INTO leitura (fkSensor, umidade, dtLeitura) VALUES
-(1, 45.1, DATE_SUB(NOW(), INTERVAL 23 HOUR)),
-(1, 46.8, DATE_SUB(NOW(), INTERVAL 20 HOUR)),
-(1, 47.3, DATE_SUB(NOW(), INTERVAL 18 HOUR)),
-(1, 48.0, DATE_SUB(NOW(), INTERVAL 15 HOUR)),
-(1, 49.5, DATE_SUB(NOW(), INTERVAL 12 HOUR)),
-(1, 51.2, DATE_SUB(NOW(), INTERVAL 10 HOUR)),
-(1, 52.0, DATE_SUB(NOW(), INTERVAL 8 HOUR)),
-(1, 53.5, DATE_SUB(NOW(), INTERVAL 6 HOUR)),
-(1, 54.8, DATE_SUB(NOW(), INTERVAL 4 HOUR)),
-(1, 55.3, DATE_SUB(NOW(), INTERVAL 2 HOUR)),
-(1, 56.9, NOW());
-
-
-
-
--- LEITURAS DAS ÚLTIMAS 24H (PAIOL 1 | SENSOR 1 | DHT11)
-DELETE FROM leitura WHERE fkSensor = 1;
-
-INSERT INTO leitura (fkSensor, umidade, dtLeitura) VALUES
-(1, 45.1, DATE_SUB(NOW(), INTERVAL 23 HOUR)),
-(1, 44.8, DATE_SUB(NOW(), INTERVAL 22 HOUR)),
-(1, 46.3, DATE_SUB(NOW(), INTERVAL 21 HOUR)),
-(1, 47.0, DATE_SUB(NOW(), INTERVAL 20 HOUR)),
-(1, 48.5, DATE_SUB(NOW(), INTERVAL 19 HOUR)),
-(1, 49.2, DATE_SUB(NOW(), INTERVAL 18 HOUR)),
-(1, 47.8, DATE_SUB(NOW(), INTERVAL 17 HOUR)),
-(1, 46.0, DATE_SUB(NOW(), INTERVAL 16 HOUR)),
-(1, 44.3, DATE_SUB(NOW(), INTERVAL 15 HOUR)),
-(1, 42.9, DATE_SUB(NOW(), INTERVAL 14 HOUR)),
-(1, 41.7, DATE_SUB(NOW(), INTERVAL 13 HOUR)),
-(1, 40.5, DATE_SUB(NOW(), INTERVAL 12 HOUR)),
-(1, 39.8, DATE_SUB(NOW(), INTERVAL 11 HOUR)),
-(1, 38.9, DATE_SUB(NOW(), INTERVAL 10 HOUR)),
-(1, 37.2, DATE_SUB(NOW(), INTERVAL 9 HOUR)),
-(1, 36.5, DATE_SUB(NOW(), INTERVAL 8 HOUR)),
-(1, 35.8, DATE_SUB(NOW(), INTERVAL 7 HOUR)),
-(1, 34.6, DATE_SUB(NOW(), INTERVAL 6 HOUR)),
-(1, 33.9, DATE_SUB(NOW(), INTERVAL 5 HOUR)),
-(1, 34.5, DATE_SUB(NOW(), INTERVAL 4 HOUR)),
-(1, 36.0, DATE_SUB(NOW(), INTERVAL 3 HOUR)),
-(1, 37.8, DATE_SUB(NOW(), INTERVAL 2 HOUR)),
-(1, 38.6, DATE_SUB(NOW(), INTERVAL 1 HOUR)),
-(1, 39.3, NOW());
-
-
--- LIMPA LEITURAS ANTIGAS DO SENSOR 1
-DELETE FROM leitura WHERE fkSensor = 1 AND DATE(dtLeitura) < CURDATE();
-
--- INSERE UM DADO PARA CADA DIA DA SEMANA (MAX/MIN)
-INSERT INTO leitura (fkSensor, umidade, dtLeitura) VALUES
-(1, 48.7, DATE_SUB(CURDATE(), INTERVAL 1 DAY)),
-(1, 46.2, DATE_SUB(CURDATE(), INTERVAL 2 DAY)),
-(1, 47.5, DATE_SUB(CURDATE(), INTERVAL 3 DAY)),
-(1, 49.1, DATE_SUB(CURDATE(), INTERVAL 4 DAY)),
-(1, 45.9, DATE_SUB(CURDATE(), INTERVAL 5 DAY)),
-(1, 44.3, DATE_SUB(CURDATE(), INTERVAL 6 DAY)),
-(1, 43.7, DATE_SUB(CURDATE(), INTERVAL 7 DAY));
-
-
--- SIMULA REGISTROS FORA DO INTERVALO IDEAL NO SENSOR 1
-INSERT INTO leitura (fkSensor, umidade, dtLeitura) VALUES
-(1, 32.5, DATE_SUB(NOW(), INTERVAL 3 HOUR)),
-(1, 31.8, DATE_SUB(NOW(), INTERVAL 2 HOUR)),
-(1, 52.2, DATE_SUB(NOW(), INTERVAL 1 HOUR)),
-(1, 53.1, NOW());
-
-
-DROP VIEW vw_umidadeMaxima;
-
-DELETE FROM leitura 
-WHERE fkSensor = 1;
-
-
-INSERT INTO leitura (fkSensor, umidade, dtLeitura) VALUES
-(1, 45.1, DATE_SUB(NOW(), INTERVAL 23 HOUR)),
-(1, 44.8, DATE_SUB(NOW(), INTERVAL 22 HOUR)),
-(1, 46.3, DATE_SUB(NOW(), INTERVAL 21 HOUR)),
-(1, 47.0, DATE_SUB(NOW(), INTERVAL 20 HOUR)),
-(1, 48.5, DATE_SUB(NOW(), INTERVAL 19 HOUR)),
-(1, 49.2, DATE_SUB(NOW(), INTERVAL 18 HOUR)),
-(1, 47.8, DATE_SUB(NOW(), INTERVAL 17 HOUR)),
-(1, 46.0, DATE_SUB(NOW(), INTERVAL 16 HOUR)),
-(1, 44.3, DATE_SUB(NOW(), INTERVAL 15 HOUR)),
-(1, 42.9, DATE_SUB(NOW(), INTERVAL 14 HOUR)),
-(1, 41.7, DATE_SUB(NOW(), INTERVAL 13 HOUR)),
-(1, 40.5, DATE_SUB(NOW(), INTERVAL 12 HOUR)),
-(1, 39.8, DATE_SUB(NOW(), INTERVAL 11 HOUR)),
-(1, 38.9, DATE_SUB(NOW(), INTERVAL 10 HOUR)),
-(1, 37.2, DATE_SUB(NOW(), INTERVAL 9 HOUR)),
-(1, 36.5, DATE_SUB(NOW(), INTERVAL 8 HOUR)),
-(1, 35.8, DATE_SUB(NOW(), INTERVAL 7 HOUR)),
-(1, 34.6, DATE_SUB(NOW(), INTERVAL 6 HOUR)),
-(1, 33.9, DATE_SUB(NOW(), INTERVAL 5 HOUR)),
-(1, 34.5, DATE_SUB(NOW(), INTERVAL 4 HOUR)),
-(1, 36.0, DATE_SUB(NOW(), INTERVAL 3 HOUR)),
-(1, 37.8, DATE_SUB(NOW(), INTERVAL 2 HOUR)),
-(1, 38.6, DATE_SUB(NOW(), INTERVAL 1 HOUR)),
-(1, 39.3, NOW());
-
-
-INSERT INTO leitura (fkSensor, umidade, dtLeitura) VALUES
-(1, 48.7, DATE_SUB(CURDATE(), INTERVAL 1 DAY)),
-(1, 46.2, DATE_SUB(CURDATE(), INTERVAL 2 DAY)),
-(1, 47.5, DATE_SUB(CURDATE(), INTERVAL 3 DAY)),
-(1, 49.1, DATE_SUB(CURDATE(), INTERVAL 4 DAY)),
-(1, 45.9, DATE_SUB(CURDATE(), INTERVAL 5 DAY)),
-(1, 44.3, DATE_SUB(CURDATE(), INTERVAL 6 DAY)),
-(1, 43.7, DATE_SUB(CURDATE(), INTERVAL 7 DAY));
-
-INSERT INTO leitura (fkSensor, umidade, dtLeitura) VALUES
-(1, 32.5, DATE_SUB(NOW(), INTERVAL 3 HOUR)),
-(1, 31.8, DATE_SUB(NOW(), INTERVAL 2 HOUR)),
-(1, 52.2, DATE_SUB(NOW(), INTERVAL 1 HOUR)),
-(1, 53.1, NOW());
-

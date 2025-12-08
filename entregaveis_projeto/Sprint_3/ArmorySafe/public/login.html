@@ -119,13 +119,13 @@
                     sessionStorage.ID_USUARIO = json.id;
                     sessionStorage.NIVEL_USUARIO = json.cargoUsuario
                     
-                    if (json.cargoUsuario == 'usuario') {
+                    if (json.cargoUsuario == 'usuario') {2
                         setTimeout(function () {
-                            window.location = "./dashboard/dashboard.html";
+                            window.location = "../bobIa.html";
                         }, 1000); // apenas para exibir o loading
                     }else{
                         setTimeout(function () {
-                            window.location = "../bobIa.html";
+                            window.location = "./dashboard/dashboard.html";
                         },1000); // apenas para exibir o loading
                     }
 

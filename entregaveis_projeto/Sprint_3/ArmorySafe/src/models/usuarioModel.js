@@ -12,8 +12,8 @@ function autenticar(cim, senha) {
 function cadastrar(organizacao, nome, cim, email,  cargo, senha) {
 
     var instrucaoSql = `
-        INSERT INTO usuario (fkOrganizacao_Militar, nome, cim, email, cargoUsuario, senha)
-        VALUES ('${organizacao}', '${nome}', '${cim}', '${email}', '${cargo}', '${senha}');
+        INSERT INTO usuario (fkOrganizacao_Militar, nome, cim, email, cargoUsuario, senha, suporte)
+        VALUES ('${organizacao}', '${nome}', '${cim}', '${email}', '${cargo}', '${senha}', 0);
     `;
 
     return database.executar(instrucaoSql);
