@@ -3,14 +3,11 @@ var usuarioModel = require("../models/usuarioModel");
 function autenticar(req, res) {
     var cim = req.body.cim;
     var senha = req.body.senha;
-    var email = req.body.email;
 
     if (cim == undefined) {
         res.status(400).send("Seu cim está undefined!");
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está indefinida!");
-    } else if (email == undefined) {
-        res.status(400).send("Seu email está undefined");
     } else
 
         usuarioModel.autenticar(cim, senha)
@@ -42,17 +39,19 @@ function cadastrar(req, res) {
 
     var nome = req.body.nome;
     var cim = req.body.cim;
+    var email = req.body.email;
     var cargo = req.body.cargo;
     var organizacao = req.body.organizacao;
     var senha = req.body.senha;
 
     if (!nome) return res.status(400).send("Nome undefined");
     if (!cim) return res.status(400).send("CIM undefined");
+    if (!email) return res.status(400).send("Email undefined");
     if (!cargo) return res.status(400).send("Cargo undefined");
     if (!organizacao) return res.status(400).send("Organização undefined");
     if (!senha) return res.status(400).send("Senha undefined");
 
-    usuarioModel.cadastrar(organizacao, nome, cim, cargo, senha)
+    usuarioModel.cadastrar(organizacao, nome, cim, email, cargo, senha)
         .then(function (resultado) {
             res.json(resultado);
         })

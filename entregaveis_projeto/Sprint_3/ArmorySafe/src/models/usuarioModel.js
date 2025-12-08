@@ -9,11 +9,11 @@ function autenticar(cim, senha) {
     return database.executar(instrucaoSql);
 }
 
-function cadastrar(organizacao, nome, cim, cargo, senha) {
+function cadastrar(organizacao, nome, cim, email,  cargo, senha) {
 
     var instrucaoSql = `
-        INSERT INTO usuario (fkOrganizacao_Militar, nome, cim, cargoUsuario, senha)
-        VALUES ('${organizacao}', '${nome}', '${cim}', '${cargo}', '${senha}');
+        INSERT INTO usuario (fkOrganizacao_Militar, nome, cim, email, cargoUsuario, senha)
+        VALUES ('${organizacao}', '${nome}', '${cim}', '${email}', '${cargo}', '${senha}');
     `;
 
     return database.executar(instrucaoSql);
