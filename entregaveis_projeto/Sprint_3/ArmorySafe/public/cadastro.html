@@ -48,6 +48,9 @@
             <label id="cim">CIM:</label>
             <input type="text" id="iptCim">
 
+            <label for="nome">Email:</label>
+            <input type="text" id="iptEmail">
+
             <label id="cargoMilitar">Cargo Militar:</label>
             <select name="selectCargo" id="sltCargo">
                 <option value="#">Selecione</option>
@@ -61,15 +64,15 @@
                 <option value="General">General</option>
             </select>
 
-            
+
             <label id="OrganizacaoMilitar">Organização militar</label>
-                <select name="fkOrganizacao_Militar" id="iptOrgMil" required>
-                    <option value="">Selecione</option>
-                    <option value="1">Batalhão de Suprimento</option>
-                    <option value="2">Base Logística do Exército</option>
-                    <option value="3">Regimento de Cavalaria</option>
-                    <option value="4">Centro de Instrução de Artilharia</option>
-                </select>
+            <select name="fkOrganizacao_Militar" id="iptOrgMil" required>
+                <option value="">Selecione</option>
+                <option value="1">Batalhão de Suprimento</option>
+                <option value="2">Base Logística do Exército</option>
+                <option value="3">Regimento de Cavalaria</option>
+                <option value="4">Centro de Instrução de Artilharia</option>
+            </select>
 
             <label id="senha">Senha:</label>
             <input type="password" id="iptSenha" placeholder="*****">
@@ -100,6 +103,7 @@
 
         let nome = iptNome.value;
         let cim = iptCim.value;
+        let email = iptEmail.value;
         let cargoMilitar = sltCargo.value;
         let orgMilitar = iptOrgMil.value;
         let senha = iptSenha.value;
@@ -119,6 +123,7 @@
             body: JSON.stringify({
                 nome: nome,
                 cim: cim,
+                email: email,
                 cargo: cargoMilitar,
                 organizacao: orgMilitar,
                 senha: senha

@@ -3,12 +3,15 @@ var usuarioModel = require("../models/usuarioModel");
 function autenticar(req, res) {
     var cim = req.body.cim;
     var senha = req.body.senha;
+    var email = req.body.email;
 
     if (cim == undefined) {
         res.status(400).send("Seu cim está undefined!");
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está indefinida!");
-    } else {
+    } else if (email == undefined) {
+        res.status(400).send("Seu email está undefined");
+    } else
 
         usuarioModel.autenticar(cim, senha)
             .then(function (resultadoAutenticar) {
@@ -32,8 +35,8 @@ function autenticar(req, res) {
                 console.log("ERRO LOGIN:", erro.sqlMessage);
                 res.status(500).json(erro.sqlMessage);
             });
-    }
 }
+
 
 function cadastrar(req, res) {
 
