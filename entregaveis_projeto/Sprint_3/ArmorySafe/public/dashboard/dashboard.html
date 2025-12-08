@@ -163,8 +163,8 @@
         // atualiza KPIs também (caso tenham mudado)
         carregarCards();
 
-         setTimeout(atualizarGraficoTempoReal, 200);
     }
+    setTimeout(atualizarGraficoTempoReal, 200);
 
     function atualizarGraficoTempoReal() {
         fetch(`/dashboard/umidadeAtual/${idPaiol}`, { cache: 'no-store' })
@@ -202,12 +202,12 @@
 
                 carregarCards();
 
-                setTimeout(atualizarGraficoTempoReal, 200);
             })
             .catch(err => {
                 console.error("Erro ao obter última leitura:", err);
                 proximaAtualizacao = setTimeout(atualizarGraficoTempoReal, 200);
             });
+            setTimeout(atualizarGraficoTempoReal, 200);
     }
 
     window.addEventListener("load", iniciarPagina);
