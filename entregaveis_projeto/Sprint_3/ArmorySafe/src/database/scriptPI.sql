@@ -47,6 +47,7 @@ CREATE TABLE usuario (
 			REFERENCES organizacao_militar (idOrganizacao_Militar),
 	nome VARCHAR(80) NOT NULL,
 	cim CHAR(10) UNIQUE, -- Número de Carteira de Identificação Militar
+	email VARCHAR(30) NOT NULL,
     senha VARCHAR(30) NOT NULL, -- Senha de acesso
     cargoUsuario VARCHAR(30) NOT NULL, -- Nível de acesso do militar na rede
     dtCadastro DATETIME DEFAULT CURRENT_TIMESTAMP

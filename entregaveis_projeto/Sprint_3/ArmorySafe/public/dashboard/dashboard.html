@@ -80,14 +80,12 @@
         carregarGraficoInicial();
     }
 
-    // CARDS (KPIs)
     function carregarCards() {
         Promise.all([
             fetch(`/dashboard/umidadeMaxima/${idPaiol}`).then(r => r.json()),
             fetch(`/dashboard/ultimasLeituras/${idPaiol}`).then(r => r.json())
         ])
             .then(([dadosMax, ultimas]) => {
-
                 const info = (dadosMax && dadosMax[0]) ? dadosMax[0] : {};
 
                 document.getElementById("cardMax").innerText =
@@ -98,9 +96,9 @@
 
                 let tempoFora = 0;
                 if (Array.isArray(ultimas)) {
-                    ultimas.forEach(item => {
-                        if (item.umidade < 35 || item.umidade > 50) tempoFora++;
-                    });
+                    for (let i = 0; i < ultimas.length; i++) {
+                        if (ultimas[i].umidade < 35 || ultimas[i].umidade > 50) tempoFora++;
+                    }
                 }
                 document.getElementById("cardFora").innerText = tempoFora + " min";
 
@@ -108,39 +106,33 @@
                 if (Array.isArray(ultimas) && ultimas.length > 0) {
                     let dt = new Date(ultimas[0].dtLeitura);
                     let agora = new Date();
-                    let diff = (agora - dt) / 1000 / 60; // em minutos
+                    let diff = (agora - dt) / 1000 / 60;
                     status = diff < 5 ? "ATIVO" : "INATIVO";
                 }
                 document.getElementById("cardStatus").innerText = status;
-
             })
             .catch(err => console.error("Erro ao carregar KPIs:", err));
     }
 
-    // GRÁFICO - primeira carga
     function carregarGraficoInicial() {
         fetch(`/dashboard/ultimasLeituras/${idPaiol}`)
             .then(res => res.json())
             .then(dados => {
                 if (!Array.isArray(dados)) return;
-
-                const dadosOrdenados = [];
-                for (let i = dados.length - 1; i >= 0; i--) {
-                    dadosOrdenados.push(dados[i]);
-                }
-
-                plotarGrafico(dadosOrdenados);
-
+                const dadosOrdenados = dados.reverse();
+                criarGrafico(dadosOrdenados);
             })
             .catch(erro => console.error("Erro ao buscar últimas leituras:", erro));
     }
 
-    // PLOTAR GRÁFICO
-    function plotarGrafico(resposta) {
-        const labels = resposta.map(e => e.momento_grafico);
-        const valores = resposta.map(e => Number(e.umidade));
+    function criarGrafico(resposta) {
+        const labels = [];
+        const valores = [];
 
-        if (chartInstance) chartInstance.destroy();
+        for (let i = 0; i < resposta.length; i++) {
+            labels.push(resposta[i].momento_grafico);
+            valores.push(Number(resposta[i].umidade));
+        }
 
         chartInstance = new Chart(
             document.getElementById("myChart1"),
@@ -158,60 +150,68 @@
                 },
                 options: {
                     responsive: true,
-                    scales: {
-                        y: {
-                            beginAtZero: true
-                        }
-                    }
+                    animation: false,
+                    scales: { y: { beginAtZero: true } }
                 }
             }
         );
 
-        // atualiza KPIs também (caso tenham mudado)
         carregarCards();
 
-        proximaAtualizacao = setInterval(atualizarGraficoTempoReal, 2000);
+        if (proximaAtualizacao) clearTimeout(proximaAtualizacao);
+        proximaAtualizacao = setTimeout(atualizarGraficoTempoReal, 2000);
     }
 
     function atualizarGraficoTempoReal() {
+
         fetch(`/dashboard/umidadeAtual/${idPaiol}`, { cache: 'no-store' })
             .then(res => res.json())
             .then(resultado => {
-                if (!Array.isArray(resultado) || resultado.length === 0) return;
+                if (!Array.isArray(resultado) || resultado.length === 0) {
+                    proximaAtualizacao = setTimeout(atualizarGraficoTempoReal, 2000);
+                    return;
+                }
 
                 const dado = resultado[0];
                 const momento = dado.momento_grafico || dado.dtLeitura;
                 const umid = Number(dado.umidade);
 
-                if (!chartInstance) {
-                    carregarGraficoInicial();
-                    return;
+                if (chartInstance) {
+                    const labels = chartInstance.data.labels;
+                    const dados = chartInstance.data.datasets[0].data;
+
+                    labels.push(momento);
+                    dados.push(umid);
+
+                    if (labels.length > 15) labels.shift();
+                    if (dados.length > 15) dados.shift();
+
+                    chartInstance.update();
+                    carregarCards();
+
                 }
 
-                let labels = chartInstance.data.labels;
-                let dados = chartInstance.data.datasets[0].data;
-
-                if (momento === labels[labels.length - 1]) return;
-
-                labels.shift();
-                labels.push(momento);
-
-                dados.shift();
-                dados.push(umid);
-
-                chartInstance.update();
-                carregarCards();
+                proximaAtualizacao = setTimeout(atualizarGraficoTempoReal, 2000);
             })
-            .catch(err => console.error("Erro ao obter última leitura:", err));
+            .catch(err => {
+                console.error("Erro ao obter última leitura:", err);
+
+                proximaAtualizacao = setTimeout(atualizarGraficoTempoReal, 2000);
+            });
     }
 
 
     window.addEventListener("load", iniciarPagina);
 
     if (typeof module !== "undefined") {
-        module.exports = { iniciarPagina, carregarCards, carregarGraficoInicial, plotarGrafico, atualizarGraficoTempoReal };
+        module.exports = {
+            iniciarPagina,
+            carregarCards,
+            carregarGraficoInicial,
+            criarGrafico,
+            atualizarGraficoTempoReal
+        };
     }
-
 </script>
 
 </html>
